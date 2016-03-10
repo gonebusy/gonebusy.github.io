@@ -1,0 +1,14 @@
+# Site settings
+title: GoneBusy
+email: admin@gonebusy.com
+description: >
+  The Only Booking Platform You Need.  Don't build booking from scratch, leverage
+  Booking-as-a-Service from GoneBusy.
+url: "http://beta.gonebusy.com" # the base hostname & protocol for your site
+twitter_username: gonebusy
+github_username:  gonebusy
+
+# Build settings
+markdown: kramdown
+sass:
+  sass_dir: _sass
