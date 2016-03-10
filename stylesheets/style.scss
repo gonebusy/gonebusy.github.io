@@ -2,7 +2,7 @@
 ---
 @charset "UTF-8";
 @import url(font-awesome.min.css);
-@import url("http://fonts.googleapis.com/css?family=Roboto:500,300");
+@import url(montserrat.css);
 @import "globals";
 
 /* Basic */
@@ -12,11 +12,11 @@
         }
 
         body, input, select, textarea {
-                color: #555f66;
-                font-family: "Roboto", Helvetica, sans-serif;
-                font-size: 14pt;
-                font-weight: 300;
-                line-height: 1.75em;
+                color: $jumbo;
+                font-family: "Montserrat-Regular", Helvetica, sans-serif;
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 18px;
         }
 
         a {
@@ -42,18 +42,16 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-                color: #666f77;
-                font-weight: 300;
-                line-height: 1em;
-                margin: 0 0 1em 0;
-                text-transform: uppercase;
-                letter-spacing: 0.125em;
+            color: #666f77;
+            font-weight: 300;
+            line-height: 1em;
+            margin: 0 0 1em 0;
         }
 
-                h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-                        color: inherit;
-                        text-decoration: none;
-                }
+        h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+            color: inherit;
+            text-decoration: none;
+        }
 
         h2 {
                 font-size: 1.5em;
@@ -441,16 +439,24 @@
 
                 .icon.major {
                         display: inline-block;
-                        margin: 0 0 1.25em 0;
-                        color: #ffffff;
-                        background: #629DD1;
-                        width: 3em;
-                        height: 3em;
+                        margin: 0 0 1em 0;
+                        color: $dark-blue;
                         font-size: 2em;
                         text-align: center;
                         line-height: 3em;
-                        border-radius: 100%;
-                        box-shadow: 0 0 0 10px #fff, 0 0 0 11px rgba(144, 144, 144, 0.25);
+                }
+
+                .icon.rocket {
+                    height: 98px;
+                }
+
+                .icon.plug {
+                    height: 70px;
+                    top: 14px;
+                }
+
+                .icon.ring {
+                    height: 82px;
                 }
 
 /* Image */
@@ -815,7 +821,7 @@
                         input[type="reset"].special:hover,
                         input[type="button"].special:hover,
                         .button.special:hover {
-                                background-color: #76a9d7;
+                            background-color: $dark-green;
                         }
 
                         input[type="submit"].special:active,
@@ -842,12 +848,17 @@
 /* Wrapper */
 
         .wrapper {
-                padding: 6em 0 4em 0;
+                padding: 2em 0;
         }
 
                 .wrapper.style1 {
                         background: $hero-light-green;
                         color: #555f66;
+                }
+
+                .wrapper.style1 .image.fit {
+                    height: 100px;
+                    margin: 1em 0 2em 0;
                 }
 
                 .wrapper.style2 {
@@ -878,6 +889,10 @@
 
                                 .wrapper.style2 .button.alt.icon:before {
                                         color: #a3a5a7;
+                                }
+
+                                .wrapper .push-bottom {
+                                    vertical-align: bottom;
                                 }
 
 /* Header */
@@ -911,10 +926,6 @@
                         top: 0;
                 }
 
-                        #header h1 a {
-                                font-size: 1.25em;
-                        }
-
                 #header nav {
                         height: inherit;
                         line-height: inherit;
@@ -924,11 +935,24 @@
                         vertical-align: middle;
                 }
 
-                        #header nav > ul {
-                                list-style: none;
-                                margin: 0;
-                                padding-left: 0;
-                        }
+                #header nav .button.alt {
+                    box-shadow: inset 0 0 0 2px $green;
+                    color: $green !important;
+                }
+
+                #header nav .button.alt:hover {
+                    box-shadow: inset 0 0 0 2px $green;
+                    background-color: $light-green;
+                    color: $white !important;
+                    text-decoration: none;
+                    transition: background .1s ease-in;
+                }
+
+                #header nav > ul {
+                    list-style: none;
+                    margin: 0;
+                    padding-left: 0;
+                }
 
                                 #header nav > ul > li {
                                         border-radius: 6px;
@@ -943,13 +967,13 @@
                                                 -o-transition: color 0.2s ease-in-out;
                                                 -ms-transition: color 0.2s ease-in-out;
                                                 transition: color 0.2s ease-in-out;
-                                                color: #555f66;
+                                                color: $jumbo;
                                                 display: inline-block;
                                                 text-decoration: none;
                                         }
 
                                                 #header nav > ul > li a:hover {
-                                                        color: #629DD1;
+                                                    text-decoration: underline;
                                                 }
 
                                         #header nav > ul > li:first-child {
@@ -1006,25 +1030,23 @@
             z-index: 1;
         }
 
-        #banner .inner :last-child {
-            margin-bottom: 0;
-        }
-
         #banner h2, #banner h3, #banner h4, #banner h5, #banner h6 {
             color: $green;
         }
 
         #banner .button.alt {
-            box-shadow: inset 0 0 0 1px rgba(144, 144, 144, 0.75);
-            color: #ffffff !important;
+            box-shadow: inset 0 0 0 2px $green;
+            color: $green !important;
         }
 
         #banner .button.alt:hover {
-            background-color: rgba(144, 144, 144, 0.275);
+            color: $white !important;
+            background-color: $light-green;
+            transition: background .1s ease-in;
         }
 
         #banner .button.alt:active {
-            background-color: rgba(144, 144, 144, 0.4);
+            background-color: $green;
         }
 
         #banner .button.alt.icon:before {
@@ -1036,9 +1058,10 @@
         }
 
         #banner h2 {
+            font-family: "Montserrat-Bold";
             font-size: 56px;
             line-height: 0.5em;
-            margin: 0 0 0.5em 0;
+            margin: 0 0 1em 0;
             padding: 0;
         }
 
@@ -1051,6 +1074,10 @@
         #banner p a {
             color: #ffffff;
             text-decoration: none;
+        }
+
+        #banner ul.actions {
+            padding-top: 1.5em;
         }
 
 /* Footer */
