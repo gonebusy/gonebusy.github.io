@@ -897,7 +897,6 @@
                 top: 0;
                 width: 100%;
                 z-index: 10000;
-                box-shadow: 0 0 0.1em 0 rgba(0, 0, 0, 0.25);
         }
 
                 #header h1 {
@@ -968,28 +967,29 @@
                                         }
 
                 #header .container {
-                        position: relative;
+                    position: relative;
                 }
 
-                        #header .container h1 {
-                                left: 0;
-                        }
+                #header .container h1 {
+                    left: 0;
+                }
 
-                        #header .container nav {
-                                right: 0;
-                        }
+                #header .container nav {
+                    right: 0;
+                }
 
 /* Banner */
 
         #banner {
-                background-color: $white;
-                background-size: cover;
-                background-position: center center;
-                background-repeat: no-repeat;
-                color: $green;
-                padding: 14em 0;
-                text-align: center;
-                position: relative;
+            background-color: $white;
+            background-image: url("../images/hero-art.svg");
+            background-size: initial;
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            color: $green;
+            padding: 14em 0;
+            text-align: center;
+            position: relative;
         }
 
         #banner:before {
