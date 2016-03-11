@@ -51,10 +51,27 @@ layout: landing-page
           <p><a href="#">Sign Up</a> and become a Pro User to obtain an API Key.</p>
           <p>API Keys look like this: </p>
           <div class="row">
-            <div class="6u -3u">
-              {% highlight ruby %}
-              ac98ed08b5b0a9e7c43a233aeba841ce
-              {% endhighlight %}
+            <div class="8u -2u">
+{% highlight ruby %}
+ac98ed08b5b0a9e7c43a233aeba841ce
+{% endhighlight %}
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="row">
+      <div class="12u">
+        <section class="special">
+          <i class="icon number">2</i>
+          <h3>Create a Service or Activity</h3>
+          <p>Create the Service or Activity that you would like your clients to book:</p>
+          <div class="row">
+            <div class="8u -2u">
+{% highlight ruby %}
+service = GoneBusy::Service.create(name: 'Executive Car Wash',
+                                   description: 'Get your car washed by executives.')
+{% endhighlight %}
             </div>
           </div>
         </section>
@@ -67,30 +84,23 @@ layout: landing-page
 <section id="three" class="wrapper style1">
   <div class="container">
     <div class="row">
-      <div class="8u">
+      <div class="6u">
         <section>
-          <h2>Mollis ut adipiscing</h2>
-          <a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-          <p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
+          <p class="vertical-center">Subscribe to stay up to date on new features, bug fixes, and API updates! We respect your <a href="http://beta.gonebusy.com/privacy_policy">privacy</a>.</p>
         </section>
       </div>
-      <div class="4u">
+      <div class="6u">
         <section>
-          <h3>Magna massa blandit</h3>
-          <p>Feugiat amet accumsan ante aliquet feugiat accumsan. Ante blandit accumsan eu amet tortor non lorem felis semper. Interdum adipiscing orci feugiat penatibus adipiscing col cubilia lorem ipsum dolor sit amet feugiat consequat.</p>
-          <ul class="actions">
-            <li><a href="#" class="button alt">Learn More</a></li>
-          </ul>
-        </section>
-        <hr />
-        <section>
-          <h3>Ante sed commodo</h3>
-          <ul class="alt">
-            <li><a href="#">Erat blandit risus vis adipiscing</a></li>
-            <li><a href="#">Tempus ultricies faucibus amet</a></li>
-            <li><a href="#">Arcu commodo non adipiscing quis</a></li>
-            <li><a href="#">Accumsan vis lacinia semper</a></li>
-          </ul>
+          <form id="subscribeForm">
+            <div class="row">
+              <div class="8u closer-left">
+                <input type="email" class="vertical-center" name="email" placeholder="Your Email Address"></input>
+              </div>
+              <div class="4u closer-left">
+                <a href="#" class="button big special">Subscribe</a>
+              </div>
+            </div>
+          </form>
         </section>
       </div>
     </div>
