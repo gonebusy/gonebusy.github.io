@@ -64,13 +64,78 @@ ac98ed08b5b0a9e7c43a233aeba841ce
       <div class="12u">
         <section class="special">
           <i class="icon number">2</i>
+          <h3>Configure Your Client</h3>
+          <p>Here we use the Ruby SDK to configure our API Key:</p>
+          <div class="row">
+            <div class="8u -2u">
+{% highlight ruby %}
+GoneBusy::Configuration.api_key = ac98ed08b5b0a9e7c43a233aeba841ce
+{% endhighlight %}
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="row">
+      <div class="12u">
+        <section class="special">
+          <i class="icon number">3</i>
           <h3>Create a Service or Activity</h3>
           <p>Create the Service or Activity that you would like your clients to book:</p>
           <div class="row">
             <div class="8u -2u">
 {% highlight ruby %}
 service = GoneBusy::Service.create(name: 'Executive Car Wash',
+                                   duration: 30,
                                    description: 'Get your car washed by executives.')
+{% endhighlight %}
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="row">
+      <div class="12u">
+        <section class="special">
+          <i class="icon number">4</i>
+          <h3>Create a Schedule</h3>
+          <p>Create a Schedule for your new Service:</p>
+          <div class="row">
+            <div class="8u -2u">
+{% highlight ruby %}
+GoneBusy::Schedule.create(service: service,
+                          start_date: '2016-02-01',
+                          end_date: '2016-03-31',
+                          start_time: '12pm',
+                          end_time: '2pm',
+                          days: ['monday', 'wednesday', 'friday'],
+                          recurs_by: 'weekly')
+{% endhighlight %}
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="row">
+      <div class="12u">
+        <section class="special">
+          <i class="icon number">5</i>
+          <h3>Check Your Work!</h3>
+          <p>Let's check our work by Searching for available time for our Service:</p>
+          <div class="row">
+            <div class="8u -2u">
+{% highlight ruby %}
+slots_result = GoneBusy::Service.available_slots(service: service,
+                                            date: '2016-03-11')
+puts slots_result
+> { date: '2016-03-11',
+    slots: [ '2016-03-11T12:00:00Z',
+             '2016-03-11T12:15:00Z',
+             '2016-03-11T12:30:00Z',
+             '2016-03-11T12:45:00Z',
+             '2016-03-11T13:00:00Z',
+             '2016-03-11T13:15:00Z',
+             '2016-03-11T13:30:00Z'] }
 {% endhighlight %}
             </div>
           </div>
