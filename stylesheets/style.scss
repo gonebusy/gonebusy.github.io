@@ -183,6 +183,30 @@
                 text-align: center;
         }
 
+        section.protip {
+            border: 2px solid $green;
+            padding: 20px;
+            border-radius: 4px;
+            background: $hp-light-green;
+            color: $protip-green;
+            margin-bottom: 2em;
+        }
+
+        section.protip ul {
+            margin: 0;
+        }
+
+        section.protip .protip-icon {
+            color: $green;
+            font-size: 52px;
+        }
+
+        section.forkus {
+            border: 1px solid $iron;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
         header p {
                 color: #bbb;
                 position: relative;
