@@ -109,24 +109,6 @@
         }
     });
 
-    // Angular Dropdown in Nav
-    angular.module('gb.docs', ['ngAnimate', 'ui.bootstrap']);
-    angular.module('gb.docs').controller('DropdownCtrl', function ($scope, $log) {
-        $scope.status = {
-            isopen: false
-        };
-
-        $scope.toggled = function(open) {
-            $log.log('Dropdown is now: ', open);
-        };
-
-        $scope.toggleDropdown = function($event) {
-            $event.preventDefault();
-            $event.stopPropagation();
-            $scope.status.isopen = !$scope.status.isopen;
-        };
-    });
-
     $(function() {
 
         // jQuery ready stuff.
@@ -134,3 +116,21 @@
     });
 
 })(jQuery);
+
+// Angular Dropdown in Nav
+angular.module('gb.docs', ['ngAnimate', 'ui.bootstrap']);
+angular.module('gb.docs').controller('DropdownCtrl', function ($scope, $log) {
+    $scope.status = {
+        isopen: false
+    };
+
+    $scope.toggled = function(open) {
+        $log.log('Dropdown is now: ', open);
+    };
+
+    $scope.toggleDropdown = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $scope.status.isopen = !$scope.status.isopen;
+    };
+});
