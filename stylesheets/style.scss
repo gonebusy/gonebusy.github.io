@@ -177,6 +177,9 @@
         color: $twitter-blue !important;
     }
 
+    /* Angular overrides */
+    .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 /* Section/Article */
 
         section.special, article.special {

@@ -1,17 +1,20 @@
 <!-- Header -->
 <header id="header" class="skel-layers-fixed">
     <h1><a href="{{ site.baseurl }}/" class="site-title" ><img alt="GONEBUSY" src="../images/gone-busy-logo.svg"></a></h1>
-    <nav id="nav">
+    <nav id="nav" ng-controller="DropdownCtrl">
         <ul>
             <li><a href="{{ site.baseurl }}/api.html">API</a></li>
             <li><a href="{{ site.baseurl }}/libraries.html">Libraries</a></li>
             <li><a href="{{ site.baseurl }}/blog.html">Blog</a></li>
             <li><a href="{{ site.baseurl }}/right-sidebar.html">Support</a></li>
-            {% for page in site.pages %}
-                  {% if page.title %}
-                    <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-                  {% endif %}
-            {% endfor %}
+            <li uib-dropdown is-open="status.isopen">
+              <a uib-dropdown-toggle ng-disabled="disabled">Log In <i class="fa fa-caret-down"></i></a>
+              <ul uib-dropdown-menu role="menu">
+                <li role="menuitem"><a href="http://beta.gonebusy.com/sessions">Sandbox</a></li>
+                <li class="divider"></li>
+                <li role="menuitem"><a href="http://www.gonebusy.com/sessions">Production</a></li>
+              </ul>
+            </li>
             <li><a href="#" class="button alt">Sign Up</a></li>
         </ul>
     </nav>
