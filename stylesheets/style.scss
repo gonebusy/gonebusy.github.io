@@ -6,7 +6,6 @@
 @import "globals";
 
 /* Basic */
-
         body {
                 background: #fff;
         }
@@ -186,6 +185,10 @@
                 text-align: center;
         }
 
+        section.side-nav {
+            padding: 20px;
+        }
+
         section.protip {
             border: 2px solid $green;
             padding: 20px;
@@ -197,6 +200,20 @@
 
         section.protip ul {
             margin: 0;
+        }
+
+        section.protip table,
+        section.protip table p {
+            margin: 0;
+        }
+
+        section.protip table tr {
+            background-color: inherit !important;
+            border: 0;
+        }
+
+        section.protip table td {
+            vertical-align: middle;
         }
 
         section.protip .protip-icon {

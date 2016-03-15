@@ -110,8 +110,8 @@
     });
 
     // Angular Dropdown in Nav
-    angular.module('gb.docs', ['ngAnimate', 'ui.bootstrap']);
-    angular.module('gb.docs').controller('DropdownCtrl', function ($scope, $log) {
+    var gbApp = angular.module('gb.docs', ['ngAnimate', 'ui.bootstrap', 'ui.router']);
+    gbApp.controller('DropdownController', function ($scope, $log) {
         $scope.status = {
             isopen: false
         };
@@ -127,10 +127,37 @@
         };
     });
 
+    // Angular Tab controller on API pages
+    gbApp.controller('TabsController', function ($scope) {
+        $scope.tabs = [
+            { title:'Dynamic Title 1', content:'Dynamic content 1' },
+            { title:'Dynamic Title 2', content:'Dynamic content 2', disabled: true }
+        ];
+
+        $scope.guide_links = [
+            { name: 'Overview', partial: '_partials/overview' },
+            { name: 'Getting Started', partial: '_partials/getting_started' },
+            { name: 'Entities', partial: '_partials/entities' }
+        ];
+
+        $scope.reference_links = [
+            { name: 'Bookings', partial: '_partials/bookings' },
+            { name: 'Categories', partial: '_partials/categories' },
+            { name: 'Pricing Models', partial: '_partials/pricing_models' },
+            { name: 'Resources', partial: '_partials/resources' },
+            { name: 'Schedules', partial: '_partials/schedules' },
+            { name: 'Search', partial: '_partials/search' },
+            { name: 'Services', partial: '_partials/services' },
+            { name: 'Users', partial: '_partials/users' }
+        ];
+
+        $scope.model = {
+            name: 'Tabs'
+        };
+    });
+
     $(function() {
-
         // jQuery ready stuff.
-
     });
 
 })(jQuery);
