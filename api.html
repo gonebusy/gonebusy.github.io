@@ -1,28 +1,18 @@
 ---
 layout: default
 ---
+<base href="/api/">
 
 <!-- Main -->
-<section id="main" class="wrapper style3">
+<section id="main" class="wrapper style3"  ng-controller="TabsController">
     <div class="container">
         <div class="row">
             <div class="8u">
-                <section>
-                  <h2>API</h2>
-                  <p>You can connect to the GoneBusy API via one of our pre-built API libraries in your favorite language. The libraries below were created and are maintained by GoneBusy. Feel free to create your own libraries or plugins for GoneBusy.</p>
-                  <p>When you do, <a href="#">let us know</a> &mdash; we'd love to share them here!</p>
-                </section>
-                <hr />
-                <section class="protip">
-                  <table>
-                    <td><a href="http://beta.gonebusy.com/docs/api_sandbox"><i class="protip-icon fa fa-flask"></i></a></td>
-                    <td><p>You can jump right in and explore the GoneBusy API using our Swagger UI <a href="http://beta.gonebusy.com/docs/api_sandbox">API Sandbox</a>.</p></td>
-                  </table>
-                </section>
-                <div ui-view></div>
+              <h2>API</h2>
+              <div ui-view></div>
             </div>
             <div class="4u">
-              <section class="side-nav" ng-controller="TabsController">
+              <section class="side-nav">
                 <uib-tabset type="pills" justified="true">
                   <uib-tab heading="Guides">
                     <div class="docs-nav-wrap" ng-repeat="link in guide_links">

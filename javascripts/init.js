@@ -109,8 +109,10 @@
         }
     });
 
-    // Angular Dropdown in Nav
+    // Angular app
     var gbApp = angular.module('gb.docs', ['ngAnimate', 'ui.bootstrap', 'ui.router']);
+
+    // Angular Dropdown in Nav
     gbApp.controller('DropdownController', function ($scope, $log) {
         $scope.status = {
             isopen: false
@@ -135,25 +137,71 @@
         ];
 
         $scope.guide_links = [
-            { name: 'Overview', partial: '_partials/overview' },
-            { name: 'Getting Started', partial: '_partials/getting_started' },
-            { name: 'Entities', partial: '_partials/entities' }
+            { name: 'Overview', partial: 'overview' },
+            { name: 'Getting Started', partial: 'getting_started' },
+            { name: 'Entities', partial: 'entities' }
         ];
 
         $scope.reference_links = [
-            { name: 'Bookings', partial: '_partials/bookings' },
-            { name: 'Categories', partial: '_partials/categories' },
-            { name: 'Pricing Models', partial: '_partials/pricing_models' },
-            { name: 'Resources', partial: '_partials/resources' },
-            { name: 'Schedules', partial: '_partials/schedules' },
-            { name: 'Search', partial: '_partials/search' },
-            { name: 'Services', partial: '_partials/services' },
-            { name: 'Users', partial: '_partials/users' }
+            { name: 'Bookings', partial: 'bookings' },
+            { name: 'Categories', partial: 'categories' },
+            { name: 'Pricing Models', partial: 'pricing_models' },
+            { name: 'Resources', partial: 'resources' },
+            { name: 'Schedules', partial: 'schedules' },
+            { name: 'Search', partial: 'search' },
+            { name: 'Services', partial: 'services' },
+            { name: 'Users', partial: 'users' }
         ];
 
         $scope.model = {
             name: 'Tabs'
         };
+    });
+
+    // Angular UI-Router for API
+    gbApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+        $urlRouterProvider.otherwise('/');
+
+        $stateProvider
+            .state('overview', {
+                url: '/',
+                templateUrl: "{{ site.baseurl }}/partials/guides/overview.html"
+            })
+            .state('bookings', {
+                url: '/bookings',
+                templateUrl: "{{ site.baseurl }}/partials/reference/bookings.html"
+            })
+            .state('categories', {
+                url: '/categories',
+                templateUrl: "{{ site.baseurl }}/partials/reference/categories.html"
+            })
+            .state('pricing_models', {
+                url: '/pricing_models',
+                templateUrl: "{{ site.baseurl }}/partials/reference/pricing_models.html"
+            })
+            .state('resources', {
+                url: '/resources',
+                templateUrl: "{{ site.baseurl }}/partials/reference/resources.html"
+            })
+            .state('schedules', {
+                url: '/schedules',
+                templateUrl: "{{ site.baseurl }}/partials/reference/schedules.html"
+            })
+            .state('search', {
+                url: '/search',
+                templateUrl: "{{ site.baseurl }}/partials/reference/search.html"
+            })
+            .state('services', {
+                url: '/services',
+                templateUrl: "{{ site.baseurl }}/partials/reference/services.html"
+            })
+            .state('users', {
+                url: '/users',
+                templateUrl: "{{ site.baseurl }}/partials/reference/users.html"
+            });
+
+        // enable HTML5 Mode for SEO
+        $locationProvider.html5Mode(true);
     });
 
     $(function() {
