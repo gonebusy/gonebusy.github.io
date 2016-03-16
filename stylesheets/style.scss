@@ -133,18 +133,23 @@
                         overflow-x: auto;
                 }
 
-        .align-left {
-                text-align: left;
+        table.params {
+            border: 1px solid $jazz;
+            border-radius: 4px;
         }
 
-        .align-center {
-                text-align: center;
-        }
+    .align-left {
+        text-align: left;
+    }
 
-        .align-right {
-                text-align: right;
-        }
+    .align-center {
+        text-align: center;
+    }
 
+    .align-right {
+        text-align: right;
+    }
+    
     .float-left {
         float: left;
     }
@@ -157,8 +162,17 @@
         padding-left: 2em;
     }
 
+    .more-top {
+        padding-top: 2em;
+    }
+
     .indent {
         padding-left: 25px;
+    }
+
+    .route-link {
+        line-height: 1.1;
+        font-size: 18px;
     }
 
     .vertical-center {
@@ -730,13 +744,8 @@
         table {
                 margin: 0 0 2em 0;
                 width: 100%;
+                border-collapse: inherit;
         }
-
-                table tbody tr {
-                        border: solid 1px rgba(144, 144, 144, 0.25);
-                        border-left: 0;
-                        border-right: 0;
-                }
 
                         table tbody tr:nth-child(2n + 1) {
                                 background-color: rgba(144, 144, 144, 0.075);
@@ -754,20 +763,7 @@
                         text-align: left;
                 }
 
-                table thead {
-                        border-bottom: solid 2px rgba(144, 144, 144, 0.25);
-                }
-
-                table tfoot {
-                        border-top: solid 2px rgba(144, 144, 144, 0.25);
-                }
-
-                table.alt {
-                        border-collapse: separate;
-                }
-
                         table.alt tbody tr td {
-                                border: solid 1px rgba(144, 144, 144, 0.25);
                                 border-left-width: 0;
                                 border-top-width: 0;
                         }

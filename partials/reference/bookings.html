@@ -2,13 +2,52 @@
 ---
 <h2 class="reference-heading">Bookings</h2>
 <section>
-  <p>You can connect to the GoneBusy API via one of our pre-built API libraries in your favorite language. The libraries below were created and are maintained by GoneBusy. Feel free to create your own libraries or plugins for GoneBusy.</p>
-  <p>When you do, <a href="#">let us know</a> &mdash; we'd love to share them here!</p>
+  <p>The main goal of GoneBusy is to connect users with each other via bookings.  A Booking represents the commitment by one user to attend a Service/Activity of another user at a particular time.  The API allows the creation and management of Bookings.</p>
+</section>
+<section>
+  <p class="more-top"><a href="#get_bookings" class="route-link">Get Bookings</a></p>
+  <p><a href="#get_bookings_by_id" class="route-link">Get Bookings by ID</a></p>
+  <p><a href="#get_bookings" class="route-link">Create a Booking</a></p>
+  <p><a href="#get_bookings" class="route-link">Update a Booking</a></p>
+  <p><a href="#get_bookings" class="route-link">Cancel a Booking</a></p>
 </section>
 <hr />
-<section class="protip">
-  <table>
-    <td><a href="http://beta.gonebusy.com/docs/api_sandbox"><i class="protip-icon fa fa-flask"></i></a></td>
-    <td><p>You can jump right in and explore the GoneBusy API using our Swagger UI <a href="http://beta.gonebusy.com/docs/api_sandbox">API Sandbox</a>.</p></td>
+<section>
+  <h4 id="get_bookings">Get Bookings</h4>
+  <p>Look up all uncompleted Bookings that your account has access to - this includes all Bookings under your own User account as well as any Bookings of Users for which you are the Account Manager.</p>
+  {% highlight ruby %}
+  GET /bookings
+  {% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">provide a User ID to see only this User’s Bookings</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">states</td>
+      <td class="type">String</td>
+      <td class="desc">provide a comma-separated list of Booking states in order to only retrieve Bookings in those states.  Leave blank to retrieve all possible states.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">page</td>
+      <td class="type">Integer</td>
+      <td class="desc">result page of interest, default: 1</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">per_page</td>
+      <td class="type">Integer</td>
+      <td class="desc">number of results per page, default: 10</td>
+      <td class="check"></td>
+    </tr>
   </table>
 </section>
