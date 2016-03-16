@@ -101,5 +101,5 @@ gbApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, $ui
         });
 
     // enable HTML5 Mode for SEO
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
 });
