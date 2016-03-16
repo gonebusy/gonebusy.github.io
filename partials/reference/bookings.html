@@ -15,9 +15,9 @@
 <section>
   <h4 id="get_bookings">Get Bookings</h4>
   <p>Look up all uncompleted Bookings that your account has access to - this includes all Bookings under your own User account as well as any Bookings of Users for which you are the Account Manager.</p>
-  {% highlight ruby %}
+{% highlight ruby %}
   GET /bookings
-  {% endhighlight %}
+{% endhighlight %}
   <table class="params">
     <tr>
       <th>Parameter</th>
@@ -28,25 +28,25 @@
     <tr>
       <td class="param">user_id</td>
       <td class="type">Integer</td>
-      <td class="desc">provide a User ID to see only this User’s Bookings</td>
+      <td class="desc">Provide a User ID to see only this User’s Bookings</td>
       <td class="check"></td>
     </tr>
     <tr>
       <td class="param">states</td>
       <td class="type">String</td>
-      <td class="desc">provide a comma-separated list of Booking states in order to only retrieve Bookings in those states.  Leave blank to retrieve all possible states.</td>
+      <td class="desc">Provide a comma-separated list of Booking states in order to only retrieve Bookings in those states.  Leave blank to retrieve all possible states.</td>
       <td class="check"></td>
     </tr>
     <tr>
       <td class="param">page</td>
       <td class="type">Integer</td>
-      <td class="desc">result page of interest, default: 1</td>
+      <td class="desc">Result page of interest, default: 1</td>
       <td class="check"></td>
     </tr>
     <tr class="last">
       <td class="param">per_page</td>
       <td class="type">Integer</td>
-      <td class="desc">number of results per page, default: 10</td>
+      <td class="desc">Number of results per page, default: 10</td>
       <td class="check"></td>
     </tr>
   </table>
