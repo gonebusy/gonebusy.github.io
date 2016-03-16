@@ -32,7 +32,9 @@
 .nav-pills > li {
     border: 1px solid transparent;
     float: left;
-    padding: 0 15px;
+    padding: 0;
+    width: 49%;
+    text-align: center;
 }
 
 .nav-pills > li.active {

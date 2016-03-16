@@ -1,3 +1,51 @@
 ---
 ---
-<h1>hello</h1>
+<h2 class="reference-heading">Overview</h2>
+<section>
+  <p>The world of GoneBusy revolves around:
+    <ul>
+      <li><p><a href="javascript:toggleHeading('Users')">Users</a> and their <a href="javascript:toggleHeading('Resources')">Resources</a></p></li>
+      <li><p>the <a href="javascript:toggleHeading('Services')">Services/Activities</a> the above two offer</p></li>
+      <li><p>the <a href="javascript:toggleHeading('Schedules')">Schedules</a> of Services/Activities</p></li>
+      <li><p>the <a href="javascript:toggleHeading('Bookings')">Booking</a> of a Service at a particular time</p></li>
+      <li><p>customers can <a href="javascript:toggleHeading('Search')">Search</a> for any available Services/Activities</p></li>
+    </ul>
+  </p>
+  <p class='extra-bottom'>The GoneBusy API allows you to programmatically create and manage all of the above items as well as more advanced features such as <a href="javascript:toggleHeading('Categories')">Categories</a> and <a href="javascript:toggleHeading('Pricing Models')">Pricing Models</a>.</p>
+</section>
+<section class="protip-taller">
+  <table>
+    <td><a href="http://beta.gonebusy.com/docs/api_sandbox"><i class="protip-icon fa fa-flask"></i></a></td>
+    <td><p>You can jump right in and explore the GoneBusy API using our Swagger UI <a href="http://beta.gonebusy.com/docs/api_sandbox">API Sandbox</a>.</p></td>
+  </table>
+</section>
+<section>
+  <p>Continue reading below to learn about:</p>
+  <h3><a href="#basic">Basic Users</a></h3>
+  <h3><a href="#pro">Pro Users</a></h3>
+  <h3><a href="#access">Gaining Access to the API</a></h3>
+  <h3><a href="#manager">Account Manager</a></h3>
+  <h3><a href="#affiliates">The Affiliate Program</a></h3>
+</section>
+<hr />
+<section class='anchor-container' id='basic'>
+  <h4>Basic Users</h4>
+  <p>When you first sign up, you are a Basic User.  A Basic User cannot create any Resources, the only Resource they have is themselves.  A Basic User can create Services/Activities but they must be offered at no charge.  Basic User accounts are free for the first year, and $1 per year after the first year.</p>
+</section>
+<section class='anchor-container push-down' id='pro'>
+  <h4>Pro Users</h4>
+  <p>Any Basic account can be upgraded to a Pro account. Pro Users are able to create additional Resources under their account.  These Resources can have their own Schedules as well as Services/Activities offered.  Pro Users are also able to offer Services/Activities at a price to the customer.  The price of a Service/Activity can be fixed for the duration of the appointment, hourly, or various other options.  Pro User accounts are still free for the first year and $1 per year after the first year.  GoneBusy does charge a nominal 2.5% + 50&cent; fee of a successfully completed Booking (see description of Bookings).</p>
+</section>
+<section class='anchor-container push-down' id='access'>
+  <h4>Gaining Access to the API</h4>
+  <p>Pro Users automatically gain access to the GoneBusy API.  The API allows for the creation and management of the Pro User’s Resources, Services/Activities, Schedules and Bookings.</p>
+</section>
+<section class='anchor-container push-down' id='manager'>
+  <h4>Account Manager</h4>
+  <p>The API allows creation of other accounts for which the Pro User becomes the defacto Account Manager.  The Pro User, via API, can then create and manage Resources, Services/Activities, and Schedules of Users for which they are the Account Manager.  Account Managers have only limited access to manage the Bookings of their managed Users.</p>
+  <p>Any Users created via API are completely viewable and have their Services and Schedules accessible by customers on the GoneBusy website.</p>
+</section>
+<section class='anchor-container push-down' id='affiliates'>
+  <h4>The Affiliate Program</h4>
+  <p>By prior written arrangement, a Pro User can become an Affiliate of GoneBusy.  If any Bookings are initiated on the GoneBusy website for Users created by Affiliates, the Affiliate receives a commission on every successfully completed Booking (see description of Bookings).</p>
+</section>

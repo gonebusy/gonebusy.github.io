@@ -4,27 +4,37 @@ layout: default
 <base href="/api/">
 
 <!-- Main -->
-<section id="main" class="wrapper style3"  ng-controller="TabsController">
+<section id="main" class="wrapper style3"  ng-controller="TabsController as tabCtrl">
     <div class="container">
         <div class="row">
             <div class="8u">
-              <h2>API</h2>
+              <h2 class="page-heading">API</h2>
               <div ui-view></div>
             </div>
             <div class="4u">
               <section class="side-nav">
                 <uib-tabset type="pills" justified="true">
-                  <uib-tab heading="Guides">
-                    <div class="docs-nav-wrap" ng-repeat="link in guide_links">
-                      <li><a ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
+                  <uib-tab index="0" heading="Guides" ng-click="tabCtrl.activeTab = 0">
+                    <div class="docs-nav">
+                      <div class="docs-nav-wrap" ng-repeat="link in guide_links">
+                        <li><a ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
+                      </div>
                     </div>
                   </uib-tab>
-                  <uib-tab heading="Reference">
-                    <div class="docs-nav-wrap" ng-repeat="link in reference_links">
-                      <li><a ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
+                  <uib-tab index="1" heading="Reference" ng-click="tabCtrl.activeTab = 1">
+                    <div class="docs-nav">
+                      <div class="docs-nav-wrap" ng-repeat="link in reference_links">
+                        <li><a ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
+                      </div>
                     </div>
                   </uib-tab>
                 </uib-tabset>
+              </section>
+              <section class="protip" ng-show="tabCtrl.activeTab === 1">
+                <p>You can jump right in and explore the GoneBusy API using our Swagger UI <a href="http://beta.gonebusy.com/docs/api_sandbox">API Sandbox</a>.</p>
+                <ul class="actions align-center">
+                  <li><a href="http://beta.gonebusy.com/docs/api_sandbox"><i class="protip-icon fa fa-flask"></i></a></li>
+                </ul>
               </section>
               <section class="forkus align-center">
                 <a href="https://github.com/gonebusy/gonebusy.github.io"><img src="../images/octocat.svg"></img></a>

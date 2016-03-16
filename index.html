@@ -125,9 +125,10 @@ GoneBusy::Schedule.create(service: service,
           <div class="row">
             <div class="8u -2u">
 {% highlight ruby %}
-slots_result = GoneBusy::Service.available_slots(service: service,
-                                            date: '2016-03-11')
+slots_result = GoneBusy::Service.available_slots(service: service, date: '2016-03-11')
+
 puts slots_result
+
 > { date: '2016-03-11',
     slots: [ '2016-03-11T12:00:00Z',
              '2016-03-11T12:15:00Z',

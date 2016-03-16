@@ -121,7 +121,7 @@
                 -webkit-overflow-scrolling: touch;
                 font-family: "Courier New", monospace;
                 font-size: 0.9em;
-                margin: 0 0 2em 0;
+                margin: 0 0 1em 0;
                 overflow-x: auto;
         }
 
@@ -130,6 +130,7 @@
                         line-height: 1em;
                         padding: 1.5em 1.5em;
                         margin: 20px 0;
+                        overflow-x: auto;
                 }
 
         .align-left {
@@ -154,6 +155,10 @@
 
     .closer-left {
         padding-left: 2em;
+    }
+
+    .indent {
+        padding-left: 25px;
     }
 
     .vertical-center {
@@ -182,11 +187,7 @@
 /* Section/Article */
 
         section.special, article.special {
-                text-align: center;
-        }
-
-        section.side-nav {
-            padding: 20px;
+            text-align: center;
         }
 
         section.protip {
@@ -196,6 +197,11 @@
             background: $hp-light-green;
             color: $protip-green;
             margin-bottom: 2em;
+        }
+
+        section.protip-taller {
+            @extend section.protip;
+            margin: 3em auto;
         }
 
         section.protip ul {
@@ -227,10 +233,13 @@
             border-radius: 4px;
         }
 
+        section.anchor-container {
+        }
+
         header p {
-                color: #bbb;
-                position: relative;
-                margin: 0 0 1.5em 0;
+            color: #bbb;
+            position: relative;
+            margin: 0 0 1.5em 0;
         }
 
         header h1 img {
@@ -996,14 +1005,62 @@
                     color: $charcoal;
                 }
 
+                .wrapper.style3 hr {
+                    margin-top: 1em;
+                    margin-bottom: 0;
+                }
+
+                .wrapper.style3 hr.normal {
+                    @extend hr;
+                    margin: 2em auto;
+                }
+
                 .wrapper.style3 h2 {
                     font-size: 36px;
                     font-weight: bold;
                 }
 
+                .wrapper.style3 h3 {
+                    font-size: 1.1em;
+                    font-weight: bold;
+                    color: $tuatara;
+                }
+
+                .wrapper.style3 h4 {
+                    font-size: 30px;
+                    font-weight: bold;
+                    color: $green;
+                    padding-top: 50px;
+                }
+
+                .wrapper.style3 h5 {
+                    @extend h3;
+                    font-weight: normal;
+                }
+
+                .wrapper.style3 h6 {
+                    @extend h5;
+                    font-size: 80%;
+                }
+
                 .wrapper.style3 p {
                     font-size: 16px;
-                    line-height: 24px;
+                    line-height: 1.5;
+                    margin-bottom: 1em;
+                }
+
+                        .wrapper.style3 code span {
+                            color: $white;
+                        }
+
+                .wrapper h2.page-heading {
+                    line-height: 1em;
+                    padding-top: 20px;
+                    margin: 0;
+                }
+
+                .wrapper h2.reference-heading {
+                    color: $dark-blue;
                 }
 
 /* Header */
@@ -1190,6 +1247,33 @@
 
         #banner ul.actions {
             padding-top: 1.5em;
+        }
+
+/* Side Nav */
+        .side-nav .docs-nav {
+            border: 1px solid $jazz;
+            border-radius: 4px;
+            list-style: none;
+            margin-top: 16px;
+            margin-bottom: 30px;
+        }
+
+        .side-nav .docs-nav-wrap {
+            border-top: 1px solid $jazz;
+        }
+
+        .side-nav .docs-nav-wrap:first-child {
+            border-top: 0;
+        }
+
+        .side-nav .docs-nav-wrap > li > a {
+            display: block;
+            padding: 16px;
+            color: $jumbo;
+        }
+
+        .side-nav .docs-nav-wrap > li > a.active {
+            color: $tuatara;
         }
 
 /* SDK */
