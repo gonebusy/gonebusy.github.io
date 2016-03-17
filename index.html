@@ -103,7 +103,7 @@ service = GoneBusy::Service.create(name: 'Executive Car Wash',
           <div class="row">
             <div class="8u -2u">
 {% highlight ruby %}
-GoneBusy::Schedule.create(service: service,
+GoneBusy::Schedule.create(service,
                           start_date: '2016-02-01',
                           end_date: '2016-03-31',
                           start_time: '12pm',
@@ -125,7 +125,7 @@ GoneBusy::Schedule.create(service: service,
           <div class="row">
             <div class="8u -2u">
 {% highlight ruby %}
-slots_result = GoneBusy::Service.available_slots(service: service, date: '2016-03-11')
+slots_result = GoneBusy::Service.available_slots(service, date: '2016-03-11')
 
 puts slots_result
 
