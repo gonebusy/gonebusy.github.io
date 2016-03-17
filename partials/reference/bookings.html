@@ -5,11 +5,11 @@
   <p>The main goal of GoneBusy is to connect users with each other via bookings.  A Booking represents the commitment by one user to attend a Service/Activity of another user at a particular time.  The API allows the creation and management of Bookings.</p>
 </section>
 <section>
-  <p class="more-top"><a href="#get_bookings" class="route-link">Get Bookings</a></p>
-  <p><a href="#get_bookings_by_id" class="route-link">Get Bookings by ID</a></p>
-  <p><a href="#get_bookings" class="route-link">Create a Booking</a></p>
-  <p><a href="#get_bookings" class="route-link">Update a Booking</a></p>
-  <p><a href="#get_bookings" class="route-link">Cancel a Booking</a></p>
+  <p class="more-top"><a ui-sref="bookings({'#' : 'get_bookings'})" class="route-link">Get Bookings</a></p>
+  <p><a ui-sref="bookings({'#' : 'get_bookings_id'})" class="route-link">Get Bookings by ID</a></p>
+  <p><a ui-sref="bookings({'#' : 'post_bookings_new'})" class="route-link">Create a Booking</a></p>
+  <p><a ui-sref="bookings({'#' : 'put_bookings_id'})" class="route-link">Update a Booking</a></p>
+  <p><a ui-sref="bookings({'#' : 'delete_bookings_id'})" class="route-link">Cancel a Booking</a></p>
 </section>
 <hr />
 <section>

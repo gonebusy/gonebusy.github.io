@@ -4,14 +4,14 @@
 <section>
   <p>The world of GoneBusy revolves around:
     <ul>
-      <li><p><a href="javascript:toggleHeading('Users')">Users</a> and their <a href="javascript:toggleHeading('Resources')">Resources</a></p></li>
-      <li><p>the <a href="javascript:toggleHeading('Services')">Services/Activities</a> the above two offer</p></li>
-      <li><p>the <a href="javascript:toggleHeading('Schedules')">Schedules</a> of Services/Activities</p></li>
-      <li><p>the <a href="javascript:toggleHeading('Bookings')">Booking</a> of a Service at a particular time</p></li>
-      <li><p>customers can <a href="javascript:toggleHeading('Search')">Search</a> for any available Services/Activities</p></li>
+      <li><p><a ui-sref="users">Users</a> and their <a ui-sref="resources">Resources</a></p></li>
+      <li><p>the <a ui-sref="services">Services/Activities</a> the above two offer</p></li>
+      <li><p>the <a ui-sref="schedules">Schedules</a> of Services/Activities</p></li>
+      <li><p>the <a ui-sref="bookings">Booking</a> of a Service at a particular time</p></li>
+      <li><p>customers can <a ui-sref="search">Search</a> for any available Services/Activities</p></li>
     </ul>
   </p>
-  <p class='extra-bottom'>The GoneBusy API allows you to programmatically create and manage all of the above items as well as more advanced features such as <a href="javascript:toggleHeading('Categories')">Categories</a> and <a href="javascript:toggleHeading('Pricing Models')">Pricing Models</a>.</p>
+  <p class='extra-bottom'>The GoneBusy API allows you to programmatically create and manage all of the above items as well as more advanced features such as <a ui-sref="categories">Categories</a> and <a ui-sref="pricing_models">Pricing Models</a>.</p>
 </section>
 <section class="protip-taller">
   <table>
@@ -21,11 +21,11 @@
 </section>
 <section>
   <p>Continue reading below to learn about:</p>
-  <h3><a href="#basic">Basic Users</a></h3>
-  <h3><a href="#pro">Pro Users</a></h3>
-  <h3><a href="#access">Gaining Access to the API</a></h3>
-  <h3><a href="#manager">Account Manager</a></h3>
-  <h3><a href="#affiliates">The Affiliate Program</a></h3>
+  <h3><a ui-sref="overview({'#' : 'basic'})">Basic Users</a></h3>
+  <h3><a ui-sref="overview({'#' : 'pro'})">Pro Users</a></h3>
+  <h3><a ui-sref="overview({'#' : 'access'})">Gaining Access to the API</a></h3>
+  <h3><a ui-sref="overview({'#' : 'manager'})">Account Manager</a></h3>
+  <h3><a ui-sref="overview({'#' : 'affiliates'})">The Affiliate Program</a></h3>
 </section>
 <hr />
 <section class='anchor-container' id='basic'>
