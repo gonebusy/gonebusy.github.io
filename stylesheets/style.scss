@@ -154,12 +154,26 @@
             font-size: 14px;
         }
 
-        table.params .param,
-        table.params .type {
-            font-family: Consolas;
+        table.params .param {
+            width: 12%;
         }
 
         table.params .type {
+            width: 12%;
+        }
+
+        table.params .check {
+            width: 8%;
+            text-align: center;
+            color: $green;
+        }
+
+        table.params td.param,
+        table.params td.type {
+            font-family: Consolas;
+        }
+
+        table.params td.type {
             text-transform: uppercase;
         }
 

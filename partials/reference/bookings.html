@@ -51,3 +51,118 @@
     </tr>
   </table>
 </section>
+<section>
+  <h4 id="get_bookings_id">Get Booking by ID</h4>
+  <p>Look up details for a Booking by ID.  You can access details for any Booking under your own User account as well as any Bookings of Users for which you are the Account Manager.</p>
+{% highlight ruby %}
+  GET /bookings/{id}
+{% endhighlight %}
+  </div>
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of booking to retrieve</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="post_bookings_new">Create a Booking</h4>
+  <p>Create a new Booking.  Your own User account will by default be recorded as the initiator of the booking.  Optionally, provide a <b>user_id</b> for a User you are the Account Manager of in order to create a booking.</p>
+{% highlight ruby %}
+  POST /bookings/new
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">service_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">The ID of the Service that is to be booked</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">date</td>
+      <td class="type">String</td>
+      <td class="desc">Provide the date of the requested Booking. Several formats are supported: "2014-10-31", "October 31, 2014"</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">time</td>
+      <td class="type">String</td>
+      <td class="desc">Provide the time of the requested Booking. Several formats are supported: “9am”, “09:00”, “9:00”, “0900”</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">resource_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">The ID of a Resource to be booked.  If not provided, the first available Resource will be booked.</td>
+      <td class="check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">duration</td>
+      <td class="type">Integer</td>
+      <td class="desc">If the service allows requesting a variable amount of time, specify how many minutes are desired</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of a User you are the Account Manager of for whom you would like to initiate a booking</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="put_bookings_id">Update a Booking</h4>
+  <p>Update information for a Booking.  The ID must be of a Booking that is under your User account or any User for which you are the Account Manager.  You can not update appointment time information for a Booking once placed. This action is a placeholder for future update-able information.</p>
+{% highlight ruby %}
+  PUT /bookings/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of booking to update</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="delete_bookings_id">Cancel a Booking</h4>
+  <p>Attempt to cancel a Booking by ID.  The ID must be of a Booking that is under your User account or any User for which you are the Account Manager.  If cancellation is not possible, this will return an error message.</p>
+{% highlight ruby %}
+  DELETE /bookings/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of booking to cancel</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>
