@@ -289,8 +289,19 @@
 
         section.forkus {
             border: 1px solid $iron;
-            padding: 20px;
+            padding: 20px 0;
             border-radius: 4px;
+            list-style: none;
+        }
+
+        section.forkus a {
+            padding: 20px 60px;
+            margin: 20px 0;
+        }
+
+        section.forkus li {
+            display: inline-block;
+            vertical-align: middle;
         }
 
         section.blog-post {
