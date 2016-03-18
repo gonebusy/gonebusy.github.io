@@ -924,9 +924,10 @@
                 input[type="reset"].big,
                 input[type="button"].big,
                 .button.big {
-                        font-size: 1.2em;
-                        height: 2.65em;
-                        line-height: 2.65em;
+                        font-size: 1em;
+                        height: 3.65em;
+                        line-height: 3.65em;
+                        min-width: 16em;
                 }
 
                 input[type="submit"].alt,
@@ -1336,7 +1337,7 @@
         .side-nav .docs-nav-wrap > li > a {
             display: block;
             padding: 16px;
-            color: $jumbo;
+            color: $base;
         }
 
         .side-nav .docs-nav-wrap > li > a.active {
