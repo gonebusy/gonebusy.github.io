@@ -20,7 +20,7 @@
         }
 
         a {
-                color: #629DD1;
+                color: $light-blue;
                 text-decoration: none;
         }
 
@@ -1337,7 +1337,7 @@
         .side-nav .docs-nav-wrap > li > a {
             display: block;
             padding: 16px;
-            color: $base;
+            color: $light-blue;
         }
 
         .side-nav .docs-nav-wrap > li > a.active {
