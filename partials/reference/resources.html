@@ -1,3 +1,169 @@
 ---
 ---
-
+<h2 class="reference-heading">Resources</h2>
+<section>
+  <p>Resources are what actually provide Services/Activities.  By default, a Basic User is a Resource for their own Services/Activities (recall that a Basic User can only offer free Activities while a Pro User can charge a fee for their Services).  Pro Users are able to create additional Resources for Services, besides just offering Services themselves.</p>
+  <p>For more information on what a Resource is and how to use them see <a ui-sref="entities({'#' : 'resources'})">Entities <i class="fa fa-long-arrow-right"></i> Resources</a>.</p>
+</section>
+<section>
+  <p class="more-top"><a ui-sref="resources({'#' : 'get_resources'})" class="route-link">Get Resources</a></p>
+  <p><a ui-sref="resources({'#' : 'get_resources_id'})" class="route-link">Get Resource by ID</a></p>
+  <p><a ui-sref="resources({'#' : 'post_resources_new'})" class="route-link">Create a Resource</a></p>
+  <p><a ui-sref="resources({'#' : 'put_resources_id'})" class="route-link">Update a Resource</a></p>
+  <p><a ui-sref="resources({'#' : 'delete_resources_id'})" class="route-link">Delete a Resource</a></p>
+</section>
+<hr />
+<section>
+  <h4 id="get_resources">Get Resources</h4>
+  <p>This will look up all Resources that your account has access to - by default this includes all Resources under your own User account as well as any Resources of Users for which you are the Account Manager.  Provide <b>user_id</b> of a managed User to return only the Resources for that User.</p>
+{% highlight ruby %}
+  GET /resources
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Provide a User ID to see only this User’s Resources</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Result page of interest, default: 1</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">per_page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Number of results per page, default: 10</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="get_resources_id">Get Resource by ID</h4>
+  <p>Look up details for a Resource by ID.  You can access details for any Resource under your own User account as well as any Resources of Users for which you are the Account Manager.</p>
+{% highlight ruby %}
+  GET /resources/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of Resource to retrieve</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="post_resources_new">Create a Resource</h4>
+  <p>Create a new Resource.  By default, your own User account will automatically become the Account Manager for any newly created Resources.</p>
+{% highlight ruby %}
+  POST /resources/new
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">name</td>
+      <td class="type">String</td>
+      <td class="desc">Name of Resource being created</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">type</td>
+      <td class="type">String</td>
+      <td class="desc">Must be a valid Resource type.  See <a ui-sref="entities({'#' : 'resources'})">Entities <i class="fa fa-long-arrow-right"></i> Resources</a>.
+      </td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Provide a User ID of a managed User to create a Resource for this User</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">gender</td>
+      <td class="type">String</td>
+      <td class="desc">Gender of Resource, if applicable</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">capacity</td>
+      <td class="type">Integer</td>
+      <td class="desc">Capacity of Resource, if applicable</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">description</td>
+      <td class="type">String</td>
+      <td class="desc">Description of Resource</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="put_resources_id">Update a Resource</h4>
+  <p>Update information for a Resource.  The ID must be of a Resource that is under your User account or any User for which you are the Account Manager.  You can not update Resources that were previously deleted.</p>
+{% highlight ruby %}
+  PUT /resources/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of Resource to update</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr class="last">
+      <td class="param">name</td>
+      <td class="type">String</td>
+      <td class="desc">New name of Resource</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="delete_resources_id">Delete a Resource</h4>
+  <p>Delete a Resource by ID.  The ID must be of a Resource that is under your User account or any User for which you are the Account Manager.  Deletion is a multi-step process: first the Resource is marked inactive and no longer appears in Search results; if no Bookings exist for this Resource then it is completely destroyed, otherwise it is kept archived for historical purposes.  You can not delete Resources that were previously deleted.</p>
+{% highlight ruby %}
+  DELETE /resources/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of Resource to delete</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>

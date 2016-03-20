@@ -1,3 +1,44 @@
 ---
 ---
-
+<h2 class="reference-heading">Search</h2>
+<section>
+  <p>GoneBusy offers a fully featured Search interface for retrieving Services/Activities that meet search criteria such as Category name, geographic distance, rating, price, etc.</p>
+  <p>The following endpoint can be used to perform all Searches:</p>
+</section>
+<section>
+  <p class="more-top"><a ui-sref="search({'#' : 'get_search'})" class="route-link">Get Search Results</a></p>
+</section>
+<hr />
+<section>
+  <h4 id="get_search">Get Search Results</h4>
+  <p>All Service/Activites that match given search criteria will be returned.</p>
+{% highlight ruby %}
+  GET /search/{query}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">query</td>
+      <td class="type">String</td>
+      <td class="desc">Search query string</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Result page of interest, default: 1</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">per_page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Number of results per page, default: 10</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>

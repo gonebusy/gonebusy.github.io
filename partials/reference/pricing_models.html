@@ -1,3 +1,147 @@
 ---
 ---
-
+<h2 class="reference-heading">Pricing Models</h2>
+<section>
+  <p>Each Service a User offers must have a Pricing Model associated with it in order to specify how to charge for the Service.  There are several types of Pricing Models, including “Activity” which means the Service is actually an Activity that has no charge Associated with it.</p>
+  <p>For more information on what a Pricing Model is and how to use them see <a ui-sref="entities({'#' : 'pricing_models'})">Entities <i class="fa fa-long-arrow-right"></i> Pricing Models</a>.</p>
+</section>
+<section>
+  <p class="more-top"><a ui-sref="pricing_models({'#' : 'get_pricing_models'})" class="route-link">Get Pricing Models</a></p>
+  <p><a ui-sref="pricing_models({'#' : 'get_pricing_models_id'})" class="route-link">Get Pricing Model by ID</a></p>
+  <p><a ui-sref="pricing_models({'#' : 'post_pricing_models_new'})" class="route-link">Create a Pricing Model</a></p>
+  <p><a ui-sref="pricing_models({'#' : 'put_pricing_models_id'})" class="route-link">Update a Pricing_Model</a></p>
+</section>
+<hr />
+<section>
+  <h4 id="get_pricing_models">Get Pricing Models</h4>
+  <p>This will look up all PricingModels in the system.</p>
+{% highlight ruby %}
+  GET /pricing_models
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Provide a User ID to see only this User’s Pricing Models</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Result page of interest, default: 1</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">per_page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Number of results per page, default: 10</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="get_pricing_models_id">Get Pricing Model by ID</h4>
+  <p>Look up details for a Pricing Model by ID.  You can access details for any Pricing Model under your own User account as well as any Pricing Models of Users for which you are the Account Manager.</p>
+{% highlight ruby %}
+  GET /pricing_models/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of pricing model to retrieve</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="post_pricing_models_new">Create a Pricing Model</h4>
+  <p>Create a new Pricing Model.  Your own User account will automatically become the Account Manager for any newly created Pricing Models.</p>
+{% highlight ruby %}
+  POST /pricing_models/new
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">name</td>
+      <td class="type">String</td>
+      <td class="desc">Name of Pricing Model being created</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">type</td>
+      <td class="type">String</td>
+      <td class="desc">Must be a valid Pricing Model type.  See <a ui-sref="entities({'#' : 'pricing_models'})">Entities <i class="fa fa-long-arrow-right"></i> Pricing Models</a>.
+      </td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Provide a User ID of a managed User to create a Pricing Model for this User</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">price</td>
+      <td class="type">Float</td>
+      <td class="desc">Price, if applicable</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">currency</td>
+      <td class="type">String</td>
+      <td class="desc">3-letter ISO currency code</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">notes</td>
+      <td class="type">String</td>
+      <td class="desc">Additional notes about Pricing Model</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="put_pricing_models_id">Update a Pricing Model</h4>
+  <p>Update information for a Pricing Model.  The ID must be of a Pricing Model that is under your User account or any User for which you are the Account Manager.</p>
+{% highlight ruby %}
+  PUT /pricing_models/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of pricing_model to update</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr class="last">
+      <td class="param">name</td>
+      <td class="type">String</td>
+      <td class="desc">New name of Pricing Model</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>

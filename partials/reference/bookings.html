@@ -6,7 +6,7 @@
 </section>
 <section>
   <p class="more-top"><a ui-sref="bookings({'#' : 'get_bookings'})" class="route-link">Get Bookings</a></p>
-  <p><a ui-sref="bookings({'#' : 'get_bookings_id'})" class="route-link">Get Bookings by ID</a></p>
+  <p><a ui-sref="bookings({'#' : 'get_bookings_id'})" class="route-link">Get Booking by ID</a></p>
   <p><a ui-sref="bookings({'#' : 'post_bookings_new'})" class="route-link">Create a Booking</a></p>
   <p><a ui-sref="bookings({'#' : 'put_bookings_id'})" class="route-link">Update a Booking</a></p>
   <p><a ui-sref="bookings({'#' : 'delete_bookings_id'})" class="route-link">Cancel a Booking</a></p>
@@ -57,7 +57,6 @@
 {% highlight ruby %}
   GET /bookings/{id}
 {% endhighlight %}
-  </div>
   <table class="params">
     <tr>
       <th>Parameter</th>

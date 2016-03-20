@@ -1,2 +1,256 @@
 ---
 ---
+<h2 class="reference-heading">Services</h2>
+<section>
+  <p>Bookings on GoneBusy would not be possible without users offering their Services/Activities.  Services can be anything that someone, or a group of professionals at a business, offers for a fee that requires a time commitment.  Activities also require a time commitment but don’t require charging a fee – for instance, Activities are things one shares with friends.</p>
+  <p>For more information on what a Service is and how to use them see <a ui-sref="entities({'#' : 'services'})">Entities <i class="fa fa-long-arrow-right"></i> Services</a>.</p>
+</section>
+<section>
+  <p class="more-top"><a ui-sref="services({'#' : 'get_services'})" class="route-link">Get Services</a></p>
+  <p><a ui-sref="services({'#' : 'get_services_id'})" class="route-link">Get Service by ID</a></p>
+  <p><a ui-sref="services({'#' : 'get_services_available_slots'})" class="route-link">Get Available Time for Service</a></p>
+  <p><a ui-sref="services({'#' : 'post_services_new'})" class="route-link">Create a Service</a></p>
+  <p><a ui-sref="services({'#' : 'put_services_id'})" class="route-link">Update a Service</a></p>
+  <p><a ui-sref="services({'#' : 'delete_services_id'})" class="route-link">Delete a Service</a></p>
+</section>
+<hr />
+<section>
+  <h4 id="get_services">Get Services</h4>
+  <p>This will look up all Services that your account has access to - by default this includes all Services under your own User account as well as any Services of Users for which you are the Account Manager.  Provide <b>user_id</b> of a managed User to return only the Services for that User.</p>
+{% highlight ruby %}
+  GET /services
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Provide a User ID to see only this User’s Services</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Result page of interest, default: 1</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">per_page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Number of results per page, default: 10</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="get_services_id">Get Service by ID</h4>
+  <p>Look up details for a Service by ID.  You can access details for any Service under your own User account as well as any Services of Users for which you are the Account Manager.</p>
+{% highlight ruby %}
+  GET /services/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of Service to retrieve</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="get_services_available_slots">Get Available Time for Service</h4>
+  <p>Look up available time slots for a Service by ID.  You can query for a specific date or for a date range.  The returned result set will group available slots by Resources that are offering the Service.  You can access details for any Service under your own User account as well as any Services of Users for which you are the Account Manager.</p>
+{% highlight ruby %}
+  GET /services/{id}/available_slots
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of desired Service</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">date</td>
+      <td class="type">Date</td>
+      <td class="desc">A specific date to check for availability.  Either this field or a date range employing <b>start_date</b> and <b>end_date</b> must be supplied.  If <b>date</b> is provided, <b>start_date/end_date</b> are ignored.  Several formats are supported: "2014-10-31", "October 31, 2014".</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">start_date</td>
+      <td class="type">Date</td>
+      <td class="desc">Start date of a date range to check for availability.  If supplied, <b>date</b> must not be supplied and <b>end_date</b> must be supplied.  Several formats are supported: "2014-10-31", "October 31, 2014".</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">end_date</td>
+      <td class="type">Date</td>
+      <td class="desc">End date of a date range to check for availability.  If supplied, <b>date</b> must not be supplied and <b>start_date</b> must be supplied.  Several formats are supported: "2014-10-31", "October 31, 2014".</td>
+      <td class="check"></i></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="post_services_new">Create a Service</h4>
+  <p>Create a new Service.  Unless a <b>user_id</b> is provided, your own User account will automatically become the Account Manager for any newly created Services.</p>
+{% highlight ruby %}
+  POST /services/new
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">name</td>
+      <td class="type">String</td>
+      <td class="desc">Name of Service being created</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">description</td>
+      <td class="type">String</td>
+      <td class="desc">A description of the Service</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">duration</td>
+      <td class="type">Integer</td>
+      <td class="desc">Minimum number of minutes required to perform this Service</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of User to create Service for.  You must be authorized to manage this User.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">short_name</td>
+      <td class="type">String</td>
+      <td class="desc">An abbreviated name for the Service, used where space is limited</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">price_model_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of a PricingModel for this service, that your account has permission to use</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">resources</td>
+      <td class="type">String</td>
+      <td class="desc">A string of Resource IDs, comma-separated; if <b>user_id</b> is provided, all Resources must be owned by the User, defaults to User’s Resource ID;  if <b>user_id</b> is not provided, all Resources must be owned by API User; defaults to API User’s Resource ID</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">categories</td>
+      <td class="type">String</td>
+      <td class="desc">A string of Category IDs, comma-separated</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="put_services_id">Update a Service</h4>
+  <p>Update information for a Service.  The ID must be of a Service that is under your User account or any User for which you are the Account Manager.  You can not update Services that were previously deleted.</p>
+{% highlight ruby %}
+  PUT /services/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of Service to update</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">name</td>
+      <td class="type">String</td>
+      <td class="desc">Name of Service being created</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">description</td>
+      <td class="type">String</td>
+      <td class="desc">A description of the Service</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">duration</td>
+      <td class="type">Integer</td>
+      <td class="desc">Minimum number of minutes required to perform this Service</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">short_name</td>
+      <td class="type">String</td>
+      <td class="desc">An abbreviated name for the Service, used where space is limited</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">price_model_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of a PricingModel for this service, that your account has permission to use</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">resources</td>
+      <td class="type">String</td>
+      <td class="desc">A string of Resource IDs, comma-separated; all Resources must be owned by the same managed User; defaults to API User’s Resource ID</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">categories</td>
+      <td class="type">String</td>
+      <td class="desc">A string of Category IDs, comma-separated</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="delete_services_id">Delete a Service</h4>
+  <p>Delete a Service by ID.  The ID must be of a Service that is under your User account or any User for which you are the Account Manager.  Deletion is a multi-step process: first the Service is marked inactive and no longer appears in Search results; if no Bookings exist for this Service then it is completely destroyed, otherwise it is kept archived for historical purposes.  You can not delete Services that were previously deleted.</p>
+{% highlight ruby %}
+  DELETE /services/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of Service to delete</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>

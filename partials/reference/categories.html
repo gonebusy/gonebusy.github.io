@@ -1,3 +1,111 @@
 ---
 ---
-
+<h2 class="reference-heading">Categories</h2>
+<section>
+  <p>Categories are a way of organizing or tagging available Services/Activities.</p>
+</section>
+<section>
+  <p class="more-top"><a ui-sref="categories({'#' : 'get_categories'})" class="route-link">Get Categories</a></p>
+  <p><a ui-sref="categories({'#' : 'get_categories_id'})" class="route-link">Get Category by ID</a></p>
+  <p><a ui-sref="categories({'#' : 'post_categories_new'})" class="route-link">Create a Category</a></p>
+</section>
+<hr />
+<section>
+  <h4 id="get_categories">Get Categories</h4>
+  <p>This will look up all Categories in the system.  If retrieving Categories for a particular User, you must be authorized to manage this User.</p>
+{% highlight ruby %}
+  GET /categories
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Provide a User ID to see only the Categories of Services offered by a particular User</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Result page of interest, default: 1</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">per_page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Number of results per page, default: 10</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="get_categories_id">Get Category by ID</h4>
+  <p>Look up details for a Category by ID.  You can access details for any Category.</p>
+{% highlight ruby %}
+  GET /categories/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of category to retrieve</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="post_categories_new">Create a Category</h4>
+  <p>Create a new Category.  Please note that once created, it can not be modified.  A duplicate named Category under the same Parent Category ID is not permitted.</p>
+{% highlight ruby %}
+  POST /categories/new
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">name</td>
+      <td class="type">String</td>
+      <td class="desc">Name of new Category</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">description</td>
+      <td class="type">String</td>
+      <td class="desc">Description for Category</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">short_name</td>
+      <td class="type">String</td>
+      <td class="desc">Abbreviated name for Category</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">long_name</td>
+      <td class="type">String</td>
+      <td class="desc">Full name of Category</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">parent_category_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of parent Category</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>

@@ -1,3 +1,381 @@
 ---
 ---
-
+<h2 class="reference-heading">Schedules</h2>
+<section>
+  <p>GoneBusy Schedules are no different from other types of schedules you may have encountered before: they start on a date, may end on a date, or possibly repeat indefinitely; falling between certain hours on particular days of the week.  By defining a Schedule for a Service that is offered by a Resource, it is possible to advertise the available times the Service may be booked.</p>
+  <p>For more information on what a Schedule is and how to use them see <a ui-sref="entities({'#' : 'schedules'})">Entities <i class="fa fa-long-arrow-right"></i> Schedules</a>.</p>
+</section>
+<section>
+  <p class="more-top"><a ui-sref="schedules({'#' : 'get_schedules'})" class="route-link">Get Schedules</a></p>
+  <p><a ui-sref="schedules({'#' : 'get_schedules_id'})" class="route-link">Get Schedule by ID</a></p>
+  <p><a ui-sref="schedules({'#' : 'post_schedules_new'})" class="route-link">Create a Schedule</a></p>
+  <p><a ui-sref="schedules({'#' : 'post_schedules_id_time_windows_id'})" class="route-link">Add TimeWindow to a Schedule</a></p>
+  <p><a ui-sref="schedules({'#' : 'put_schedules_id_time_windows_id'})" class="route-link">Update TimeWindow of a Schedule</a></p>
+  <p><a ui-sref="schedules({'#' : 'delete_schedules_id_time_windows_id'})" class="route-link">Delete TimeWindow from a Schedule</a></p>
+  <p><a ui-sref="schedules({'#' : 'delete_schedules_id'})" class="route-link">Delete a Schedule</a></p>
+</section>
+<hr />
+<section>
+  <h4 id="get_schedules">Get Schedules</h4>
+  <p>This will look up all Schedules that your account has access to - by default this includes all Schedules under your own User account as well as any Schedules of Users for which you are the Account Manager.  Provide <b>user_id</b> of a managed User to return only the Schedules for that User.</p>
+{% highlight ruby %}
+  GET /schedules
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Provide a User ID to see only this User’s Schedules</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Result page of interest, default: 1</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">per_page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Number of results per page, default: 10</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="get_schedules_id">Get Schedule by ID</h4>
+  <p>Look up details for a Schedule by ID.  You can access details for any Schedule under your own User account as well as any Schedules of Users for which you are the Account Manager.</p>
+{% highlight ruby %}
+  GET /schedules/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of Schedule to retrieve</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="post_schedules_new">Create a Schedule</h4>
+  <p>Create a new Schedule.  A Schedule is created in the context of a Service that is provided by a Resource.  Recall that every User is automatically a Resource for their own Services.  A Pro User has the ability to create additional Resources, each one of which can provide their own set of Services with their own Schedules.</p>
+  <p>The watchful developer will notice that to save an API call, it is possible to pass parameters for the first TimeWindow as part of the Schedule creation (one can always add a TimeWindow separately with <a ui-sref="schedules({'#' : 'post_schedules_id_time_windows_id'})">Add TimeWindow to a Schedule</a>).  Although these parameters are described below in relation to the Schedule being created, they are used to create the first TimeWindow that will make up this Schedule.  While marked optional for Schedule creation, there is still validation performed to ensure that all necessary parameters for TimeWindow creation have been properly supplied if any are provided.</p>
+{% highlight ruby %}
+  POST /schedules/new
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">service_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Provide the Service ID that is being scheduled</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Provide a User ID to create a Schedule for this User.  You must be authorized to manage this User and User must own desired Service and Resource.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">resource_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Provide the Resource ID that is being scheduled.  If not provided and <b>user_id</b> is not present, the default Resource of the API user is assumed to be the Resource being scheduled.  If not provided and <b>user_id</b> is present, the default Resource of the User is assumed to be the Resource being Scheduled.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">start_date</td>
+      <td class="type">Date</td>
+      <td class="desc">Start date of the TimeWindow.  Several formats are supported: "2014-10-31", "October 31, 2014"</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">end_date</td>
+      <td class="type">Date</td>
+      <td class="desc">End date of the TimeWindow.  Several formats are supported: "2014-10-31", "October 31, 2014".  If no end_date is specified this TimeWindow is deemed “infinite”.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">start_time</td>
+      <td class="type">String</td>
+      <td class="desc">Start time of the TimeWindow.  Several formats are supported: “9am”, “09:00”, “9:00”, “0900”</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">end_time</td>
+      <td class="type">String</td>
+      <td class="desc">End time of the TimeWindow.  Several formats are supported: “5pm”, “17:00”, “1700”</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">total_minutes</td>
+      <td class="type">Integer</td>
+      <td class="desc">Only necessary if the length of the Service cannot be deduced from end_time minus start_time.  An example would be a Service that actually lasts 36 hours from 10am to 10pm the next day.  This must be specified in number of minutes, eg. 2160 = 36 hours.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">days</td>
+      <td class="type">String</td>
+      <td class="desc">A String list of comma-separated days of the week this window of time falls on: “sunday, monday, tuesday, wednesday, thursday, friday, saturday”.  At least one must be specified.  The order supplied does not matter.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">recurs_by</td>
+      <td class="type">String</td>
+      <td class="desc">One and only one of the following possible values: [once, daily, weekly, monthly, yearly].</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">frequency</td>
+      <td class="type">String</td>
+      <td class="desc">One of the following possible values: [ single, every, every_other, every_3rd, every_4th, …, every_(Nth) ] where Nth max is ‘100th’.  If nothing is specified, the default value is ‘every’.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">occurrence</td>
+      <td class="type">String</td>
+      <td class="desc">One of the following possible values: [ every, 1st, 2nd, 3rd, …, (Nth), last, 2nd_to_last, 3rd_to_last, …, (Mth)_to_last ] where Nth max is ‘366th’ and Mth max is ‘10th’.  If nothing is specified, the default value is ‘every’.</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">date_recurs_by</td>
+      <td class="type">String</td>
+      <td class="desc">This field is optional except when <b>recurs_by</b> is one of ‘monthly’ or ‘yearly’.  For those two types of TimeWindows this field must be one of [date_in_month, day_in_month] for ‘monthly’ and [date_in_year, day_in_year] for ‘yearly’, respectively.  ‘day_in_month’ specifies that we’re interested in the day that is represented by the date in the month, for example, the “2nd Tuesday” of the month.  ‘day_in_year’ specifies that we’re interested in the day that is represented by the date in the year, for example, the “182nd” day of the year.</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="post_schedules_id_time_windows_new">Add TimeWindow to a Schedule</h4>
+  <p>Create a TimeWindow for Schedule specified by Schedule ID.  The Schedule ID must be of a Schedule that is under your User account or any User for which you are the Account Manager.</p>
+{% highlight ruby %}
+  POST /schedules/{id}/time_windows/new
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of Schedule being modified</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">start_date</td>
+      <td class="type">Date</td>
+      <td class="desc">Start date of the TimeWindow.  Several formats are supported: "2014-10-31", "October 31, 2014"</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">end_date</td>
+      <td class="type">Date</td>
+      <td class="desc">End date of the TimeWindow.  Several formats are supported: "2014-10-31", "October 31, 2014".  If no end_date is specified this TimeWindow is deemed “infinite”.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">start_time</td>
+      <td class="type">String</td>
+      <td class="desc">Start time of the TimeWindow.  Several formats are supported: “9am”, “09:00”, “9:00”, “0900”</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">end_time</td>
+      <td class="type">String</td>
+      <td class="desc">End time of the TimeWindow.  Several formats are supported: “5pm”, “17:00”, “1700”</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">total_minutes</td>
+      <td class="type">Integer</td>
+      <td class="desc">Only necessary if the length of the Service cannot be deduced from end_time minus start_time.  An example would be a Service that actually lasts 36 hours from 10am to 10pm the next day.  This must be specified in number of minutes, eg. 2160 = 36 hours.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">days</td>
+      <td class="type">String</td>
+      <td class="desc">A String list of comma-separated days of the week this window of time falls on: “sunday, monday, tuesday, wednesday, thursday, friday, saturday”.  At least one must be specified.  The order supplied does not matter.</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">recurs_by</td>
+      <td class="type">String</td>
+      <td class="desc">One and only one of the following possible values: [once, daily, weekly, monthly, yearly].</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">frequency</td>
+      <td class="type">String</td>
+      <td class="desc">One of the following possible values: [ single, every, every_other, every_3rd, every_4th, …, every_(Nth) ] where Nth max is ‘100th’.  If nothing is specified, the default value is ‘every’.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">occurrence</td>
+      <td class="type">String</td>
+      <td class="desc">One of the following possible values: [ every, 1st, 2nd, 3rd, …, (Nth), last, 2nd_to_last, 3rd_to_last, …, (Mth)_to_last ] where Nth max is ‘366th’ and Mth max is ‘10th’.  If nothing is specified, the default value is ‘every’.</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">date_recurs_by</td>
+      <td class="type">String</td>
+      <td class="desc">This field is optional except when <b>recurs_by</b> is one of ‘monthly’ or ‘yearly’.  For those two types of TimeWindows this field must be one of [date_in_month, day_in_month] for ‘monthly’ and [date_in_year, day_in_year] for ‘yearly’, respectively.  ‘day_in_month’ specifies that we’re interested in the day that is represented by the date in the month, for example, the “2nd Tuesday” of the month.  ‘day_in_year’ specifies that we’re interested in the day that is represented by the date in the year, for example, the “182nd” day of the year.</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="put_schedules_id_time_windows_id">Update TimeWindow of a Schedule</h4>
+  <p>Update information for a TimeWindow of a Schedule.  The Schedule ID must be of a Schedule that is under your User account or any User for which you are the Account Manager.</p>
+{% highlight ruby %}
+  PUT /schedules/{id}/time_windows/{time_window_id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of Schedule being modified</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">time_window_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of TimeWindow being modified</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">start_date</td>
+      <td class="type">Date</td>
+      <td class="desc">Start date of the TimeWindow.  Several formats are supported: "2014-10-31", "October 31, 2014"</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">end_date</td>
+      <td class="type">Date</td>
+      <td class="desc">End date of the TimeWindow.  Several formats are supported: "2014-10-31", "October 31, 2014".  If no end_date is specified this TimeWindow is deemed “infinite”.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">start_time</td>
+      <td class="type">String</td>
+      <td class="desc">Start time of the TimeWindow.  Several formats are supported: “9am”, “09:00”, “9:00”, “0900”</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">end_time</td>
+      <td class="type">String</td>
+      <td class="desc">End time of the TimeWindow.  Several formats are supported: “5pm”, “17:00”, “1700”</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">total_minutes</td>
+      <td class="type">Integer</td>
+      <td class="desc">Only necessary if the length of the Service cannot be deduced from end_time minus start_time.  An example would be a Service that actually lasts 36 hours from 10am to 10pm the next day.  This must be specified in number of minutes, eg. 2160 = 36 hours.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">days</td>
+      <td class="type">String</td>
+      <td class="desc">A String list of comma-separated days of the week this window of time falls on: “sunday, monday, tuesday, wednesday, thursday, friday, saturday”.  At least one must be specified.  The order supplied does not matter.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">recurs_by</td>
+      <td class="type">String</td>
+      <td class="desc">One and only one of the following possible values: [once, daily, weekly, monthly, yearly].</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">frequency</td>
+      <td class="type">String</td>
+      <td class="desc">One of the following possible values: [ single, every, every_other, every_3rd, every_4th, …, every_(Nth) ] where Nth max is ‘100th’.  If nothing is specified, the default value is ‘every’.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">occurrence</td>
+      <td class="type">String</td>
+      <td class="desc">One of the following possible values: [ every, 1st, 2nd, 3rd, …, (Nth), last, 2nd_to_last, 3rd_to_last, …, (Mth)_to_last ] where Nth max is ‘366th’ and Mth max is ‘10th’.  If nothing is specified, the default value is ‘every’.</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">date_recurs_by</td>
+      <td class="type">String</td>
+      <td class="desc">This field is optional except when <b>recurs_by</b> is one of ‘monthly’ or ‘yearly’.  For those two types of TimeWindows this field must be one of [date_in_month, day_in_month] for ‘monthly’ and [date_in_year, day_in_year] for ‘yearly’, respectively.  ‘day_in_month’ specifies that we’re interested in the day that is represented by the date in the month, for example, the “2nd Tuesday” of the month.  ‘day_in_year’ specifies that we’re interested in the day that is represented by the date in the year, for example, the “182nd” day of the year.</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="delete_schedules_id_time_windows_id">Delete TimeWindow from a Schedule</h4>
+  <p>Delete a TimeWindow of a Schedule.  The Schedule ID must be of a Schedule that is under your User account or any User for which you are the Account Manager.</p>
+{% highlight ruby %}
+  DELETE /schedules/{id}/time_windows/{time_window_id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of Schedule being modified</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr class="last">
+      <td class="param">time_window_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of TimeWindow being modified</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="delete_schedules_id">Delete a Schedule</h4>
+  <p>Delete a Schedule by ID.  The ID must be of a Schedule that is under your User account or any User for which you are the Account Manager.  Deletion is a multi-step process: first the Schedule is marked inactive and no longer appears in Search results; if no Bookings exist for this Schedule then it is completely destroyed, otherwise it is kept archived for historical purposes.  You can not delete Schedules that were previously deleted.</p>
+{% highlight ruby %}
+  DELETE /schedules/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of Schedule being modified</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>

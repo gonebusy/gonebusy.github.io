@@ -1,3 +1,260 @@
 ---
 ---
-
+<h2 class="reference-heading">Users</h2>
+<section>
+  <p>Users are the people that participate on GoneBusy. If you haven't done so already, take a look at our explanation of how Users interact with GoneBusy on the "How GoneBusy Works" page.</p>
+  <p>The API allows a Pro User to manage themselves or an Account Manager to operate on managed users in order to offer services, schedule availability, and various other operations.</p>
+</section>
+<section>
+  <p class="more-top"><a ui-sref="users({'#' : 'get_users'})" class="route-link">Get Users</a></p>
+  <p><a ui-sref="users({'#' : 'get_users_id'})" class="route-link">Get User by ID</a></p>
+  <p><a ui-sref="users({'#' : 'post_users_new'})" class="route-link">Create a User</a></p>
+  <p><a ui-sref="users({'#' : 'put_users_id'})" class="route-link">Update a User</a></p>
+  <p><a ui-sref="users({'#' : 'put_users_id_register_pro'})" class="route-link">Register User as a Pro</a></p>
+  <p><a ui-sref="users({'#' : 'get_users_id_request_password'})" class="route-link">Request Password for User</a></p>
+  <p><a ui-sref="users({'#' : 'get_users_pros'})" class="route-link">Get Pro Users</a></p>
+</section>
+<hr />
+<section>
+  <h4 id="get_users">Get Users</h4>
+  <p>This will look up all Users that your account has access to - by default this includes all Users under your own User account as well as any Users of Users for which you are the Account Manager.</p>
+{% highlight ruby %}
+  GET /users
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Result page of interest, default: 1</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">per_page</td>
+      <td class="type">Integer</td>
+      <td class="desc">Number of results per page, default: 10</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="get_users_id">Get User by ID</h4>
+  <p>Look up details for a User by ID.  You can access details for any User under your own User account as well as any Users of Users for which you are the Account Manager.</p>
+{% highlight ruby %}
+  GET /users/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of User to retrieve</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="post_users_new">Create a User</h4>
+  <p>Create a new User.  By default, your own User account will automatically become the Account Manager for any newly created Users.</p>
+{% highlight ruby %}
+  POST /users/new
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">email</td>
+      <td class="type">String</td>
+      <td class="desc">Email address</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">first_name</td>
+      <td class="type">String</td>
+      <td class="desc">First name</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">last_name</td>
+      <td class="type">String</td>
+      <td class="desc">Last name</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">business_name</td>
+      <td class="type">String</td>
+      <td class="desc">Name of business/organization</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">external_url</td>
+      <td class="type">String</td>
+      <td class="desc">Website URL</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">permalink</td>
+      <td class="type">String</td>
+      <td class="desc">Vanity URL at GoneBusy - ex: www.gonebusy.com/&lt;permalink&gt; - must be unique</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">timezone</td>
+      <td class="type">String</td>
+      <td class="desc">Timezone acronym</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="put_users_id">Update a User</h4>
+  <p>Update information for a User.  The ID can be your own User account or the ID of any User of which you are the Account Manager.  If the specified User has a password on file, changing the User’s email address will invalidate the password and send a Reset Password email to the User.</p>
+{% highlight ruby %}
+  PUT /users/{id}
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of User to update</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">email</td>
+      <td class="type">String</td>
+      <td class="desc">Email address</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">first_name</td>
+      <td class="type">String</td>
+      <td class="desc">First name</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">last_name</td>
+      <td class="type">String</td>
+      <td class="desc">Last name</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">business_name</td>
+      <td class="type">String</td>
+      <td class="desc">Name of business/organization</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">external_url</td>
+      <td class="type">String</td>
+      <td class="desc">Website URL</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">permalink</td>
+      <td class="type">String</td>
+      <td class="desc">Vanity URL at GoneBusy - ex: www.gonebusy.com/&lt;permalink&gt; - must be unique</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">timezone</td>
+      <td class="type">String</td>
+      <td class="desc">Timezone acronym</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="put_users_id_register_pro">Register User as a Pro</h4>
+  <p>Upgrade a User by ID from a Basic to a Pro user.</p>
+{% highlight ruby %}
+  PUT /users/{id}/register_pro
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr>
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of User to register</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">business_name</td>
+      <td class="type">String</td>
+      <td class="desc">Name of business/organization</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr class="last">
+      <td class="param">external_url</td>
+      <td class="type">String</td>
+      <td class="desc">Website URL</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="get_users_id_request_password">Request Password for User</h4>
+  <p>This will send a Reset Password email to the specified User’s email address containing a link where they can reset their password. This will return all Users that are currently Pro Users, for which you are the Account Manager, including your own account.</p>
+{% highlight ruby %}
+  GET /users/{id}/request_password
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param">id</td>
+      <td class="type">Integer</td>
+      <td class="desc">ID of User to request password for</td>
+      <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h4 id="get_users_pros">Get Pro Users</h4>
+  <p>This will return all Users that are currently Pro Users, for which you are the Account Manager, including your own account.</p>
+{% highlight ruby %}
+  GET /users/pros
+{% endhighlight %}
+  <table class="params">
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required?</th>
+    </tr>
+    <tr class="last">
+      <td class="param"></td>
+      <td class="type"></td>
+      <td class="desc">No parameters</td>
+      <td class="check"></td>
+    </tr>
+  </table>
+</section>
