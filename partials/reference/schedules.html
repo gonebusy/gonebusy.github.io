@@ -9,7 +9,7 @@
   <p class="more-top"><a ui-sref="schedules({'#' : 'get_schedules'})" class="route-link">Get Schedules</a></p>
   <p><a ui-sref="schedules({'#' : 'get_schedules_id'})" class="route-link">Get Schedule by ID</a></p>
   <p><a ui-sref="schedules({'#' : 'post_schedules_new'})" class="route-link">Create a Schedule</a></p>
-  <p><a ui-sref="schedules({'#' : 'post_schedules_id_time_windows_id'})" class="route-link">Add TimeWindow to a Schedule</a></p>
+  <p><a ui-sref="schedules({'#' : 'post_schedules_id_time_windows_new'})" class="route-link">Add TimeWindow to a Schedule</a></p>
   <p><a ui-sref="schedules({'#' : 'put_schedules_id_time_windows_id'})" class="route-link">Update TimeWindow of a Schedule</a></p>
   <p><a ui-sref="schedules({'#' : 'delete_schedules_id_time_windows_id'})" class="route-link">Delete TimeWindow from a Schedule</a></p>
   <p><a ui-sref="schedules({'#' : 'delete_schedules_id'})" class="route-link">Delete a Schedule</a></p>
@@ -72,7 +72,7 @@
 <section>
   <h4 id="post_schedules_new">Create a Schedule</h4>
   <p>Create a new Schedule.  A Schedule is created in the context of a Service that is provided by a Resource.  Recall that every User is automatically a Resource for their own Services.  A Pro User has the ability to create additional Resources, each one of which can provide their own set of Services with their own Schedules.</p>
-  <p>The watchful developer will notice that to save an API call, it is possible to pass parameters for the first TimeWindow as part of the Schedule creation (one can always add a TimeWindow separately with <a ui-sref="schedules({'#' : 'post_schedules_id_time_windows_id'})">Add TimeWindow to a Schedule</a>).  Although these parameters are described below in relation to the Schedule being created, they are used to create the first TimeWindow that will make up this Schedule.  While marked optional for Schedule creation, there is still validation performed to ensure that all necessary parameters for TimeWindow creation have been properly supplied if any are provided.</p>
+  <p>The watchful developer will notice that to save an API call, it is possible to pass parameters for the first TimeWindow as part of the Schedule creation (one can always add a TimeWindow separately with <a ui-sref="schedules({'#' : 'post_schedules_id_time_windows_new'})">Add TimeWindow to a Schedule</a>).  Although these parameters are described below in relation to the Schedule being created, they are used to create the first TimeWindow that will make up this Schedule.  While marked optional for Schedule creation, there is still validation performed to ensure that all necessary parameters for TimeWindow creation have been properly supplied if any are provided.</p>
 {% highlight ruby %}
   POST /schedules/new
 {% endhighlight %}

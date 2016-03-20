@@ -156,6 +156,10 @@
             font-size: 14px;
         }
 
+        table.params tr.first td {
+            border-top: 0;
+        }
+
         table.params .param {
             width: 12%;
         }
@@ -707,6 +711,10 @@
                         padding-left: 0;
                 }
 
+                ul.alt.tight {
+                    margin-bottom: 0;
+                }
+
                         ul.alt li {
                             padding: 0.5em 0;
                             font-size: 14px;
@@ -715,6 +723,12 @@
 
                                 ul.alt li:first-child {
                                         padding-top: 0;
+                                }
+
+                                ul.alt span.type {
+                                    font-size: 1em;
+                                    font-weight: bold;
+                                    color: $tuatara;
                                 }
 
                 ul.icons {

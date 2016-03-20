@@ -1,3 +1,242 @@
 ---
 ---
-
+<h2 class="reference-heading">Entities</h2>
+<section>
+  <p>There are several Entities in the GoneBusy system accessible via API.  You can read about each one of them below. </p>
+</section>
+<section>
+  <h3><a ui-sref="entities({'#' : 'bookings'})">Bookings</a></h3>
+  <h3><a ui-sref="entities({'#' : 'categories'})">Categories</a></h3>
+  <h3><a ui-sref="entities({'#' : 'pricing_models'})">Pricing Models</a></h3>
+  <h3><a ui-sref="entities({'#' : 'pricing_model_types'})">Types of Pricing Models</a></h3>
+  <h3><a ui-sref="entities({'#' : 'resources'})">Resources</a></h3>
+  <h3><a ui-sref="entities({'#' : 'schedules'})">Schedules</a></h3>
+  <h3><a ui-sref="entities({'#' : 'search'})">Search Results</a></h3>
+  <h3><a ui-sref="entities({'#' : 'services'})">Services/Activities</a></h3>
+  <h3><a ui-sref="entities({'#' : 'users'})">Users</a></h3>
+</section>
+<hr />
+<section class='anchor-container' id='bookings'>
+  <h4>Bookings</h4>
+  <p>The main goal of GoneBusy is to connect users with each other via bookings.  A Booking represents the commitment by one user to attend a Service/Activity of another user at a particular time.  The API allows the creation and management of Bookings.</p>
+  <p>You can find all supported operations on the <a ui-sref="bookings({'#' : 'top'})">Bookings API page</a>.</p>
+</section>
+<section class='anchor-container push-down' id='categories'>
+  <h4>Categories</h4>
+  <p>Categories are a way of organizing or tagging available Services/Activities.</p>
+  <p>You can find all supported operations on the <a ui-sref="categories({'#' : 'top'})">Categories API page</a>.</p>
+</section>
+<section class='anchor-container push-down' id='resources'>
+  <h4>Resources</h4>
+  <p>Resources are what actually provide Services/Activities.  By default, a Basic User is a Resource for their own Services/Activities (recall that a Basic User can only offer free Activities while a Pro User can charge a fee for their Services).  Pro Users are able to create additional Resources for Services, besides just offering Services themselves.</p>
+  <p>The following types of Resources may be created:</p>
+  <h3>Types of Resources</h3>
+  <p>The following are the currently supported types of Resouces.  If you have an idea for a Resource that can not be accommodated by any of the types below, please <a href="{{ site.baseurl}}/contact_us">Contact Us</a>.</p>
+  <ul class="alt tight">
+    <li><p><span class="type">Person</span> &mdash; a User can create another Person Resource, such as another instructor at a gym, or a therapist at a spa.</p>
+      <div class="attributes">
+        <table class="params">
+          <tr class="first">
+            <td class="param">first_name</td>
+            <td class="desc">person's first name</td>
+          </tr>
+          <tr>
+            <td class="param">last_name</td>
+            <td class="desc">person's last name</td>
+          </tr>
+        </table>
+      </div>
+    </li>
+    <li><p><span class="type">Place</span> &mdash; a Place Resource would apply to something like a classroom, which hosts a particular Service at a time, or maybe a meeting room online where tutoring is offered.</p>
+      <div class="attributes">
+        <table class="params">
+          <tr class="first">
+            <td class="param">name</td>
+            <td class="desc">the name of this Place</td>
+          </tr>
+          <tr>
+            <td class="param">capacity</td>
+            <td class="desc">an optional limit to how many Bookings are allowed at a single time for this Place</td>
+          </tr>
+        </table>
+      </div>
+    </li>
+    <li><p><span class="type">Thing</span> &mdash; a Thing Resource would apply to something like a van or equipment which is offered for rent for a certain amount of time.</p>
+      <div class="attributes">
+        <table class="params">
+          <tr class="first">
+            <td class="param">name</td>
+            <td class="desc">the name of this Thing</td>
+          </tr>
+        </table>
+      </div>
+    </li>
+  </ul>
+  <p>You can find all supported operations on the <a ui-sref="resources({'#' : 'top'})">Resources API page</a>.</p>
+</section>
+<section class='anchor-container push-down' id='services'>
+  <h4>Services/Activities</h4>
+  <p>Bookings on GoneBusy would not be possible without users offering their Services/Activities.  Services can be anything that someone, or a group of professionals at a business, offers for a fee that requires a time commitment.  Activities also require a time commitment but don’t require charging a fee – for instance, Activities are things one shares with friends.</p>
+  <p>Follow this link for an example on <a ui-sref="getting_started">how to create a Service</a>.</p>
+  <p>You can find all supported operations on the <a ui-sref="services({'#' : 'top'})">Services API page</a>.</p>
+</section>
+<section class='anchor-container push-down' id='pricing_models'>
+  <h4>PricingModels</h4>
+  <p>Each Service a User offers must have a PricingModel associated with it in order to specify how to charge for the Service.  There are several types of PricingModels, including “Activity” which means the Service is actually an Activity that has no charge Associated with it.</p>
+  <p>When a Service is created without specifying a PricingModel, by default it will have an Activity PricingModel Associated with it.  To create a new PricingModel, one must specify the type of PricingModel (see below) along with any additional attributes the specific PricingModel requires.</p>
+  <p>There are several types of PricingModels that can be assigned to a Service.  If you have a need to price a Service/Activity in a manner that is not accommodated by any of the PricingModels below, please let us know and we’ll be happy to assist you with creating a new PricingModel if necessary.</p>
+  <p>You can find all supported operations on the <a ui-sref="pricing_models({'#' : 'top'})">Pricing Models API page</a>.</p>
+</section>
+<section class='anchor-container push-down' id='pricing_model_types'>
+  <h4>Types of PricingModels</h4>
+  <ul class="alt tight">
+    <li><p><span class="type">Activity</span> &mdash; when a Service is free of charge, such as an Activity you only share with friends, you can specify the Activity type when creating a PricingModel for the Service.</p>
+      <div class="attributes">
+        <table class="params">
+          <tr class="first">
+            <td class="param">name (optional)</td>
+            <td class="desc">an optional name for the PricingModel</td>
+          </tr>
+          <tr>
+            <td class="param">notes (optional)</td>
+            <td class="desc">an optional notes field for the PricingModel</td>
+          </tr>
+        </table>
+      </div>
+    </li>
+    <li><p><span class="type">FixedPrice</span> &mdash; if the price of a Service is constant, no matter the duration a customer can reserve for, specify the FixedPrice type when creating a PricingModel for the Service.  An example of such a Service would be a “Man with a Van” that charges for the entire day of work no matter whether the customer requested 2 hours or 8 hours of time on any given day.</p>
+      <div class="attributes">
+        <table class="params">
+          <tr class="first">
+            <td class="param">price</td>
+            <td class="desc">price that will be charged for the entire Service</td>
+          </tr>
+          <tr>
+            <td class="param">currency (optional)</td>
+            <td class="desc">currency of price.  Defaults to USD</td>
+          </tr>
+          <tr>
+            <td class="param">name (optional)</td>
+            <td class="desc">an optional name for the PricingModel</td>
+          </tr>
+          <tr>
+            <td class="param">notes (optional)</td>
+            <td class="desc">an optional notes field for the PricingModel</td>
+          </tr>
+        </table>
+      </div>
+    </li>
+    <li><p><span class="type">ByTheHour</span> &mdash; when Services are charged for each hour being reserved, specify the ByTheHour type when creating a PricingModel for the Service.  There are many examples of businesses that offer Services or classes by the hour, such as salons, yoga studios, guitar lessons, etc.</p>
+      <div class="attributes">
+        <table class="params">
+          <tr class="first">
+            <td class="param">price</td>
+            <td class="desc">price that will be charged for each hour reserved</td>
+          </tr>
+          <tr>
+            <td class="param">currency (optional)</td>
+            <td class="desc">currency of price.  Defaults to USD</td>
+          </tr>
+          <tr>
+            <td class="param">name (optional)</td>
+            <td class="desc">an optional name for the PricingModel</td>
+          </tr>
+          <tr>
+            <td class="param">notes (optional)</td>
+            <td class="desc">an optional notes field for the PricingModel</td>
+          </tr>
+        </table>
+      </div>
+    </li>
+    <li><p><span class="type">ByTheMinute</span> &mdash; when Services are charged for each minute being reserved, specify the ByTheMinute type when creating a PricingModel for the Service.  Examples of Services that may charge by the minute may include tutoring, a help line, etc.  Note that currently, the minimum allowable time to book a Service on GoneBusy is 15 minutes.</p>
+      <div class="attributes">
+        <table class="params">
+          <tr class="first">
+            <td class="param">price</td>
+            <td class="desc">price that will be charged for each minute reserved</td>
+          </tr>
+          <tr>
+            <td class="param">currency (optional)</td>
+            <td class="desc">currency of price.  Defaults to USD</td>
+          </tr>
+          <tr>
+            <td class="param">name (optional)</td>
+            <td class="desc">an optional name for the PricingModel</td>
+          </tr>
+          <tr>
+            <td class="param">notes (optional)</td>
+            <td class="desc">an optional notes field for the PricingModel</td>
+          </tr>
+        </table>
+      </div>
+    </li>
+  </ul>
+</section>
+<section class='anchor-container push-down' id='schedules'>
+  <h4>Schedules</h4>
+  <p>GoneBusy Schedules are no different from other types of schedules you may have encountered before: they start on a date, may end on a date, or possibly repeat indefinitely; falling between certain hours on particular days of the week.  By defining a Schedule for a Service that is offered by a Resource, it is possible to advertise the available times the Service may be booked.</p>
+  <p>A Schedule is made up of a single or many TimeWindows, where the most important attributes of a TimeWindow are the following:</p>
+  <div class="attributes">
+    <table class="params">
+      <tr class="first">
+        <td class="param">start_date</td>
+        <td class="desc">what date it begins on</td>
+      </tr>
+      <tr>
+        <td class="param">end_date</td>
+        <td class="desc">what date it ends on (if any).  no end_date means this scheduled window of time is valid forever</td>
+      </tr>
+      <tr>
+        <td class="param">days</td>
+        <td class="desc">the days of the week it falls on, such as Sunday through Saturday, everyday, weekends, etc.</td>
+      </tr>
+      <tr>
+        <td class="param">start_time</td>
+        <td class="desc">the earliest appointment time for the service</td>
+      </tr>
+      <tr>
+        <td class="param">end_time</td>
+        <td class="desc">when the last appointment must be finished by</td>
+      </tr>
+    </table>
+  </div>
+  <p>There are additional, advanced features of a TimeWindow explained below.</p>
+  <p>You can find all supported operations on the <a ui-sref="schedules({'#' : 'top'})">Schedules API page</a>.</p>
+  <h3>Types of Recurring TimeWindows</h3>
+  <p>In many cases, a period of advanced time will continue be offered in a recurring fashion.  Many increments of recurrence for a TimeWindow are supported.  Here is a listing of the supported types.</p>
+  <div class="attributes">
+    <table class="params">
+      <tr class="first">
+        <td class="param">daily</td>
+        <td class="desc">specify this kind of recurrence if a Service is offered every single day at the same time.  this makes specifying <b>days</b> unnecessary</td>
+      </tr>
+      <tr>
+        <td class="param">weekly</td>
+        <td class="desc">something that recurs every week, such as a class</td>
+      </tr>
+      <tr>
+        <td class="param">monthly</td>
+        <td class="desc">something that recurs every month.  its possible to specify that something recurs only the first week of each month as well</td>
+      </tr>
+      <tr>
+        <td class="param">yearly</td>
+        <td class="desc">this is useful for Services that happen on some date or stretch of days every year</td>
+      </tr>
+    </table>
+  </div>
+  <h3>Frequency</h3>
+  <p>Frequency is a kind of multiplier for how the TimeWindow recurs.  For example, a <b>monthly</b> TimeWindow with <b>days</b> = ‘weekend’ and <b>frequency</b> = ‘every_other’ and <b>interval</b> = ‘every’ implies that we are interested in a TimeWindow that actually recurs “every weekend every other month”.</p>
+  <h3>Occurrence</h3>
+  <p>Interval tells us exactly which instance of a TimeWindow’s recurrence we are interested in.  For example, a <b>monthly</b> TimeWindow with <b>days</b> = ‘weekend’ and <b>frequency</b> = ‘every_other’ and <b>interval</b> = ‘2nd_to_last’ implies that we are interested in a TimeWindow that actually recurs “every 2nd to last weekend every other month”.</p>
+</section>
+<section class='anchor-container push-down' id='search'>
+  <h4>Search Results</h4>
+  <p>GoneBusy offers a fully featured Search API for retrieving Services/Activities that meet search criteria such as Category name, geographic distance, rating, price, etc.</p>
+  <p>You can find all supported operations on the <a ui-sref="search({'#' : 'top'})">Search API page</a>.</p>
+</section>
+<section class='anchor-container push-down' id='users'>
+  <h4>Users</h4>
+  <p>Users are the people that participate on GoneBusy.  If you haven't done so already, take a look at our explanation of how Users interact with GoneBusy on the <a ui-sref="overview({'#' : 'top'})">Overview</a> page.</p>
+  <p>The API allows a Pro User to manage themselves or an Account Manager to operate on managed users in order to offer services, schedule availability, and various other operations.</p>
+  <p>You can find all supported operations on the <a ui-sref="users({'#' : 'top'})">Users API page</a>.</p>
+</section>
