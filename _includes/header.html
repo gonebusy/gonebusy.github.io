@@ -1,21 +1,28 @@
 <!-- Header -->
 <header id="header" class="skel-layers-fixed">
-    <h1><a href="{{ site.baseurl }}/" class="site-title" ><img alt="GONEBUSY" src="{{ site.baseurl }}/images/gone-busy-logo.svg"></a></h1>
-    <nav id="nav" ng-controller="DropdownController">
-        <ul>
-            <li><a href="{{ site.baseurl }}/api">API</a></li>
-            <li><a href="{{ site.baseurl }}/libraries">Libraries</a></li>
-            <li><a href="{{ site.baseurl }}/blog">Blog</a></li>
-            <li><a href="http://beta.gonebusy.com/contact_us">Support</a></li>
-            <li uib-dropdown is-open="status.isopen">
-              <a uib-dropdown-toggle ng-disabled="disabled">Log In <i class="fa fa-caret-down"></i></a>
-              <ul uib-dropdown-menu role="menu">
-                <li class="top" role="menuitem"><a href="http://beta.gonebusy.com/login">Sandbox</a></li>
-                <li class="divider"></li>
-                <li class="bottom" role="menuitem"><a href="http://www.gonebusy.com/login">Production</a></li>
-              </ul>
-            </li>
-            <li><a href="#" class="button alt">Sign Up</a></li>
+  <h1><a href="{{ site.baseurl }}/" class="site-title" ><img alt="GONEBUSY" src="{{ site.baseurl }}/images/gone-busy-logo.svg"></a></h1>
+  <nav id="nav" ng-controller="DropdownController">
+    <ul>
+      {% for link in site.data.navigation %}
+        {% assign current = nil %}
+        {% assign current_page = page.url|remove:'.html' %}
+        {% if current_page == link.url %}
+          {% assign current = 'active' %}
+        {% endif %}
+      <li class="{{ current }}">
+        <a href="{{link.url}}" title="{{link.title}}">{{link.text}}</a>
+      </li>
+      {% endfor %}
+      <li><a href="http://beta.gonebusy.com/contact_us">Support</a></li>
+      <li uib-dropdown is-open="status.isopen">
+        <a uib-dropdown-toggle ng-disabled="disabled">Log In <i class="fa fa-caret-down"></i></a>
+        <ul uib-dropdown-menu role="menu">
+          <li class="top" role="menuitem"><a href="http://beta.gonebusy.com/login">Sandbox</a></li>
+          <li class="divider"></li>
+          <li class="bottom" role="menuitem"><a href="http://www.gonebusy.com/login">Production</a></li>
         </ul>
-    </nav>
+      </li>
+      <li><a href="#" class="button alt">Sign Up</a></li>
+    </ul>
+  </nav>
 </header>

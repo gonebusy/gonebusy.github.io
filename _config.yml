@@ -10,7 +10,7 @@ github_username:  gonebusy
 
 # Build settings
 markdown: kramdown
-kramdown: 
+kramdown:
   input: GFM
   parse_block_html: true
 sass:
