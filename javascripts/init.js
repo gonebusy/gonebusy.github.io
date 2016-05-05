@@ -111,6 +111,7 @@
 
     $(function() {
         // jQuery ready stuff.
+        $('body').css('display','block');
     });
 
 })(jQuery);
