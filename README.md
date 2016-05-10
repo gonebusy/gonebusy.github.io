@@ -32,7 +32,7 @@ $> bundle install
 $> jekyll serve
 ```
 
-By default `jekyll` will listen on port 5000 so browse to http://localhost:5000 to see your changes!
+By default `jekyll` will listen on port 4000 so browse to http://localhost:4000 to see your changes!
 
 ## Contributing
 
