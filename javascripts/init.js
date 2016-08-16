@@ -112,6 +112,43 @@
     $(function() {
         // jQuery ready stuff.
         $('body').css('display','block');
+
+        $('.close').click(function() {
+            $('.alert').fadeOut(500);
+        });
+
+        var form = $('#subscribeForm');
+        form.find('#submit').click(function() {
+            var gotcha = $('input#gotcha').val();
+
+            var email = $('input#email').val();
+            if (!form[0].checkValidity()) {
+                $('.alert').hide();
+                $('.alert-block').fadeIn(500);
+                $('input#email').focus();
+                return false;
+            };
+
+            $.ajax({
+                url: 'https://formspree.io/alex+gonebusy.github.io@gonebusy.com',
+                method: 'POST',
+                data: {
+                    email: email,
+                    _subject: "New Submission from gonebusy.github.io",
+                    _gotcha: gotcha
+                },
+                dataType: "json",
+                success: function() {
+                    $('.alert').hide();
+                    $('.alert-success').fadeIn(500);
+                },
+                error: function() {
+                    $('.alert').hide();
+                    $('.alert-error').fadeIn(500);
+                }
+            });
+            return false;
+        });
     });
 
 })(jQuery);

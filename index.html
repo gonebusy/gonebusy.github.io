@@ -159,18 +159,35 @@ puts slots_result
         </section>
       </div>
       <div class="6u">
-        <section>
-          <form id="subscribeForm">
+        <section class="subscribe-form-container">
+          <form id="subscribeForm" action="">
             <div class="row">
               <div class="8u closer-left">
-                <input type="email" class="vertical-center" name="email" placeholder="Your Email Address"></input>
+                <input type="email" class="vertical-center" id="email" placeholder="Your Email Address" required></input>
+                <input type="text" id="gotcha" style="display:none;" />
               </div>
               <div class="4u closer-left">
-                <a href="#" class="button big special">Subscribe</a>
+                <a type="submit" class="button big special" id="submit">Subscribe</a>
               </div>
             </div>
           </form>
         </section>
+      </div>
+    </div>
+    <div class="row">
+      <div class="12u">
+        <div class="alert alert-success" style="display:none;">
+          <a class="close" data-dismiss="alert">×</a>
+          <strong>Thank you!</strong> You've successfully subscribed to the GoneBusy mailing list.
+        </div>
+        <div class="alert alert-block" style="display:none;">
+          <a class="close" data-dismiss="alert">×</a>
+          <strong>Hmmm...</strong> Are you sure that's a valid email address?
+        </div>
+        <div class="alert alert-error" style="display:none;">
+          <a class="close" data-dismiss="alert">×</a>
+          <strong>Oops!</strong> It looks like there's been a problem.  Please wait and resubmit.
+        </div>
       </div>
     </div>
   </div>
