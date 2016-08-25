@@ -15,23 +15,21 @@ keywords: GoneBusy, booking, platform, api, developers, portal, reference, guide
               <div ui-view></div>
             </div>
             <div class="4u">
+              <h1>Guides</h1>
               <section class="side-nav">
-                <uib-tabset type="pills" justified="true" active="tabCtrl.activeTab">
-                  <uib-tab index="0" heading="Guides" ng-click="tabCtrl.activeTab = 0">
-                    <div class="docs-nav">
-                      <div class="docs-nav-wrap" ng-repeat="link in guide_links">
-                        <li><a ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
-                      </div>
-                    </div>
-                  </uib-tab>
-                  <uib-tab index="1" heading="Reference" ng-click="tabCtrl.activeTab = 1">
-                    <div class="docs-nav">
-                      <div class="docs-nav-wrap" ng-repeat="link in reference_links">
-                        <li><a ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
-                      </div>
-                    </div>
-                  </uib-tab>
-                </uib-tabset>
+                <div class="docs-nav">
+                  <div class="docs-nav-wrap" ng-repeat="link in guide_links">
+                    <li><a ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
+                  </div>
+                </div>
+              </section>
+              <h1>Reference</h1>
+              <section class="side-nav">
+                <div class="docs-nav">
+                  <div class="docs-nav-wrap" ng-repeat="link in reference_links">
+                    <li><a ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
+                  </div>
+                </div>
               </section>
               <section class="protip">
                 <p>You can jump right in and explore the GoneBusy API using our Swagger UI <a href="http://beta.gonebusy.com/docs/api_sandbox">API Sandbox</a>.</p>
