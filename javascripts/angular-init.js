@@ -64,57 +64,57 @@ gbApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, $ui
     $stateProvider
         .state('overview', {
             url: '/',
-            templateUrl: "{{ site.baseurl }}/partials/guides/overview.html",
+            templateUrl: "/partials/guides/overview.html",
             data : { activeTab : 0 }
         })
         .state('getting_started', {
             url: '/getting_started',
-            templateUrl: "{{ site.baseurl }}/partials/guides/getting_started.html",
+            templateUrl: "/partials/guides/getting_started.html",
             data : { activeTab : 0 }
         })
         .state('entities', {
             url: '/entities',
-            templateUrl: "{{ site.baseurl }}/partials/guides/entities.html",
+            templateUrl: "/partials/guides/entities.html",
             data : { activeTab : 0 }
         })
         .state('bookings', {
             url: '/bookings',
-            templateUrl: "{{ site.baseurl }}/partials/reference/bookings.html",
+            templateUrl: "/partials/reference/bookings.html",
             data : { activeTab : 1 }
         })
         .state('categories', {
             url: '/categories',
-            templateUrl: "{{ site.baseurl }}/partials/reference/categories.html",
+            templateUrl: "/partials/reference/categories.html",
             data : { activeTab : 1 }
         })
         .state('pricing_models', {
             url: '/pricing_models',
-            templateUrl: "{{ site.baseurl }}/partials/reference/pricing_models.html",
+            templateUrl: "/partials/reference/pricing_models.html",
             data : { activeTab : 1 }
         })
         .state('resources', {
             url: '/resources',
-            templateUrl: "{{ site.baseurl }}/partials/reference/resources.html",
+            templateUrl: "/partials/reference/resources.html",
             data : { activeTab : 1 }
         })
         .state('schedules', {
             url: '/schedules',
-            templateUrl: "{{ site.baseurl }}/partials/reference/schedules.html",
+            templateUrl: "/partials/reference/schedules.html",
             data : { activeTab : 1 }
         })
         .state('search', {
             url: '/search',
-            templateUrl: "{{ site.baseurl }}/partials/reference/search.html",
+            templateUrl: "/partials/reference/search.html",
             data : { activeTab : 1 }
         })
         .state('services', {
             url: '/services',
-            templateUrl: "{{ site.baseurl }}/partials/reference/services.html",
+            templateUrl: "/partials/reference/services.html",
             data : { activeTab : 1 }
         })
         .state('users', {
             url: '/users',
-            templateUrl: "{{ site.baseurl }}/partials/reference/users.html",
+            templateUrl: "/partials/reference/users.html",
             data : { activeTab : 1 }
         });
 
