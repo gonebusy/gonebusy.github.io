@@ -26,6 +26,12 @@
   </h5>
 </section>
 <hr />
+<section class='protip'>
+  <h3 class='green'>We have a Sandbox to play in!</h3>
+  <p>If you're just starting out with the API and are worried about making any mistakes or lasting changes to your Live account, we've created a completely separate Sandbox environment for you to play with.</p>
+  <p>Just use <b class='dark-green-link'>sandbox.gonebusy.com</b> below instead of the Live <b class='dark-green-link'>beta.gonebusy.com</b> site, including where you login to retrieve your API key.</p>
+  <p>Have fun!</p>
+</section>
 <section class='anchor-container' id='step_1'>
   <h4>Step 1 - Obtain an API Key</h4>
   <p>To obtain an API Key, you must be registered as a GoneBusy User.</p>
@@ -41,6 +47,9 @@
   <p>Once registered with GoneBusy your own User account has been created for you.  As a Pro User, you can now make changes via API to your own User account as well as create/update other User accounts.</p>
   <p>For any User accounts that you create via API, you are the <a href='/faqs/account_management/basic_pro_account_manager'>Account Manager</a> for those User accounts.  Likewise, any User account created via API could also (after upgrading to a Pro account) obtain their own API Key and manage their own account as well as any additional User accounts that they create via the API.</p>
   <p>Here is a sample POST request to create a new User:</p>
+  <section class='protip'>
+    <p><b class='dark-green-link'>Remember:</b> Substitute <b class='dark-green-link'>sandbox.gonebusy.com</b> below if you are using the Sandbox.</p>
+  </section>
   <h3 class='green'>Request:</h3>
 {% highlight ruby %}
 http://beta.gonebusy.com/api/v1/users/new.json
