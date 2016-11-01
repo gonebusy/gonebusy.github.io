@@ -3,6 +3,7 @@
   <h1><a href="/" class="site-title" ><img alt="GONEBUSY" src="/images/gone-busy-logo.svg"></a></h1>
   <nav id="nav" ng-controller="DropdownController">
     <ul>
+      <li><a href="http://beta.gonebusy.com/pricing">Pricing</a></li>
       {% for link in site.data.navigation %}
         {% assign current = nil %}
         {% assign current_page = page.url|remove:'.html' %}
