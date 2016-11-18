@@ -39,7 +39,12 @@
     <li><p>From your user dashboard, find the "API Key" tab on the left-hand navigation bar.</p></li>
     <li><p>After agreeing to the Terms & Conditions of API access and usage, you will be issued an API Key.</p></li>
     <li><p>Keep this Key private.  If you lose the Key, or feel it has been compromised, you can request another Key, which will make any previous keys invalid.</p></li>
+    <li><p>Use the Key to construct an Authorization header for every request.</p></li>
   </ul>
+  <p>Example Authorization header:</p>
+{% highlight ruby %}
+  "Authorization": "Token ac98ed08b5b0a9e7c43a233aeba841ce"
+{% endhighlight %}
 </section>
 <section class='anchor-container push-down' id='step_2'>
   <h4>Step 2 - Create a User</h4>
@@ -60,8 +65,7 @@ http://beta.gonebusy.com/api/v1/users/new.json
   "last_name": "Tutor",
   "business_name": "Tutors-R-Us",
   "external_url": "tutors-r-us.sample.biz",
-  "timezone": "EST",
-  "api_key": "ac98ed08b5b0a9e7c43a233aeba841ce"
+  "timezone": "EST"
 {% endhighlight %}
   <h3 class='green push-down'>Response:</h3>
   <p>Here is the response to the request, note the ID of our new User:</p>
@@ -101,8 +105,7 @@ http://beta.gonebusy.com/api/v1/services/new.json
   "user_id": 54,
   "name": "LSAT/MCAT Tutoring",
   "description": "Tutoring for LSAT or MCAT exams. Available by the hour.",
-  "duration": 60,
-  "api_key": "ac98ed08b5b0a9e7c43a233aeba841ce"
+  "duration": 60
 {% endhighlight %}
   <h3 class='green push-down'>Response:</h3>
 {% highlight ruby %}
@@ -136,8 +139,7 @@ http://beta.gonebusy.com/api/v1/categories/new.json
   <p>with POST body:</p>
 {% highlight ruby %}
   "name" : "Graduate School Exam Preparation",
-  "description" : "Services related to preparing for graduate-level entrance exams such as LSAT, MCAT, etc.",
-  "api_key" : "ac98ed08b5b0a9e7c43a233aeba841ce"
+  "description" : "Services related to preparing for graduate-level entrance exams such as LSAT, MCAT, etc."
 {% endhighlight %}
   <h3 class='green push-down'>Response:</h3>
 {% highlight ruby %}
@@ -163,8 +165,7 @@ http://beta.gonebusy.com/api/v1/services/4183.json
 {% endhighlight %}
   <p>with PUT body:</p>
 {% highlight ruby %}
-  "categories" : "[ 23 ]",
-  "api_key" : "ac98ed08b5b0a9e7c43a233aeba841ce"
+  "categories" : "[ 23 ]"
 {% endhighlight %}
   <h3 class='green push-down'>Response:</h3>
 {% highlight ruby %}
@@ -199,8 +200,7 @@ http://beta.gonebusy.com/api/v1/pricing_models/new.json
   "type": "ByTheHour",
   "price": 50.0,
   "name": "Tutoring Hourly Rate",
-  "notes": "Applies to LSAT, MCAT, SAT as well",
-  "api_key": "ac98ed08b5b0a9e7c43a233aeba841ce"
+  "notes": "Applies to LSAT, MCAT, SAT as well"
 {% endhighlight %}
   <h3 class='green push-down'>Response:</h3>
 {% highlight ruby %}
@@ -225,8 +225,7 @@ http://beta.gonebusy.com/api/v1/services/4183.json
 {% endhighlight %}
   <p>with PUT body:</p>
 {% highlight ruby %}
-  "price_model_id": "126",
-  "api_key": "ac98ed08b5b0a9e7c43a233aeba841ce"
+  "price_model_id": "126"
 {% endhighlight %}
   <h3 class='green push-down'>Response:</h3>
 {% highlight ruby %}
@@ -267,8 +266,7 @@ http://beta.gonebusy.com/api/v1/schedules/new.json
   "start_time": "4pm",
   "end_time": "11pm",
   "recurs_by": "weekly",
-  "days": ["monday", "wednesday", "friday"],
-  "api_key": "ac98ed08b5b0a9e7c43a233aeba841ce"
+  "days": ["monday", "wednesday", "friday"]
 {% endhighlight %}
   <h3 class='green push-down'>Response:</h3>
 {% highlight ruby %}
