@@ -10,7 +10,6 @@
   <p><a ui-sref="users({'#' : 'get_users_id'})" class="route-link">Get User by ID</a></p>
   <p><a ui-sref="users({'#' : 'post_users_new'})" class="route-link">Create a User</a></p>
   <p><a ui-sref="users({'#' : 'put_users_id'})" class="route-link">Update a User</a></p>
-  <p><a ui-sref="users({'#' : 'put_users_id_register_pro'})" class="route-link">Register User as a Pro</a></p>
   <p><a ui-sref="users({'#' : 'get_users_id_request_password'})" class="route-link">Request Password for User</a></p>
   <p><a ui-sref="users({'#' : 'get_users_pros'})" class="route-link">Get Pro Users</a></p>
 </section>
@@ -179,39 +178,6 @@
       <td class="param">timezone</td>
       <td class="type">String</td>
       <td class="desc">Timezone acronym</td>
-      <td class="check"></td>
-    </tr>
-  </table>
-</section>
-<section>
-  <h4 id="put_users_id_register_pro">Register User as a Pro</h4>
-  <p>Upgrade a User by ID from a Basic to a Pro user.</p>
-{% highlight ruby %}
-  PUT /users/{id}/register_pro
-{% endhighlight %}
-  <table class="params">
-    <tr>
-      <th>Parameter</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required?</th>
-    </tr>
-    <tr>
-      <td class="param">id</td>
-      <td class="type">Integer</td>
-      <td class="desc">ID of User to register</td>
-      <td class="check"><i class="fa fa-check"></i></td>
-    </tr>
-    <tr>
-      <td class="param">business_name</td>
-      <td class="type">String</td>
-      <td class="desc">Name of business/organization</td>
-      <td class="check"><i class="fa fa-check"></i></td>
-    </tr>
-    <tr class="last">
-      <td class="param">external_url</td>
-      <td class="type">String</td>
-      <td class="desc">Website URL</td>
       <td class="check"></td>
     </tr>
   </table>
