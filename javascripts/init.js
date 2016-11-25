@@ -2,109 +2,58 @@
 ---
 (function($) {
 
-    skel.init({
-        reset: 'full',
+    skel.breakpoints({
+        xlarge: "(max-width: 1680px)",
+        large:  "(max-width: 1280px)",
+        medium: "(max-width: 980px)",
+        small:  "(max-width: 736px)",
+        xsmall: "(max-width: 480px)"
+    });
+
+    skel.layout({
+        reset: "full",
+        containers: true,
+        grid: true,
         breakpoints: {
-
-            // Global.
-            global: {
-                range: '*',
-                href: '/stylesheets/style.css',
-                containers: 1400,
-                grid: {
-                    gutters: {
-                        vertical: '4em',
-                        horizontal: 0
-                    }
-                }
-            },
-
-            // XLarge.
             xlarge: {
-                range: '-1680',
-                href: '/stylesheets/style-xlarge.css',
-                containers: 1200
+                containers: "90%"
             },
-
-            // Large.
             large: {
-                range: '-1280',
-                href: '/stylesheets/style-large.css',
-                containers: 960,
+                containers: "90%",
                 grid: {
-                    gutters: {
-                        vertical: '2.5em'
-                    }
-                },
-                viewport: {
-                    scalable: false
+                    gutters: [ '0', '2.5em' ]
                 }
             },
-
-            // Medium.
             medium: {
-                range: '-980',
-                href: '/stylesheets/style-medium.css',
-                containers: '90%',
-                grid: {
-                    collapse: 1
-                }
+                containers: "90%"
             },
-
-            // Small.
             small: {
-                range: '-736',
-                href: '/stylesheets/style-small.css',
-                containers: '90%',
+                containers: "95%",
                 grid: {
-                    gutters: {
-                        vertical: '1.25em'
-                    }
+                    gutters: [ '0', '1.25em' ]
                 }
             },
-
-            // XSmall.
             xsmall: {
-                range: '-480',
-                href: '/stylesheets/style-xsmall.css',
-                grid: {
-                    collapse: 2
-                }
+                grid: { gutters: 10 }
             }
+        }
+    });
 
-        },
-        plugins: {
-            layers: {
-
-                // Config.
-                config: {
-                    transform: true
-                },
-
-                // Navigation Panel.
-                navPanel: {
-                    animation: 'pushX',
-                    breakpoints: 'medium',
-                    clickToHide: true,
-                    height: '100%',
-                    hidden: true,
-                    html: '<div data-action="moveElement" data-args="nav"></div>',
-                    orientation: 'vertical',
-                    position: 'top-left',
-                    side: 'left',
-                    width: 250
-                },
-
-                // Navigation Button.
-                navButton: {
-                    breakpoints: 'medium',
-                    height: '4em',
-                    html: '<span class="toggle" data-action="toggleLayer" data-args="navPanel"></span>',
-                    position: 'top-left',
-                    side: 'top',
-                    width: '6em'
-                }
-
+    skel.viewport({
+        width: 1280,
+        scalable: true,
+        breakpoints: {
+            large: {
+                scalable: false
+            },
+            medium: {
+                width: "device-width"
+            },
+            small: {
+                width: "device-width"
+            },
+            xsmall: {
+                width: "device-width"
             }
         }
     });
