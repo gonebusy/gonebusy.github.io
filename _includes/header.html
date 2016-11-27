@@ -1,8 +1,11 @@
 <!-- Header -->
-<header id="header" class="skel-layers-fixed">
+<header id="header">
   <h1><a href="/" class="site-title" ><img alt="GONEBUSY" src="/images/gone-busy-logo.svg"></a></h1>
+  <div id="menu-icon" class="below-medium">
+    <a href="#nav"><i class="fa fa-bars"></i></a>
+  </div>
   <nav id="nav" ng-controller="DropdownController">
-    <ul>
+    <ul class="links">
       <li><a href="http://beta.gonebusy.com/pricing">Pricing</a></li>
       {% for link in site.data.navigation %}
         {% assign current = nil %}
@@ -23,7 +26,8 @@
           <li class="bottom" role="menuitem"><a href="http://beta.gonebusy.com">Production</a></li>
         </ul>
       </li>
-      <li><a href="http://beta.gonebusy.com/login" class="button alt" target="_blank">Sign Up</a></li>
+      <li class="above-medium"><a href="http://beta.gonebusy.com/login" class="button alt" target="_blank">Sign Up</a></li>
+      <li class="below-medium"><a href="http://beta.gonebusy.com/login" class="button big special" target="_blank">Sign Up</a></li>
     </ul>
   </nav>
 </header>

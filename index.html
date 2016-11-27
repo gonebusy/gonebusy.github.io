@@ -9,7 +9,7 @@ keywords: GoneBusy, booking, platform, api, developers, portal, reference, guide
 <section id="one" class="wrapper style1">
   <div class="container">
     <div class="row">
-      <div class="4u push-bottom">
+      <div class="4u 12u$(medium) push-bottom">
         <section class="special">
           <i class="image fit"><img class="icon major rocket" src="../images/icon-rocket.svg" alt="Get Started"></i>
           <ul class="actions">
@@ -18,7 +18,7 @@ keywords: GoneBusy, booking, platform, api, developers, portal, reference, guide
           <p class="narrow">Create your first booking in a few simple steps.</p>
         </section>
       </div>
-      <div class="4u push-bottom">
+      <div class="4u 12u$(medium) push-bottom">
         <section class="special">
           <i class="image fit"><img class="icon major plug" src="../images/icon-plug.svg" alt="Libraries"></i>
           <ul class="actions">
@@ -27,7 +27,7 @@ keywords: GoneBusy, booking, platform, api, developers, portal, reference, guide
           <p class="narrow">Prefer pre-built libraries? Find them here.</p>
         </section>
       </div>
-      <div class="4u push-bottom">
+      <div class="4u 12u$(medium) push-bottom">
         <section class="special">
           <i class="image fit"><img class="icon major ring" src="../images/icon-ring.svg" alt="Support"></i>
           <ul class="actions">
@@ -42,10 +42,10 @@ keywords: GoneBusy, booking, platform, api, developers, portal, reference, guide
 
 <!-- Two -->
 <section id="two" class="wrapper style2">
-  <header class="major">
-    <h2>Get Started With GoneBusy</h2>
-  </header>
   <div class="container">
+    <header class="major">
+      <h2>Get Started With GoneBusy</h2>
+    </header>
     <div class="row">
       <div class="12u">
         <section class="special">
@@ -54,7 +54,7 @@ keywords: GoneBusy, booking, platform, api, developers, portal, reference, guide
           <p><a href="#">Sign Up</a> and become a Pro User to obtain an API Key.</p>
           <p>API Keys look like this: </p>
           <div class="row">
-            <div class="8u -2u">
+            <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
 ac98ed08b5b0a9e7c43a233aeba841ce
 {% endhighlight %}
@@ -70,7 +70,7 @@ ac98ed08b5b0a9e7c43a233aeba841ce
           <h3>Configure Your Client</h3>
           <p>Here we use the Ruby SDK to configure our API Key:</p>
           <div class="row">
-            <div class="8u -2u">
+            <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
 GoneBusy::Configuration.api_key = ac98ed08b5b0a9e7c43a233aeba841ce
 {% endhighlight %}
@@ -86,7 +86,7 @@ GoneBusy::Configuration.api_key = ac98ed08b5b0a9e7c43a233aeba841ce
           <h3>Create a Service or Activity</h3>
           <p>Create the Service or Activity that you would like your clients to book:</p>
           <div class="row">
-            <div class="8u -2u">
+            <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
 service = GoneBusy::Service.create(name: 'Executive Car Wash',
                                    duration: 30,
@@ -104,7 +104,7 @@ service = GoneBusy::Service.create(name: 'Executive Car Wash',
           <h3>Create a Schedule</h3>
           <p>Create a Schedule for your new Service:</p>
           <div class="row">
-            <div class="8u -2u">
+            <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
 GoneBusy::Schedule.create(service,
                           start_date: '2016-02-01',
@@ -126,7 +126,7 @@ GoneBusy::Schedule.create(service,
           <h3>Check Your Work!</h3>
           <p>Let's check our work by Searching for available time for our Service:</p>
           <div class="row">
-            <div class="8u -2u">
+            <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
 slots_result = GoneBusy::Service.available_slots(service, date: '2016-03-11')
 
@@ -153,20 +153,20 @@ puts slots_result
 <section id="three" class="wrapper style1">
   <div class="container" id="subscribe">
     <div class="row">
-      <div class="6u">
+      <div class="6u 12u$(medium)">
         <section>
           <p class="vertical-center">Subscribe to stay up to date on new features, bug fixes, and API updates! We respect your <a href="http://beta.gonebusy.com/privacy_policy">privacy</a>.</p>
         </section>
       </div>
-      <div class="6u">
+      <div class="6u 12u$(medium) ">
         <section class="subscribe-form-container">
           <form id="subscribeForm" action="">
             <div class="row">
-              <div class="8u closer-left">
+              <div class="7u 12u$(medium)">
                 <input type="email" class="vertical-center" id="email" placeholder="Your Email Address" required></input>
                 <input type="text" id="gotcha" style="display:none;" />
               </div>
-              <div class="4u closer-left">
+              <div class="-1u 4u 12u$(medium) align-center">
                 <a type="submit" class="button big special" id="submit">Subscribe</a>
               </div>
             </div>
