@@ -1512,6 +1512,15 @@ input[type="button"]:disabled,
     display: none !important;
 }
 
+.dropdown-menu {
+    min-width: 135px;
+
+    li {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 980px) {
     a#submit {
         min-width: 16em;
