@@ -11,8 +11,8 @@
     });
 
     skel.layout({
-        reset: "full",
-        containers: true,
+        reset: "normalize",
+        containers: 1200,
         grid: true,
         breakpoints: {
             xlarge: {
@@ -112,26 +112,26 @@
 
         // Nav.
         var $nav = document.querySelector('#nav'),
-	    $navToggle = document.querySelector('a[href="#nav"]'),
-	    $navClose;
+            $navToggle = document.querySelector('a[href="#nav"]'),
+            $navClose;
 
         // Event: Prevent clicks/taps inside the nav from bubbling.
         addEventsListener($nav, 'click touchend', function(event) {
-	    event.stopPropagation();
+            event.stopPropagation();
         });
 
         // Event: Hide nav on body click/tap.
         addEventsListener($body, 'click touchend', function(event) {
-	    $nav.classList.remove('visible');
+            $nav.classList.remove('visible');
         });
 
         // Toggle.
 
         // Event: Toggle nav on click.
         $navToggle.addEventListener('click', function(event) {
-	    event.preventDefault();
-	    event.stopPropagation();
-	    $nav.classList.toggle('visible');
+            event.preventDefault();
+            event.stopPropagation();
+            $nav.classList.toggle('visible');
         });
 
         // Close.
@@ -145,15 +145,15 @@
 
         // Event: Hide on ESC.
         window.addEventListener('keydown', function(event) {
-	    if (event.keyCode == 27)
-	        $nav.classList.remove('visible');
+            if (event.keyCode == 27)
+                $nav.classList.remove('visible');
         });
 
         // Event: Hide nav on click.
         $navClose.addEventListener('click', function(event) {
-	    event.preventDefault();
-	    event.stopPropagation();
-	    $nav.classList.remove('visible');
+            event.preventDefault();
+            event.stopPropagation();
+            $nav.classList.remove('visible');
         });
 
     });

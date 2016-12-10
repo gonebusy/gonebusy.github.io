@@ -88,9 +88,11 @@ GoneBusy::Configuration.api_key = ac98ed08b5b0a9e7c43a233aeba841ce
           <div class="row">
             <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
-service = GoneBusy::Service.create(name: 'Executive Car Wash',
-                                   duration: 30,
-                                   description: 'Get your car washed by executives.')
+service = GoneBusy::Service.create(
+    name: 'Executive Car Wash',
+    duration: 30,
+    description: 'Get your car washed by executives.'
+)
 {% endhighlight %}
             </div>
           </div>
@@ -106,13 +108,15 @@ service = GoneBusy::Service.create(name: 'Executive Car Wash',
           <div class="row">
             <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
-GoneBusy::Schedule.create(service,
-                          start_date: '2016-02-01',
-                          end_date: '2016-03-31',
-                          start_time: '12pm',
-                          end_time: '2pm',
-                          days: ['monday', 'wednesday', 'friday'],
-                          recurs_by: 'weekly')
+GoneBusy::Schedule.create(
+    service,
+    start_date: '2016-02-01',
+    end_date: '2016-03-31',
+    start_time: '12pm',
+    end_time: '2pm',
+    days: ['monday', 'wednesday', 'friday'],
+    recurs_by: 'weekly'
+)
 {% endhighlight %}
             </div>
           </div>
@@ -128,7 +132,10 @@ GoneBusy::Schedule.create(service,
           <div class="row">
             <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
-slots_result = GoneBusy::Service.available_slots(service, date: '2016-03-11')
+slots_result = GoneBusy::Service.available_slots(
+    service,
+    date: '2016-03-11'
+)
 
 puts slots_result
 
