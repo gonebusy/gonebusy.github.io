@@ -3,15 +3,13 @@
 <h2 class="reference-heading">Users</h2>
 <section>
   <p>Users are the people that participate on GoneBusy. If you haven't done so already, take a look at our explanation of how Users interact with GoneBusy on the "How GoneBusy Works" page.</p>
-  <p>The API allows a Pro User to manage themselves or an Account Manager to operate on managed users in order to offer services, schedule availability, and various other operations.</p>
+  <p>The API allows a User to manage themselves or an Account Manager to operate on managed users in order to offer services, schedule availability, and various other operations.</p>
 </section>
 <section>
   <p class="more-top"><a ui-sref="users({'#' : 'get_users'})" class="route-link">Get Users</a></p>
   <p><a ui-sref="users({'#' : 'get_users_id'})" class="route-link">Get User by ID</a></p>
   <p><a ui-sref="users({'#' : 'post_users_new'})" class="route-link">Create a User</a></p>
   <p><a ui-sref="users({'#' : 'put_users_id'})" class="route-link">Update a User</a></p>
-  <p><a ui-sref="users({'#' : 'get_users_id_request_password'})" class="route-link">Request Password for User</a></p>
-  <p><a ui-sref="users({'#' : 'get_users_pros'})" class="route-link">Get Pro Users</a></p>
 </section>
 <hr />
 <section>
@@ -178,48 +176,6 @@
       <td class="param">timezone</td>
       <td class="type">String</td>
       <td class="desc">Timezone acronym</td>
-      <td class="check"></td>
-    </tr>
-  </table>
-</section>
-<section>
-  <h4 id="get_users_id_request_password">Request Password for User</h4>
-  <p>This will send a Reset Password email to the specified User’s email address containing a link where they can reset their password. This will return all Users that are currently Pro Users, for which you are the Account Manager, including your own account.</p>
-{% highlight ruby %}
-  GET /users/{id}/request_password
-{% endhighlight %}
-  <table class="params">
-    <tr>
-      <th>Parameter</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required?</th>
-    </tr>
-    <tr class="last">
-      <td class="param">id</td>
-      <td class="type">Integer</td>
-      <td class="desc">ID of User to request password for</td>
-      <td class="check"><i class="fa fa-check"></i></td>
-    </tr>
-  </table>
-</section>
-<section>
-  <h4 id="get_users_pros">Get Pro Users</h4>
-  <p>This will return all Users that are currently Pro Users, for which you are the Account Manager, including your own account.</p>
-{% highlight ruby %}
-  GET /users/pros
-{% endhighlight %}
-  <table class="params">
-    <tr>
-      <th>Parameter</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Required?</th>
-    </tr>
-    <tr class="last">
-      <td class="param"></td>
-      <td class="type"></td>
-      <td class="desc">No parameters</td>
       <td class="check"></td>
     </tr>
   </table>
