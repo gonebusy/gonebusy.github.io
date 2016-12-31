@@ -1,0 +1,53 @@
+---
+---
+<h2 class="reference-heading">Creating More Users</h2>
+<section>
+  <p>Once registered with GoneBusy your own User account has been created for you.  You can now make changes via API to your own User account as well as create/update other User accounts.</p>
+  <p>For any User accounts that you create via API, you are the <a href='/faqs/account_management/basic_pro_account_manager'>Account Manager</a> for those User accounts.</p>
+  <p>Likewise, any User account created via API could also obtain their own API Key and manage their own account as well as any additional User accounts that they create via the API.</p>
+</section>
+<hr />
+<section class='anchor-container push-down'>
+  <h4>Create a User</h4>
+  <p>Here is a sample POST request to create a new User:</p>
+  <section class='protip'>
+    <p><b class='dark-green-link'>Remember:</b> Substitute <b class='dark-green-link'>sandbox.gonebusy.com</b> below if you are using the Sandbox.</p>
+  </section>
+  <h3 class='green'>Request:</h3>
+{% highlight ruby %}
+http://beta.gonebusy.com/api/v1/users/new.json
+{% endhighlight %}
+  <p>with POST body:</p>
+{% highlight ruby %}
+  "email" : "tutor@youremail.com",
+  "first_name" : "Private",
+  "last_name": "Tutor",
+  "business_name": "Tutors-R-Us",
+  "external_url": "tutors-r-us.sample.biz",
+  "timezone": "EST"
+{% endhighlight %}
+  <h3 class='green push-down'>Response:</h3>
+  <p>Here is the response to the request, note the ID of our new User:</p>
+{% highlight ruby %}
+  "Status": "201 Created"
+
+  {
+    "user": {
+      "id": 54,
+      "email": "tutor@youremail.com",
+      "first_name": "Private",
+      "last_name": "Tutor",
+      "disabled": false,
+      "business_name": "Tutors-R-Us",
+      "external_url": "tutors-r-us.sample.biz",
+      "permalink": null,
+      "timezone": "EST",
+      "created_at": "2014-10-04T19:46:26Z",
+      "updated_at": "2014-10-04T19:46:26Z",
+      "resource_id": 267,
+      "account_manager_id": 22,
+      "address": null
+    }
+  }
+{% endhighlight %}
+</section>
