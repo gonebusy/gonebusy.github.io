@@ -29,8 +29,8 @@ gbApp.controller('TabsController', function ($scope) {
 
     $scope.guide_links = [
         { name: 'Overview', partial: 'overview' },
-        { name: 'Getting Started', partial: 'getting_started' },
-        { name: 'Entities', partial: 'entities' }
+        { name: 'Entities', partial: 'entities' },
+        { name: 'Getting Started', partial: 'getting_started' }
     ];
 
     $scope.reference_links = [

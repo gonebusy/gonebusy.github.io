@@ -12,24 +12,23 @@
   <h3><a ui-sref="entities({'#' : 'resources'})">Resources</a></h3>
   <h3><a ui-sref="entities({'#' : 'schedules'})">Schedules</a></h3>
   <h3><a ui-sref="entities({'#' : 'search'})">Search Results</a></h3>
-  <h3><a ui-sref="entities({'#' : 'services'})">Services/Activities</a></h3>
+  <h3><a ui-sref="entities({'#' : 'services'})">Services</a></h3>
   <h3><a ui-sref="entities({'#' : 'users'})">Users</a></h3>
 </section>
 <hr />
 <section class='anchor-container' id='bookings'>
   <h4>Bookings</h4>
-  <p>The main goal of GoneBusy is to connect users with each other via bookings.  A Booking represents the commitment by one user to attend a Service/Activity of another user at a particular time.  The API allows the creation and management of Bookings.</p>
+  <p>The main goal of GoneBusy is to connect users with each other via bookings.  A Booking represents the commitment by one user to attend a Service of another user at a particular time.  The API allows the creation and management of Bookings.</p>
   <p>You can find all supported operations on the <a ui-sref="bookings({'#' : 'top'})">Bookings API page</a>.</p>
 </section>
 <section class='anchor-container push-down' id='categories'>
   <h4>Categories</h4>
-  <p>Categories are a way of organizing or tagging available Services/Activities.</p>
+  <p>Categories are a way of organizing or tagging available Services.</p>
   <p>You can find all supported operations on the <a ui-sref="categories({'#' : 'top'})">Categories API page</a>.</p>
 </section>
 <section class='anchor-container push-down' id='resources'>
   <h4>Resources</h4>
-  <p>Resources are what actually provide Services/Activities.  By default, a Basic User is a Resource for their own Services/Activities (recall that a Basic User can only offer free Activities while a Pro User can charge a fee for their Services).  Pro Users are able to create additional Resources for Services, besides just offering Services themselves.</p>
-  <p>The following types of Resources may be created:</p>
+  <p>Resources are what actually provide Services.  By default, every User is a Person Resource for their own Services.  You can create additional types of Resources for Services via the API.</p>
   <h3>Types of Resources</h3>
   <p>The following are the currently supported types of Resouces.  If you have an idea for a Resource that can not be accommodated by any of the types below, please <a href="http://beta.gonebusy.com/contact_us">Contact Us</a>.</p>
   <ul class="alt tight">
@@ -75,22 +74,23 @@
   <p>You can find all supported operations on the <a ui-sref="resources({'#' : 'top'})">Resources API page</a>.</p>
 </section>
 <section class='anchor-container push-down' id='services'>
-  <h4>Services/Activities</h4>
-  <p>Bookings on GoneBusy would not be possible without users offering their Services/Activities.  Services can be anything that someone, or a group of professionals at a business, offers for a fee that requires a time commitment.  Activities also require a time commitment but don’t require charging a fee – for instance, Activities are things one shares with friends.</p>
+  <h4>Services</h4>
+  <p>Bookings on GoneBusy would not be possible without users offering Services.  Services can be anything that a Resource performs, or provides, at a specific time for a particular duration.</p>
+  <p>Services can have a fixed duration when offered for booking, such as "1 Hour of Tutoring", or they can be booked in increments, such as a per-hour "Dogwalking" service.  Whether a Service has a fixed duration or can be booked in increments of time is determined by it's PricingModel.</p>
   <p>Follow this link for an example on <a ui-sref="getting_started">how to create a Service</a>.</p>
   <p>You can find all supported operations on the <a ui-sref="services({'#' : 'top'})">Services API page</a>.</p>
 </section>
 <section class='anchor-container push-down' id='pricing_models'>
   <h4>PricingModels</h4>
-  <p>Each Service a User offers must have a PricingModel associated with it in order to specify how to charge for the Service.  There are several types of PricingModels, including “Activity” which means the Service is actually an Activity that has no charge Associated with it.</p>
-  <p>When a Service is created without specifying a PricingModel, by default it will have an Activity PricingModel Associated with it.  To create a new PricingModel, one must specify the type of PricingModel (see below) along with any additional attributes the specific PricingModel requires.</p>
-  <p>There are several types of PricingModels that can be assigned to a Service.  If you have a need to price a Service/Activity in a manner that is not accommodated by any of the PricingModels below, please let us know and we’ll be happy to assist you with creating a new PricingModel if necessary.</p>
+  <p>Each Service must have a PricingModel associated with it in order to specify how to charge for the Service.  There are several types of PricingModels that can be assigned to a Service.</p>
+  <p>When a Service is created without specifying a PricingModel, by default it will have an Activity PricingModel associated with it.  To create a new PricingModel, one must specify the type of PricingModel (see below) along with any additional attributes the specific PricingModel requires.</p>
+  <p>If you have a need to price a Service in a manner that is not accommodated by any of the PricingModels below, please let us know and we’ll be happy to assist you with creating a new PricingModel if necessary.</p>
   <p>You can find all supported operations on the <a ui-sref="pricing_models({'#' : 'top'})">Pricing Models API page</a>.</p>
 </section>
 <section class='anchor-container push-down' id='pricing_model_types'>
   <h4>Types of PricingModels</h4>
   <ul class="alt tight">
-    <li><p><span class="type">Activity</span> &mdash; when a Service is free of charge, such as an Activity you only share with friends, you can specify the Activity type when creating a PricingModel for the Service.</p>
+    <li><p><span class="type">Activity</span> &mdash; when a Service is free of charge, such as an activity you only share with friends or work colleagues, you can specify the Activity PricingModel.  Note that this is the default PricingModel associated with a new Service upon creation.</p>
       <div class="attributes">
         <table class="params">
           <tr class="first">
@@ -231,12 +231,12 @@
 </section>
 <section class='anchor-container push-down' id='search'>
   <h4>Search Results</h4>
-  <p>GoneBusy offers a fully featured Search API for retrieving Services/Activities that meet search criteria such as Category name, geographic distance, rating, price, etc.</p>
+  <p>GoneBusy offers a fully featured Search API for retrieving Services that meet search criteria such as Category name, geographic distance, rating, price, etc.</p>
   <p>You can find all supported operations on the <a ui-sref="search({'#' : 'top'})">Search API page</a>.</p>
 </section>
 <section class='anchor-container push-down' id='users'>
   <h4>Users</h4>
   <p>Users are the people that participate on GoneBusy.  If you haven't done so already, take a look at our explanation of how Users interact with GoneBusy on the <a ui-sref="overview({'#' : 'top'})">Overview</a> page.</p>
-  <p>The API allows a Pro User to manage themselves or an Account Manager to operate on managed users in order to offer services, schedule availability, and various other operations.</p>
+  <p>The API allows a User to manage themselves or an Account Manager to operate on managed users in order to offer services, schedule availability, and various other operations.</p>
   <p>You can find all supported operations on the <a ui-sref="users({'#' : 'top'})">Users API page</a>.</p>
 </section>
