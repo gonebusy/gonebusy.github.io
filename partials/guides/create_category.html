@@ -1,0 +1,68 @@
+---
+---
+<h2 class="reference-heading">How to Use Categories</h2>
+<section>
+  <p>By default, when Services are created they are not associated with any Categories.  Categories can be useful in order for your Users to be able search for Services by Category.</p>
+  <p>Before creating a Service, we can search for Categories that already exist in the system and specify the IDs of desired Categories at the time of Service creation.</p>
+  <p>We can also make our own Category as follows.</p>
+</section>
+<hr />
+<section class='anchor-container push-down'>
+  <h4>Create a Category and associate with Service</h4>
+  <p>Here is a sample POST request to create a Category:</p>
+  <h3 class="green">Request:</h3>
+{% highlight ruby %}
+http://beta.gonebusy.com/api/v1/categories/new.json
+{% endhighlight %}
+  <p class='code request indent'></p>
+  <p>with POST body:</p>
+{% highlight ruby %}
+  "name" : "Graduate School Exam Preparation",
+  "description" : "Services related to preparing for graduate-level entrance exams such as LSAT, MCAT, etc."
+{% endhighlight %}
+  <h3 class='green push-down'>Response:</h3>
+{% highlight ruby %}
+  "Status": "201 Created"
+
+  {
+    "category": {
+      "id": 23,
+      "name": "Graduate School Exam Preparation",
+      "short_name": null,
+      "long_name": null,
+      "description": "Service related to preparing for graduate-level entrance exams such as LSAT, MCAT, etc.",
+      "parent_category_id": null,
+      "is_active": true,
+      "subcategories": [ ]
+    }
+  }
+{% endhighlight %}
+  <p>We can now assign a recently created Service to this Category.  You can assign multiple Categories at once with a comma-delimited list of Category IDs, or just provide a single Category ID.</p>
+  <h3 class="green">Request:</h3>
+{% highlight ruby %}
+http://beta.gonebusy.com/api/v1/services/4183.json
+{% endhighlight %}
+  <p>with PUT body:</p>
+{% highlight ruby %}
+  "categories" : "[ 23 ]"
+{% endhighlight %}
+  <h3 class='green push-down'>Response:</h3>
+{% highlight ruby %}
+  "Status": "200 OK"
+
+  {
+    "service": {
+      "id": 4183,
+      "owner_id": 54,
+      "resources": [ 267 ],
+      "name": "LSAT/MCAT Tutoring",
+      "short_name": null,
+      "duration": 60,
+      "description": "Tutoring for LSAT or MCAT exams. Available by the hour.",
+      "price_model_id": null,
+      "is_active": true,
+      "categories": [ 23 ]
+    }
+  }
+{% endhighlight %}
+</section>

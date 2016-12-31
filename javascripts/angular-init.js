@@ -30,7 +30,10 @@ gbApp.controller('TabsController', function ($scope) {
     $scope.guide_links = [
         { name: 'Overview', partial: 'overview' },
         { name: 'Entities', partial: 'entities' },
-        { name: 'Getting Started', partial: 'getting_started' }
+        { name: 'Quick Start', partial: 'quick_start' },
+        { name: 'How to Use Categories', partial: 'create_category' },
+        { name: 'How to Use Pricing Models', partial: 'create_pricing_model' },
+        { name: 'Creating More Users', partial: 'create_user' },
     ];
 
     $scope.reference_links = [
@@ -67,14 +70,29 @@ gbApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, $ui
             templateUrl: "/partials/guides/overview.html",
             data : { activeTab : 0 }
         })
-        .state('getting_started', {
-            url: '/getting_started',
-            templateUrl: "/partials/guides/getting_started.html",
-            data : { activeTab : 0 }
-        })
         .state('entities', {
             url: '/entities',
             templateUrl: "/partials/guides/entities.html",
+            data : { activeTab : 0 }
+        })
+        .state('quick_start', {
+            url: '/quick_start',
+            templateUrl: "/partials/guides/quick_start.html",
+            data : { activeTab : 0 }
+        })
+        .state('create_category', {
+            url: '/create_category',
+            templateUrl: "/partials/guides/create_category.html",
+            data : { activeTab : 0 }
+        })
+        .state('create_pricing_model', {
+            url: '/create_pricing_model',
+            templateUrl: "/partials/guides/create_pricing_model.html",
+            data : { activeTab : 0 }
+        })
+        .state('create_user', {
+            url: '/create_user',
+            templateUrl: "/partials/guides/create_user.html",
             data : { activeTab : 0 }
         })
         .state('bookings', {
