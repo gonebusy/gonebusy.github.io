@@ -1420,6 +1420,11 @@ input[type="button"]:disabled,
     display: block;
     padding: 16px;
     color: $light-blue;
+
+    &.nested {
+        font-size: 16px;
+        padding-left: 48px;
+    }
 }
 
 .side-nav .docs-nav-wrap > li > a.active {
