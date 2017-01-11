@@ -33,6 +33,11 @@ gbApp.controller('TabsController', function ($scope) {
         { name: 'Quick Start', partial: 'quick_start' },
         { name: 'How to Use Categories', partial: 'create_category' },
         { name: 'How to Use Pricing Models', partial: 'create_pricing_model' },
+        { name: 'Types of Pricing Models', partial: 'types_of_pricing_models', classes: 'nested' },
+        { name: 'Managing Schedules', partial: 'manage_schedules' },
+        { name: 'Examples of Frequency', partial: 'examples_frequency', classes: 'nested' },
+        { name: 'Examples of Recurs By', partial: 'examples_recurs_by', classes: 'nested' },
+        { name: 'Examples of Occurrence', partial: 'examples_occurrence', classes: 'nested' },
         { name: 'Creating More Users', partial: 'create_user' },
     ];
 
@@ -88,6 +93,31 @@ gbApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, $ui
         .state('create_pricing_model', {
             url: '/create_pricing_model',
             templateUrl: "/partials/guides/create_pricing_model.html",
+            data : { activeTab : 0 }
+        })
+        .state('types_of_pricing_models', {
+            url: '/types_of_pricing_models',
+            templateUrl: "/partials/guides/types_of_pricing_models.html",
+            data : { activeTab : 0 }
+        })
+        .state('manage_schedules', {
+            url: '/manage_schedules',
+            templateUrl: "/partials/guides/manage_schedules.html",
+            data : { activeTab : 0 }
+        })
+        .state('examples_frequency', {
+            url: '/frequency_examples',
+            templateUrl: "/partials/guides/examples_frequency.html",
+            data : { activeTab : 0 }
+        })
+        .state('examples_recurs_by', {
+            url: '/recurs_by_examples',
+            templateUrl: "/partials/guides/examples_recurs_by.html",
+            data : { activeTab : 0 }
+        })
+        .state('examples_occurrence', {
+            url: '/occurrence_examples',
+            templateUrl: "/partials/guides/examples_occurrence.html",
             data : { activeTab : 0 }
         })
         .state('create_user', {

@@ -23,7 +23,7 @@ keywords: GoneBusy, booking, platform, api, developers, portal, reference, guide
               <section class="side-nav">
                 <div class="docs-nav">
                   <div class="docs-nav-wrap" ng-repeat="link in guide_links">
-                    <li><a ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
+                    <li><a ng-class="link.classes" ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
                   </div>
                 </div>
               </section>
@@ -31,7 +31,7 @@ keywords: GoneBusy, booking, platform, api, developers, portal, reference, guide
               <section class="side-nav">
                 <div class="docs-nav">
                   <div class="docs-nav-wrap" ng-repeat="link in reference_links">
-                    <li><a ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
+                    <li><a ng-class="link.classes" ui-sref="{% raw %}{{ link.partial }}{% endraw %}" ui-sref-active="active">{% raw %}{{ link.name }}{% endraw %}</a></li>
                   </div>
                 </div>
               </section>

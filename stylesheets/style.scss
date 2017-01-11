@@ -1157,6 +1157,11 @@ input[type="button"]:disabled,
 .wrapper.style3 h5 {
     @extend h3;
     font-weight: normal;
+
+    p {
+        display: inline;
+        margin-left: 5px;
+    }
 }
 
 .wrapper.style3 h6 {
@@ -1420,6 +1425,11 @@ input[type="button"]:disabled,
     display: block;
     padding: 16px;
     color: $light-blue;
+
+    &.nested {
+        font-size: 16px;
+        padding-left: 48px;
+    }
 }
 
 .side-nav .docs-nav-wrap > li > a.active {

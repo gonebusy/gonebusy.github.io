@@ -1,0 +1,141 @@
+---
+---
+<h2 class="reference-heading">Types of Pricing Models</h2>
+<section>
+  <p>Pricing Models are associated with Services in order to determine how bookings for the Service will be billed.  Additionally, the rate defined by the Pricing Model is shown to customers when viewing advertised Services.</p>
+  <p>There are currently 4 different types of Pricing Models supported, each of which are described below.</p>
+  <h5 class="push-down">
+    <a ui-sref="types_of_pricing_models({'#' : 'activity'})">Activity</a><p>&ndash; represents a Service that is offered free of charge.  Examples of this type of Service would be Meetings, Book Club, Girls Night Out, etc.  By default, when Services are created without specifying an existing Pricing Model, an Activity Pricing Model is created and associated with the Service.</p>
+  </h5>
+  <h5>
+    <a ui-sref="types_of_pricing_models({'#' : 'by_the_hour'})">By The Hour</a><p>&ndash; used to specify the hourly rate to charge for Services.  Services may still be booked for increments of less or more than an hour, if so desired.</p>
+  </h5>
+  <h5>
+    <a ui-sref="types_of_pricing_models({'#' : 'by_the_minute'})">By The Minute</a><p>&ndash; used to specify the minute rate to charge for Services.  Use this Pricing Model for Services that require fine-grained billing such as Customer Support, Incident Response, etc.</p>
+  </h5>
+  <h5>
+    <a ui-sref="types_of_pricing_models({'#' : 'fixed_price'})">Fixed Price</a><p>&ndash; used to specify a fixed rate to charge for Services, regardless of the length of the booking.  This pricing model is useful for Services that represent projects or jobs that require a flat fee.</p>
+  </h5>
+  <p>If you need to price a Service in a manner that is not accommodated by any of the currently available PricingModels, please let us know and we’ll be happy to assist you in creating a new PricingModel if necessary.</p>
+</section>
+<hr />
+<section class='anchor-container' id='activity'>
+  <h4>Activity</h4>
+  <p>Sample POST request to create an Activity PricingModel:</p>
+  <h3 class="green">Request:</h3>
+{% highlight ruby %}
+http://beta.gonebusy.com/api/v1/pricing_models/new.json
+{% endhighlight %}
+  <p>with POST body:</p>
+{% highlight ruby %}
+  "type": "Activity",
+  "name": "Weekly Update Meeting",
+{% endhighlight %}
+  <h3 class='green push-down'>Response:</h3>
+{% highlight ruby %}
+  "Status": "201 Created"
+
+  {
+    "pricing_model": {
+      "id": 125,
+      "owner_id": 54,
+      "name": "Weekly Update Meeting",
+      "notes": "",
+      "pricing_model_type": "Activity"
+    }
+  }
+{% endhighlight %}
+</section>
+<section class='anchor-container' id='by_the_hour'>
+  <h4>By The Hour</h4>
+  <p>Sample POST request to create a ByTheHour PricingModel:</p>
+  <h3 class="green">Request:</h3>
+{% highlight ruby %}
+http://beta.gonebusy.com/api/v1/pricing_models/new.json
+{% endhighlight %}
+  <p>with POST body:</p>
+{% highlight ruby %}
+  "type": "ByTheHour",
+  "price": 50.0,
+  "name": "Tutoring Hourly Rate",
+  "notes": "Only portions of an hour are billed."
+{% endhighlight %}
+  <h3 class='green push-down'>Response:</h3>
+{% highlight ruby %}
+  "Status": "201 Created"
+
+  {
+    "pricing_model": {
+      "id": 126,
+      "owner_id": 54,
+      "name": "Tutoring Hourly Rate",
+      "price": 50.0,
+      "currency": "USD",
+      "notes": "Only portions of an hour are billed.",
+      "pricing_model_type": "ByTheHour"
+    }
+  }
+{% endhighlight %}
+</section>
+<section class='anchor-container' id='by_the_minute'>
+  <h4>By The Minute</h4>
+  <p>Sample POST request to create a ByTheMinute PricingModel:</p>
+  <h3 class="green">Request:</h3>
+{% highlight ruby %}
+http://beta.gonebusy.com/api/v1/pricing_models/new.json
+{% endhighlight %}
+  <p>with POST body:</p>
+{% highlight ruby %}
+  "type": "ByTheMinute",
+  "price": 2.0,
+  "name": "Answering Service",
+  "notes": "You are billed only for minutes used."
+{% endhighlight %}
+  <h3 class='green push-down'>Response:</h3>
+{% highlight ruby %}
+  "Status": "201 Created"
+
+  {
+    "pricing_model": {
+      "id": 127,
+      "owner_id": 54,
+      "name": "Answering Service",
+      "price": 2.0,
+      "currency": "USD",
+      "notes": "You are billed only for minutes used.",
+      "pricing_model_type": "ByTheMinute"
+    }
+  }
+{% endhighlight %}
+</section>
+<section class='anchor-container' id='fixed_price'>
+  <h4>Fixed Price</h4>
+  <p>Sample POST request to create a FixedPrice PricingModel:</p>
+  <h3 class="green">Request:</h3>
+{% highlight ruby %}
+http://beta.gonebusy.com/api/v1/pricing_models/new.json
+{% endhighlight %}
+  <p>with POST body:</p>
+{% highlight ruby %}
+  "type": "FixedPrice",
+  "price": 250.0,
+  "name": "Appliance Installation",
+  "notes": "Flat rate for installation, setup, and training."
+{% endhighlight %}
+  <h3 class='green push-down'>Response:</h3>
+{% highlight ruby %}
+  "Status": "201 Created"
+
+  {
+    "pricing_model": {
+      "id": 128,
+      "owner_id": 54,
+      "name": "Appliance Installation",
+      "price": 250.0,
+      "currency": "USD",
+      "notes": "Flat rate for installation, setup, and training.",
+      "pricing_model_type": "FixedPrice"
+    }
+  }
+{% endhighlight %}
+</section>
