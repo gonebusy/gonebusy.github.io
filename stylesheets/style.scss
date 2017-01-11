@@ -1157,6 +1157,11 @@ input[type="button"]:disabled,
 .wrapper.style3 h5 {
     @extend h3;
     font-weight: normal;
+
+    p {
+        display: inline;
+        margin-left: 5px;
+    }
 }
 
 .wrapper.style3 h6 {

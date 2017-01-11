@@ -2,13 +2,15 @@
 ---
 <h2 class="reference-heading">How to Use Pricing Models</h2>
 <section>
-  <p>Getting started using the API to make a User with Services that are advertised on GoneBusy can be done in as few as 4 steps.  Use this walk-through to get up and running:</p>
+  <p>By default, when Services are created they have Activity pricing if no PricingModel is specified.  Activity pricing means the Service must be offered at no charge.  If we want to charge for our new Service, let’s create an appropriate PricingModel.</p>
+  <p>You can find a discussion of all currently available Pricing Models under <a ui-sref="types_of_pricing_models">Types of Pricing Models</a>.</p>
+  <p>For the full list of Pricing Model creation parameters see <a ui-sref="pricing_models({'#' : 'post_pricing_models_new'})">POST /pricing_models/new</a>.</p>
 </section>
 <hr />
 <section class='anchor-container push-down' id='step_3_2'>
-  <h4>Step 3.2 - (Optional) Associate a Price Model with Service</h4>
-  <p>The Service created in Step 3 above was not Associated with a PricingModel during creation.  Recall that a Service defaults to having Activity pricing if no PricingModel is specified, which means it must be offered at no charge.  If we want to charge for our new Service, let’s create an appropriate PricingModel and associate it with our Service.</p>
-  <p>Here is a sample POST request to create a PricingModel:</p>
+  <h4>Create a Pricing Model and associate with Service</h4>
+  <p>Below, we create a PricingModel of type ByTheHour and associate it with our Service.  A ByTheHour PricingModel allows one to specify how much to charge per hour for the Service booked.</p>
+  <p>Here is a sample POST request to create a ByTheHour PricingModel:</p>
   <h3 class="green">Request:</h3>
 {% highlight ruby %}
 http://beta.gonebusy.com/api/v1/pricing_models/new.json
@@ -18,7 +20,7 @@ http://beta.gonebusy.com/api/v1/pricing_models/new.json
   "type": "ByTheHour",
   "price": 50.0,
   "name": "Tutoring Hourly Rate",
-  "notes": "Applies to LSAT, MCAT, SAT as well"
+  "notes": "Only portions of an hour are billed."
 {% endhighlight %}
   <h3 class='green push-down'>Response:</h3>
 {% highlight ruby %}
@@ -31,7 +33,7 @@ http://beta.gonebusy.com/api/v1/pricing_models/new.json
       "name": "Tutoring Hourly Rate",
       "price": 50.0,
       "currency": "USD",
-      "notes": "Applies to LSAT, MCAT, SAT as well",
+      "notes": "Only portions of an hour are billed.",
       "pricing_model_type": "ByTheHour"
     }
   }

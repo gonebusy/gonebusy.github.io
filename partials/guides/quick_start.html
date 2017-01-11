@@ -4,16 +4,16 @@
 <section>
   <p>Getting started using the API to make a User with Services that are advertised on GoneBusy can be done in as few as 4 steps.  Use this walk-through to get up and running:</p>
   <h5 class="push-down">
-    <a ui-sref="quick_start({'#' : 'step_1'})">Step 1 - Obtain an API Key</a>
+    <a ui-sref="quick_start({'#' : 'step_1'})">Step 1 &ndash; Obtain an API Key</a>
   </h5>
   <h5>
-    <a ui-sref="quick_start({'#' : 'step_2'})">Step 2 - Create a Service</a>
+    <a ui-sref="quick_start({'#' : 'step_2'})">Step 2 &ndash; Create a Service</a>
   </h5>
   <h5>
-    <a ui-sref="quick_start({'#' : 'step_3'})">Step 3 - Create a Schedule for the new Service</a>
+    <a ui-sref="quick_start({'#' : 'step_3'})">Step 3 &ndash; Create a Schedule for the new Service</a>
   </h5>
   <h5>
-    <a ui-sref="quick_start({'#' : 'step_4'})">Step 4 - Check available time slots!</a>
+    <a ui-sref="quick_start({'#' : 'step_4'})">Step 4 &ndash; Check available time slots!</a>
   </h5>
 </section>
 <hr />
@@ -24,7 +24,7 @@
   <p>Have fun!</p>
 </section>
 <section class='anchor-container' id='step_1'>
-  <h4>Step 1 - Obtain an API Key</h4>
+  <h4>Step 1 &ndash; Obtain an API Key</h4>
   <p>To obtain an API Key, you must be registered as a GoneBusy User.</p>
   <ul>
     <li><p>From your user dashboard, find the "API Key" tab on the left-hand navigation bar.</p></li>
@@ -38,9 +38,9 @@
 {% endhighlight %}
 </section>
 <section class='anchor-container push-down' id='step_2'>
-  <h4>Step 2 - Create a Service</h4>
+  <h4>Step 2 &ndash; Create a Service</h4>
   <p>Now that your User has been created, let’s create our first Service that this User will offer.</p>
-  <p>Without optional parameters, the created Service is associated with the current User’s default Resource.  For more information on the Resource associated with a User, see <a ui-sref="entities({'#' : 'resources'})">Resources</a>.  For the full list of creation parameters see <a ui-sref="services({'#' : 'post_services_new'})">POST /services/new</a>.</p>
+  <p>Without optional parameters, the created Service is associated with the current User’s default Resource.  For more information on the Resource associated with a User, see <a ui-sref="entities({'#' : 'resources'})">Resources</a>.  For the full list of Service creation parameters see <a ui-sref="services({'#' : 'post_services_new'})">POST /services/new</a>.</p>
   <p>Here is a sample POST request to create a Service for our sample User:</p>
   <h3 class="green">Request:</h3>
 {% highlight ruby %}
@@ -64,6 +64,7 @@ http://beta.gonebusy.com/api/v1/services/new.json
       "name": "LSAT/MCAT Tutoring",
       "short_name": null,
       "duration": 60,
+      "max_duration": 60,
       "description": "Tutoring for LSAT or MCAT exams. Available by the hour.",
       "price_model_id": null,
       "is_active": true,
@@ -73,9 +74,9 @@ http://beta.gonebusy.com/api/v1/services/new.json
 {% endhighlight %}
 </section>
 <section class='anchor-container push-down' id='step_3'>
-  <h4>Step 3 - Create a Schedule for the new Service</h4>
+  <h4>Step 3 &ndash; Create a Schedule for the new Service</h4>
   <p>Now that a new Service has been created, we need to create a Schedule that specifies when the Service will be offered by our current API User.</p>
-  <p>Without optional parameters, the default Resource of our current User will be assigned the new Schedule.  For more information on the Resource associated with a User, see <a ui-sref="entities({'#' : 'resources'})">Resources</a>.  For the full list of creation parameters see <a ui-sref="schedules({'#' : 'post_schedules_new'})">POST /schedules/new</a>.</p>
+  <p>Without optional parameters, the default Resource of our current User will be assigned the new Schedule.  For more information on the Resource associated with a User, see <a ui-sref="entities({'#' : 'resources'})">Resources</a>.  For the full list of Schedule creation parameters see <a ui-sref="schedules({'#' : 'post_schedules_new'})">POST /schedules/new</a>.</p>
   <p>Let’s create the following Schedule for our “LSAT/MCAT Tutoring” Service:</p>
   <p><em><b>“Starting November 1st until January 31st, available every Monday, Wednesday, Friday from 4pm to 11pm”</b></em></p>
   <p>A Schedule is made up of many TimeWindows but for convenience it is encouraged to create a Schedule by passing parameters that will also create the first TimeWindow in addition to the new Schedule.  The following POST request to create a Schedule will also create a TimeWindow that corresponds to the above availability:</p>
@@ -124,7 +125,7 @@ http://beta.gonebusy.com/api/v1/schedules/new.json
 {% endhighlight %}
 </section>
 <section class='anchor-container push-down' id='step_4'>
-  <h4>Step 4 - Check available time slots!</h4>
+  <h4>Step 4 &ndash; Check available time slots!</h4>
   <p>Now that our Schedule has been created for our “LSAT/MCAT Tutoring” Service, lets check what our available bookable time slots are on November 3rd:</p>
   <h3 class="green">Request:</h3>
 {% highlight ruby %}
