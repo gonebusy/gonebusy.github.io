@@ -79,7 +79,7 @@ http://beta.gonebusy.com/api/v1/services/new.json
   <p>Without optional parameters, the default Resource of our current User will be assigned the new Schedule.  For more information on the Resource associated with a User, see <a ui-sref="entities({'#' : 'resources'})">Resources</a>.  For the full list of Schedule creation parameters see <a ui-sref="schedules({'#' : 'post_schedules_new'})">POST /schedules/new</a>.</p>
   <p>Let’s create the following Schedule for our “LSAT/MCAT Tutoring” Service:</p>
   <p><em><b>“Starting November 1st until January 31st, available every Monday, Wednesday, Friday from 4pm to 11pm”</b></em></p>
-  <p>A Schedule is made up of many TimeWindows but for convenience it is encouraged to create a Schedule by passing parameters that will also create the first TimeWindow in addition to the new Schedule.  The following POST request to create a Schedule will also create a TimeWindow that corresponds to the above availability:</p>
+  <p>The following POST request will create a Schedule that corresponds to the above availability:</p>
   <h3 class="green">Request:</h3>
 {% highlight ruby %}
 http://beta.gonebusy.com/api/v1/schedules/new.json
@@ -87,8 +87,8 @@ http://beta.gonebusy.com/api/v1/schedules/new.json
   <p>with POST body:</p>
 {% highlight ruby %}
   "service_id": 4183,
-  "start_date": "2014-11-01",
-  "end_date": "2015-01-31",
+  "start_date": "2016-11-01",
+  "end_date": "2017-01-31",
   "start_time": "4pm",
   "end_time": "11pm",
   "recurs_by": "weekly",
@@ -107,8 +107,8 @@ http://beta.gonebusy.com/api/v1/schedules/new.json
       "time_windows": [
         {
           "id": 10536,
-          "start_date": "2014-11-01",
-          "end_date": "2015-01-31",
+          "start_date": "2016-11-01",
+          "end_date": "2017-01-31",
           "start_time": "4pm",
           "end_time": "11pm",
           "total_minutes": 420,
@@ -129,7 +129,7 @@ http://beta.gonebusy.com/api/v1/schedules/new.json
   <p>Now that our Schedule has been created for our “LSAT/MCAT Tutoring” Service, lets check what our available bookable time slots are on November 3rd:</p>
   <h3 class="green">Request:</h3>
 {% highlight ruby %}
-GET http://beta.gonebusy.com/api/v1/services/4183/available_slots.json?date=11-03-2014
+GET http://beta.gonebusy.com/api/v1/services/4183/available_slots.json?date=11-02-2016
 {% endhighlight %}
   <h3 class='green push-down'>Response:</h3>
 {% highlight ruby %}
@@ -144,20 +144,20 @@ GET http://beta.gonebusy.com/api/v1/services/4183/available_slots.json?date=11-0
           "id": 267,
           "available_slots": [
             {
-              "date": "2014-11-03",
-              "slots": [ "2014-11-03T16:00:00Z", "2014-11-03T16:15:00Z",
-                "2014-11-03T16:30:00Z", "2014-11-03T16:45:00Z",
-                "2014-11-03T17:00:00Z", "2014-11-03T17:15:00Z",
-                "2014-11-03T17:30:00Z", "2014-11-03T17:45:00Z",
-                "2014-11-03T18:00:00Z", "2014-11-03T18:15:00Z",
-                "2014-11-03T18:30:00Z", "2014-11-03T18:45:00Z",
-                "2014-11-03T19:00:00Z", "2014-11-03T19:15:00Z",
-                "2014-11-03T19:30:00Z", "2014-11-03T19:45:00Z",
-                "2014-11-03T20:00:00Z", "2014-11-03T20:15:00Z",
-                "2014-11-03T20:30:00Z", "2014-11-03T20:45:00Z",
-                "2014-11-03T21:00:00Z", "2014-11-03T21:15:00Z",
-                "2014-11-03T21:30:00Z", "2014-11-03T21:45:00Z",
-                "2014-11-03T22:00:00Z" ]
+              "date": "2016-11-02",
+              "slots": [ "2016-11-02T16:00:00Z", "2016-11-02T16:15:00Z",
+                "2016-11-02T16:30:00Z", "2016-11-02T16:45:00Z",
+                "2016-11-02T17:00:00Z", "2016-11-02T17:15:00Z",
+                "2016-11-02T17:30:00Z", "2016-11-02T17:45:00Z",
+                "2016-11-02T18:00:00Z", "2016-11-02T18:15:00Z",
+                "2016-11-02T18:30:00Z", "2016-11-02T18:45:00Z",
+                "2016-11-02T19:00:00Z", "2016-11-02T19:15:00Z",
+                "2016-11-02T19:30:00Z", "2016-11-02T19:45:00Z",
+                "2016-11-02T20:00:00Z", "2016-11-02T20:15:00Z",
+                "2016-11-02T20:30:00Z", "2016-11-02T20:45:00Z",
+                "2016-11-02T21:00:00Z", "2016-11-02T21:15:00Z",
+                "2016-11-02T21:30:00Z", "2016-11-02T21:45:00Z",
+                "2016-11-02T22:00:00Z" ]
             }
           ]
         }

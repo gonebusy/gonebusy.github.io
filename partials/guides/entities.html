@@ -104,28 +104,6 @@
         </table>
       </div>
     </li>
-    <li><p><span class="type">FixedPrice</span> &mdash; if the price of a Service is constant, no matter the duration a customer can reserve for, specify the FixedPrice type when creating a PricingModel for the Service.  An example of such a Service would be a “Man with a Van” that charges for the entire day of work no matter whether the customer requested 2 hours or 8 hours of time on any given day.</p>
-      <div class="attributes">
-        <table class="params">
-          <tr class="first">
-            <td class="param">price</td>
-            <td class="desc">price that will be charged for the entire Service</td>
-          </tr>
-          <tr>
-            <td class="param">currency (optional)</td>
-            <td class="desc">currency of price.  Defaults to USD</td>
-          </tr>
-          <tr>
-            <td class="param">name (optional)</td>
-            <td class="desc">an optional name for the PricingModel</td>
-          </tr>
-          <tr>
-            <td class="param">notes (optional)</td>
-            <td class="desc">an optional notes field for the PricingModel</td>
-          </tr>
-        </table>
-      </div>
-    </li>
     <li><p><span class="type">ByTheHour</span> &mdash; when Services are charged for each hour being reserved, specify the ByTheHour type when creating a PricingModel for the Service.  There are many examples of businesses that offer Services or classes by the hour, such as salons, yoga studios, guitar lessons, etc.</p>
       <div class="attributes">
         <table class="params">
@@ -154,6 +132,28 @@
           <tr class="first">
             <td class="param">price</td>
             <td class="desc">price that will be charged for each minute reserved</td>
+          </tr>
+          <tr>
+            <td class="param">currency (optional)</td>
+            <td class="desc">currency of price.  Defaults to USD</td>
+          </tr>
+          <tr>
+            <td class="param">name (optional)</td>
+            <td class="desc">an optional name for the PricingModel</td>
+          </tr>
+          <tr>
+            <td class="param">notes (optional)</td>
+            <td class="desc">an optional notes field for the PricingModel</td>
+          </tr>
+        </table>
+      </div>
+    </li>
+    <li><p><span class="type">FixedPrice</span> &mdash; if the price of a Service is constant, no matter the duration a customer can reserve for, specify the FixedPrice type when creating a PricingModel for the Service.  An example of such a Service would be a “Man with a Van” that charges for the entire day of work no matter whether the customer requested 2 hours or 8 hours of time on any given day.</p>
+      <div class="attributes">
+        <table class="params">
+          <tr class="first">
+            <td class="param">price</td>
+            <td class="desc">price that will be charged for the entire Service</td>
           </tr>
           <tr>
             <td class="param">currency (optional)</td>
