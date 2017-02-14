@@ -44,7 +44,7 @@
   <p>Here is a sample POST request to create a Service for our sample User:</p>
   <h3 class="green">Request:</h3>
 {% highlight ruby %}
-http://beta.gonebusy.com/api/v1/services/new.json
+https://beta.gonebusy.com/api/v1/services/new.json
 {% endhighlight %}
   <p>with POST body:</p>
 {% highlight ruby %}
@@ -82,7 +82,7 @@ http://beta.gonebusy.com/api/v1/services/new.json
   <p>The following POST request will create a Schedule that corresponds to the above availability:</p>
   <h3 class="green">Request:</h3>
 {% highlight ruby %}
-http://beta.gonebusy.com/api/v1/schedules/new.json
+https://beta.gonebusy.com/api/v1/schedules/new.json
 {% endhighlight %}
   <p>with POST body:</p>
 {% highlight ruby %}
@@ -129,7 +129,7 @@ http://beta.gonebusy.com/api/v1/schedules/new.json
   <p>Now that our Schedule has been created for our “LSAT/MCAT Tutoring” Service, lets check what our available bookable time slots are on November 3rd:</p>
   <h3 class="green">Request:</h3>
 {% highlight ruby %}
-GET http://beta.gonebusy.com/api/v1/services/4183/available_slots.json?date=11-02-2016
+GET https://beta.gonebusy.com/api/v1/services/4183/available_slots.json?date=11-02-2016
 {% endhighlight %}
   <h3 class='green push-down'>Response:</h3>
 {% highlight ruby %}
