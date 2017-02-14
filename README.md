@@ -1,13 +1,13 @@
 # gonebusy.github.io
 GoneBusy Github Pages Developer Portal
 
-Visit the [Portal](http://gonebusy.github.io)!
+Visit the [Portal](https://gonebusy.github.io)!
 
 ## Sandbox
 
 We have a Sandbox environment to play with!
 
-Just use [sandbox.gonebusy.com](http://sandbox.gonebusy.com) instead of where you see beta.gonebusy.com referenced, including where to create an account to retrieve your API Key.  
+Just use [sandbox.gonebusy.com](https://sandbox.gonebusy.com) instead of where you see beta.gonebusy.com referenced, including where to create an account to retrieve your API Key.  
 
 The Sandbox environment is completely separate from the Live site - that includes meaning your Sandbox API Key will not work in the Live environment.
 
