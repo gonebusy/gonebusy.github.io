@@ -43,7 +43,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #666f77;
+    color: $white;
     font-weight: 300;
     line-height: 1em;
     margin: 0 0 1em 0;
@@ -1029,7 +1029,7 @@ input[type="submit"].special,
 input[type="reset"].special,
 input[type="button"].special,
 .button.special {
-    background-color: $green;
+    background-color: $new-dark-blue;
     color: #ffffff !important;
 }
 
@@ -1037,7 +1037,7 @@ input[type="submit"].special:hover,
 input[type="reset"].special:hover,
 input[type="button"].special:hover,
 .button.special:hover {
-    background-color: $dark-green;
+    background-color: $new-light-blue;
 }
 
 input[type="submit"].special:active,
@@ -1068,7 +1068,7 @@ input[type="button"]:disabled,
 }
 
 .wrapper.style1 {
-    background: $hp-light-green;
+    background: $jazz;
     color: $charcoal;
     padding: 3em 0;
 }
@@ -1079,8 +1079,8 @@ input[type="button"]:disabled,
 }
 
 .wrapper.style2 {
-    background: $hp-light-blue;
-    color: $charcoal;
+    background: $banner-dark;
+    color: $white;
 }
 
 .wrapper.style2 h2 {
@@ -1222,8 +1222,8 @@ input[type="button"]:disabled,
 }
 
 #header {
-    background: #fff;
-    color: #555f66;
+    background: $banner-dark;
+    color: $white;
     cursor: default;
     height: 3em;
     left: 0;
@@ -1254,15 +1254,15 @@ input[type="button"]:disabled,
         vertical-align: middle;
 
         .button.alt {
-            box-shadow: inset 0 0 0 2px $green;
-            color: $green !important;
+            box-shadow: inset 0 0 0 2px $new-dark-blue;
+            color: $new-dark-blue !important;
 
             &:hover {
-                box-shadow: inset 0 0 0 2px $green;
-                background-color: $light-green;
+                box-shadow: inset 0 0 0 2px $new-dark-blue;
+                background-color: $new-light-blue;
                 color: $white !important;
                 text-decoration: none;
-                transition: background .1s ease-in;
+                transition: background .2s ease-in;
             }
         }
 
@@ -1283,7 +1283,7 @@ input[type="button"]:disabled,
                     -o-transition: color 0.2s ease-in-out;
                     -ms-transition: color 0.2s ease-in-out;
                     transition: color 0.2s ease-in-out;
-                    color: $jumbo;
+                    color: $white;
                     display: inline-block;
                     text-decoration: none;
 
@@ -1329,8 +1329,7 @@ input[type="button"]:disabled,
 /* Banner */
 
 #banner {
-    background-color: $white;
-    background-image: url("../images/hero-art.svg");
+    background-color: $banner-dark;
     background-size: initial;
     background-position: bottom center;
     background-repeat: no-repeat;
@@ -1355,22 +1354,22 @@ input[type="button"]:disabled,
 }
 
 #banner h2, #banner h3, #banner h4, #banner h5, #banner h6 {
-    color: $green;
+    color: $white;
 }
 
 #banner .button.alt {
-    box-shadow: inset 0 0 0 2px $green;
-    color: $green !important;
+    box-shadow: inset 0 0 0 2px $new-dark-blue;
+    color: $new-dark-blue !important;
 }
 
 #banner .button.alt:hover {
     color: $white !important;
-    background-color: $light-green;
-    transition: background .1s ease-in;
+    background-color: $new-light-blue;
+    transition: background .2s ease-in;
 }
 
 #banner .button.alt:active {
-    background-color: $green;
+    background-color: $new-dark-blue;
 }
 
 #banner .button.alt.icon:before {
@@ -1390,9 +1389,9 @@ input[type="button"]:disabled,
 }
 
 #banner p {
-    color: $light-blue;
-    font-size: 16px;
-    margin-bottom: 0.5em;
+    color: $jazz;
+    font-size: 20px;
+    margin-bottom: 1em;
 }
 
 #banner p a {
@@ -1462,12 +1461,13 @@ input[type="button"]:disabled,
 /* Footer */
 
 #footer {
-    padding: 4em 0 6em 0;
+    background-color: $banner-dark;
     border-top: solid 1px $iron;
+    padding: 4em 0 6em 0;
 }
 
 #footer a {
-    color: $steel;
+    color: $white;
 }
 
 #footer a img {
@@ -1516,6 +1516,10 @@ input[type="button"]:disabled,
 
 #footer .icon {
     margin: auto 10px;
+}
+
+#footer .signup {
+    color: $new-dark-blue;
 }
 
 .below-medium {
@@ -1590,7 +1594,7 @@ input[type="button"]:disabled,
 
                 li {
                     a {
-                        color: #888888 !important;
+                        color: $white !important;
                     }
                 }
             }
