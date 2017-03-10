@@ -1,5 +1,5 @@
 # Site settings
-title: GoneBusy
+title: Gonebusy
 email: admin@gonebusy.com
 description: >
   The Only Booking Platform You Need.  Don't build booking from scratch, leverage
@@ -10,6 +10,7 @@ github_username:  gonebusy
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 kramdown:
   input: GFM
   parse_block_html: true
