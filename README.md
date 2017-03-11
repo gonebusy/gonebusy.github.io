@@ -1,5 +1,5 @@
 # gonebusy.github.io
-GoneBusy Github Pages Developer Portal
+Gonebusy Developer Portal
 
 Visit the [Portal](https://gonebusy.github.io)!
 
