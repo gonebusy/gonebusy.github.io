@@ -229,6 +229,10 @@ table.params td.type {
     margin: 0.45em 0;
 }
 
+.black {
+    color: $black !important;
+}
+
 .green {
     color: $green !important;
 }
@@ -260,13 +264,12 @@ section.special p.narrow {
 }
 
 section.protip {
-    border: 2px solid $green;
-    padding: 20px 18px;
+    background: $banner-dark;
     border-radius: 4px;
-    background: $hp-light-green;
-    color: $protip-green;
-    margin-bottom: 2em;
+    color: $white;
     line-height: 3.5;
+    margin-bottom: 2em;
+    padding: 20px 18px;
 }
 
 section.protip-taller {
@@ -293,7 +296,7 @@ section.protip table td {
 }
 
 section.protip .protip-icon {
-    color: $green;
+    color: $new-dark-blue;
     font-size: 52px;
 }
 
@@ -389,7 +392,7 @@ header.major h2 + p {
 }
 
 .blog-post header.major h2 a {
-    color: $green;
+    color: $black;
 }
 
 .blog-post header.major p.post-date{
@@ -1125,6 +1128,7 @@ input[type="button"]:disabled,
 }
 
 .wrapper.style3 h2 {
+    color: $jazz;
     font-size: 36px;
     font-weight: bold;
 }
@@ -1136,9 +1140,9 @@ input[type="button"]:disabled,
 }
 
 .wrapper.style3 h4 {
+    color: $black;
     font-size: 30px;
     font-weight: bold;
-    color: $green;
     padding-top: 40px;
 }
 
@@ -1200,7 +1204,7 @@ input[type="button"]:disabled,
 }
 
 .wrapper h2.reference-heading {
-    color: $dark-blue;
+    color: $black;
 }
 
 /* Header */
@@ -1285,7 +1289,7 @@ input[type="button"]:disabled,
                 }
 
                 &.active a {
-                    color: $nav-light-green;
+                    color: $new-dark-blue;
                 }
 
                 .button {
@@ -1434,7 +1438,7 @@ input[type="button"]:disabled,
 }
 
 #sdk h3 {
-    color: $green;
+    color: $black;
     font-size: 1.75em;
     line-height: 1.1em;
     margin-bottom: 0.5em;
