@@ -18,9 +18,9 @@
 </section>
 <hr />
 <section class='protip'>
-  <h3 class='green'>We have a Sandbox to play in!</h3>
+  <h3 class='dark-blue'>We have a Sandbox to play in!</h3>
   <p>If you're just starting out with the API and are worried about making any mistakes or lasting changes to your Live account, we've created a completely separate Sandbox environment for you to play with.</p>
-  <p>Just use <b class='dark-green-link'>sandbox.gonebusy.com</b> below instead of the Live <b class='dark-green-link'>beta.gonebusy.com</b> site, including where you login to retrieve your API key.</p>
+  <p>Just use <b class='dark-blue-link'>sandbox.gonebusy.com</b> below instead of the Live <b class='dark-blue-link'>beta.gonebusy.com</b> site, including where you login to retrieve your API key.</p>
   <p>Have fun!</p>
 </section>
 <section class='anchor-container' id='step_1'>
@@ -42,7 +42,7 @@
   <p>Now that your User has been created, let’s create our first Service that this User will offer.</p>
   <p>Without optional parameters, the created Service is associated with the current User’s default Resource.  For more information on the Resource associated with a User, see <a ui-sref="entities({'#' : 'resources'})">Resources</a>.  For the full list of Service creation parameters see <a ui-sref="services({'#' : 'post_services_new'})">POST /services/new</a>.</p>
   <p>Here is a sample POST request to create a Service for our sample User:</p>
-  <h3 class="green">Request:</h3>
+  <h3 class="dark-blue">Request:</h3>
 {% highlight ruby %}
 https://beta.gonebusy.com/api/v1/services/new.json
 {% endhighlight %}
@@ -52,7 +52,7 @@ https://beta.gonebusy.com/api/v1/services/new.json
   "description": "Tutoring for LSAT or MCAT exams. Available by the hour.",
   "duration": 60
 {% endhighlight %}
-  <h3 class='green push-down'>Response:</h3>
+  <h3 class='dark-blue push-down'>Response:</h3>
 {% highlight ruby %}
   "Status": "201 Created"
 
@@ -80,7 +80,7 @@ https://beta.gonebusy.com/api/v1/services/new.json
   <p>Let’s create the following Schedule for our “LSAT/MCAT Tutoring” Service:</p>
   <p><em><b>“Starting November 1st until January 31st, available every Monday, Wednesday, Friday from 4pm to 11pm”</b></em></p>
   <p>The following POST request will create a Schedule that corresponds to the above availability:</p>
-  <h3 class="green">Request:</h3>
+  <h3 class="dark-blue">Request:</h3>
 {% highlight ruby %}
 https://beta.gonebusy.com/api/v1/schedules/new.json
 {% endhighlight %}
@@ -94,7 +94,7 @@ https://beta.gonebusy.com/api/v1/schedules/new.json
   "recurs_by": "weekly",
   "days": ["monday", "wednesday", "friday"]
 {% endhighlight %}
-  <h3 class='green push-down'>Response:</h3>
+  <h3 class='dark-blue push-down'>Response:</h3>
 {% highlight ruby %}
   "Status": "201 Created"
 
@@ -127,11 +127,11 @@ https://beta.gonebusy.com/api/v1/schedules/new.json
 <section class='anchor-container push-down' id='step_4'>
   <h4>Step 4 &ndash; Check available time slots!</h4>
   <p>Now that our Schedule has been created for our “LSAT/MCAT Tutoring” Service, lets check what our available bookable time slots are on November 3rd:</p>
-  <h3 class="green">Request:</h3>
+  <h3 class="dark-blue">Request:</h3>
 {% highlight ruby %}
 GET https://beta.gonebusy.com/api/v1/services/4183/available_slots.json?date=11-02-2016
 {% endhighlight %}
-  <h3 class='green push-down'>Response:</h3>
+  <h3 class='dark-blue push-down'>Response:</h3>
 {% highlight ruby %}
   "Status": "200 OK"
 
