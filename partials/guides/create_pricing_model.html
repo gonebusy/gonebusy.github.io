@@ -11,7 +11,7 @@
   <h4>Create a Pricing Model and associate with Service</h4>
   <p>Below, we create a PricingModel of type ByTheHour and associate it with our Service.  A ByTheHour PricingModel allows one to specify how much to charge per hour for the Service booked.</p>
   <p>Here is a sample POST request to create a ByTheHour PricingModel:</p>
-  <h3 class="green">Request:</h3>
+  <h3 class="dark-blue">Request:</h3>
 {% highlight ruby %}
 https://beta.gonebusy.com/api/v1/pricing_models/new.json
 {% endhighlight %}
@@ -22,7 +22,7 @@ https://beta.gonebusy.com/api/v1/pricing_models/new.json
   "name": "Tutoring Hourly Rate",
   "notes": "Only portions of an hour are billed."
 {% endhighlight %}
-  <h3 class='green push-down'>Response:</h3>
+  <h3 class='dark-blue push-down'>Response:</h3>
 {% highlight ruby %}
   "Status": "201 Created"
 
@@ -39,7 +39,7 @@ https://beta.gonebusy.com/api/v1/pricing_models/new.json
   }
 {% endhighlight %}
   <p>We can now assign our recently created Service to this PricingModel using the ID of the PricingModel we just created:</p>
-  <h3 class="green">Request:</h3>
+  <h3 class="dark-blue">Request:</h3>
 {% highlight ruby %}
 https://beta.gonebusy.com/api/v1/services/4183.json
 {% endhighlight %}
@@ -47,7 +47,7 @@ https://beta.gonebusy.com/api/v1/services/4183.json
 {% highlight ruby %}
   "price_model_id": "126"
 {% endhighlight %}
-  <h3 class='green push-down'>Response:</h3>
+  <h3 class='dark-blue push-down'>Response:</h3>
 {% highlight ruby %}
   "Status": "200 OK"
 

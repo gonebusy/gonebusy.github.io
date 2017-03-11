@@ -10,7 +10,7 @@
 <section class='anchor-container push-down'>
   <h4>Create a Category and associate with Service</h4>
   <p>Here is a sample POST request to create a Category:</p>
-  <h3 class="green">Request:</h3>
+  <h3 class="dark-blue">Request:</h3>
 {% highlight ruby %}
 https://beta.gonebusy.com/api/v1/categories/new.json
 {% endhighlight %}
@@ -20,7 +20,7 @@ https://beta.gonebusy.com/api/v1/categories/new.json
   "name" : "Graduate School Exam Preparation",
   "description" : "Services related to preparing for graduate-level entrance exams such as LSAT, MCAT, etc."
 {% endhighlight %}
-  <h3 class='green push-down'>Response:</h3>
+  <h3 class='dark-blue push-down'>Response:</h3>
 {% highlight ruby %}
   "Status": "201 Created"
 
@@ -38,7 +38,7 @@ https://beta.gonebusy.com/api/v1/categories/new.json
   }
 {% endhighlight %}
   <p>We can now assign a recently created Service to this Category.  You can assign multiple Categories at once with a comma-delimited list of Category IDs, or just provide a single Category ID.</p>
-  <h3 class="green">Request:</h3>
+  <h3 class="dark-blue">Request:</h3>
 {% highlight ruby %}
 https://beta.gonebusy.com/api/v1/services/4183.json
 {% endhighlight %}
@@ -46,7 +46,7 @@ https://beta.gonebusy.com/api/v1/services/4183.json
 {% highlight ruby %}
   "categories" : "[ 23 ]"
 {% endhighlight %}
-  <h3 class='green push-down'>Response:</h3>
+  <h3 class='dark-blue push-down'>Response:</h3>
 {% highlight ruby %}
   "Status": "200 OK"
 

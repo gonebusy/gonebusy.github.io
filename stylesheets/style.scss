@@ -237,6 +237,15 @@ table.params td.type {
     color: $green !important;
 }
 
+.dark-blue {
+    color: $new-dark-blue !important;
+}
+
+.dark-blue-link {
+    color: $new-dark-blue !important;
+    font-weight: 700;
+}
+
 .dark-green-link {
     color: $dark-green !important;
     font-weight: 700;
@@ -1143,7 +1152,7 @@ input[type="button"]:disabled,
     color: $black;
     font-size: 30px;
     font-weight: bold;
-    padding-top: 40px;
+    padding-top: 3em;
 }
 
 .wrapper.style3 h5 {
