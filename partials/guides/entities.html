@@ -28,11 +28,13 @@
 </section>
 <section class='anchor-container push-down' id='resources'>
   <h4>Resources</h4>
-  <p>Resources are what actually provide Services.  By default, every User is a Person Resource for their own Services.  You can create additional types of Resources for Services via the API.</p>
+  <p>Resources are what actually provide Services.  By default, every User is a User Resource for their own Services.  You can create additional types of Resources for Services via the API.</p>
   <h3>Types of Resources</h3>
   <p>The following are the currently supported types of Resouces.  If you have an idea for a Resource that can not be accommodated by any of the types below, please <a href="https://beta.gonebusy.com/contact_us">Contact Us</a>.</p>
   <ul class="alt tight">
-    <li><p><span class="type">Person</span> &mdash; a User can create another Person Resource, such as another instructor at a gym, or a therapist at a spa.</p>
+    <li><p><span class="type">Staff</span> &mdash; create Staff
+    Resources for each of the employees in your business, such as
+    trainers at a gym, or therapists at a spa.</p>
       <div class="attributes">
         <table class="params">
           <tr class="first">
@@ -42,6 +44,10 @@
           <tr>
             <td class="param">last_name</td>
             <td class="desc">person's last name</td>
+          </tr>
+          <tr>
+            <td class="param">gender</td>
+            <td class="desc">person's gender</td>
           </tr>
         </table>
       </div>
