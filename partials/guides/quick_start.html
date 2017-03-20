@@ -39,8 +39,11 @@
 </section>
 <section class='anchor-container push-down' id='step_2'>
   <h4>Step 2 &ndash; Create a Service</h4>
-  <p>Now that your User has been created, let’s create our first Service that this User will offer.</p>
-  <p>Without optional parameters, the created Service is associated with the current User’s default Resource.  For more information on the Resource associated with a User, see <a ui-sref="entities({'#' : 'resources'})">Resources</a>.  For the full list of Service creation parameters see <a ui-sref="services({'#' : 'post_services_new'})">POST /services/new</a>.</p>
+  <p>Now that your User has been created, let’s create the first Service that this User will offer.</p>
+  <p>By default, the created Service is associated with the current
+  User’s default Resource.</p>
+  <p>Creating the Service will also create a Schedule for the default
+  Resource.  We will use the returned Schedule id in the next step.</p>
   <p>Here is a sample POST request to create a Service for our sample User:</p>
   <h3 class="dark-blue">Request:</h3>
 {% highlight ruby %}
@@ -48,9 +51,11 @@ https://beta.gonebusy.com/api/v1/services/new.json
 {% endhighlight %}
   <p>with POST body:</p>
 {% highlight ruby %}
+{
   "name": "LSAT/MCAT Tutoring",
   "description": "Tutoring for LSAT or MCAT exams. Available by the hour.",
   "duration": 60
+}
 {% endhighlight %}
   <h3 class='dark-blue push-down'>Response:</h3>
 {% highlight ruby %}
@@ -60,7 +65,6 @@ https://beta.gonebusy.com/api/v1/services/new.json
     "service": {
       "id": 4183,
       "owner_id": 54,
-      "resources": [ 267 ],
       "name": "LSAT/MCAT Tutoring",
       "short_name": null,
       "duration": 60,
@@ -68,35 +72,48 @@ https://beta.gonebusy.com/api/v1/services/new.json
       "description": "Tutoring for LSAT or MCAT exams. Available by the hour.",
       "price_model_id": null,
       "is_active": true,
-      "categories": [ ]
+      "categories": [ ],
+      "resources": [ 267 ],
+      "schedules": [ 8090 ]
     }
   }
 {% endhighlight %}
+  <p>Note: You can provide optional parameters in
+  order to associate the Service with other managed Resource(s) and
+  have corresponding Schedules created for each Resource.
+  For more information on the Resource associated with a User,
+  see <a ui-sref="entities({'#' : 'resources'})">Resources</a>.  For
+  the full list of Service creation parameters
+  see <a ui-sref="services({'#' : 'post_services_new'})">POST
+  /services/new</a>.</p>
 </section>
 <section class='anchor-container push-down' id='step_3'>
-  <h4>Step 3 &ndash; Create a Schedule for the new Service</h4>
-  <p>Now that a new Service has been created, we need to create a Schedule that specifies when the Service will be offered by our current API User.</p>
-  <p>Without optional parameters, the default Resource of our current User will be assigned the new Schedule.  For more information on the Resource associated with a User, see <a ui-sref="entities({'#' : 'resources'})">Resources</a>.  For the full list of Schedule creation parameters see <a ui-sref="schedules({'#' : 'post_schedules_new'})">POST /schedules/new</a>.</p>
-  <p>Let’s create the following Schedule for our “LSAT/MCAT Tutoring” Service:</p>
+  <h4>Step 3 &ndash; Add a TimeWindow to our Service's Schedule</h4>
+  <p>Now that a new Service has been created and associated with the default
+  Resource for the current API User, we need to add a TimeWindow to
+  the new Schedule that was also created, in order to specify when
+  exactly the Service will be offered by the Resource.</p>
+  <p>Let’s add the following TimeWindow to the Schedule for our “LSAT/MCAT Tutoring” Service:</p>
   <p><em><b>“Starting November 1st until January 31st, available every Monday, Wednesday, Friday from 4pm to 11pm”</b></em></p>
-  <p>The following POST request will create a Schedule that corresponds to the above availability:</p>
+  <p>The following POST request will add a TimeWindow to our Schedule that corresponds to the above availability:</p>
   <h3 class="dark-blue">Request:</h3>
 {% highlight ruby %}
-https://beta.gonebusy.com/api/v1/schedules/new.json
+https://beta.gonebusy.com/api/v1/schedules/8090/time_windows/new.json
 {% endhighlight %}
   <p>with POST body:</p>
 {% highlight ruby %}
-  "service_id": 4183,
+{
   "start_date": "2016-11-01",
   "end_date": "2017-01-31",
   "start_time": "4pm",
   "end_time": "11pm",
   "recurs_by": "weekly",
-  "days": ["monday", "wednesday", "friday"]
+  "days": ["monday, wednesday, friday"]
+}
 {% endhighlight %}
   <h3 class='dark-blue push-down'>Response:</h3>
 {% highlight ruby %}
-  "Status": "201 Created"
+  "Status": "200 Updated"
 
   {
     "schedule": {
