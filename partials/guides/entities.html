@@ -2,7 +2,7 @@
 ---
 <h2 class="reference-heading">Entities</h2>
 <section>
-  <p>There are several Entities in the GoneBusy system accessible via API.  You can read about each one of them below. </p>
+  <p>There are several Entities in the Gonebusy system accessible via API.  You can read about each one of them below. </p>
 </section>
 <section>
   <h3><a ui-sref="entities({'#' : 'bookings'})">Bookings</a></h3>
@@ -18,7 +18,7 @@
 <hr />
 <section class='anchor-container' id='bookings'>
   <h4>Bookings</h4>
-  <p>The main goal of GoneBusy is to connect users with each other via bookings.  A Booking represents the commitment by one user to attend a Service of another user at a particular time.  The API allows the creation and management of Bookings.</p>
+  <p>The main goal of Gonebusy is to connect users with each other via bookings.  A Booking represents the commitment by one user to attend a Service of another user at a particular time.  The API allows the creation and management of Bookings.</p>
   <p>You can find all supported operations on the <a ui-sref="bookings({'#' : 'top'})">Bookings API page</a>.</p>
 </section>
 <section class='anchor-container push-down' id='categories'>
@@ -81,7 +81,7 @@
 </section>
 <section class='anchor-container push-down' id='services'>
   <h4>Services</h4>
-  <p>Bookings on GoneBusy would not be possible without users offering Services.  Services can be anything that a Resource performs, or provides, at a specific time for a particular duration.</p>
+  <p>Bookings on Gonebusy would not be possible without users offering Services.  Services can be anything that a Resource performs, or provides, at a specific time for a particular duration.</p>
   <p>Services can have a fixed duration when offered for booking, such as "1 Hour of Tutoring", or they can be booked in increments, such as a per-hour "Dogwalking" service.  Whether a Service has a fixed duration or can be booked in increments of time is determined by it's PricingModel.</p>
   <p>Follow this link for an example on <a ui-sref="getting_started">how to create a Service</a>.</p>
   <p>You can find all supported operations on the <a ui-sref="services({'#' : 'top'})">Services API page</a>.</p>
@@ -132,7 +132,7 @@
         </table>
       </div>
     </li>
-    <li><p><span class="type">ByTheMinute</span> &mdash; when Services are charged for each minute being reserved, specify the ByTheMinute type when creating a PricingModel for the Service.  Examples of Services that may charge by the minute may include tutoring, a help line, etc.  Note that currently, the minimum allowable time to book a Service on GoneBusy is 15 minutes.</p>
+    <li><p><span class="type">ByTheMinute</span> &mdash; when Services are charged for each minute being reserved, specify the ByTheMinute type when creating a PricingModel for the Service.  Examples of Services that may charge by the minute may include tutoring, a help line, etc.  Note that currently, the minimum allowable time to book a Service on Gonebusy is 15 minutes.</p>
       <div class="attributes">
         <table class="params">
           <tr class="first">
@@ -180,7 +180,7 @@
 </section>
 <section class='anchor-container push-down' id='schedules'>
   <h4>Schedules</h4>
-  <p>GoneBusy Schedules are no different from other types of schedules you may have encountered before: they start on a date, may end on a date, or possibly repeat indefinitely; falling between certain hours on particular days of the week.  By defining a Schedule for a Service that is offered by a Resource, it is possible to advertise the available times the Service may be booked.</p>
+  <p>Gonebusy Schedules are no different from other types of schedules you may have encountered before: they start on a date, may end on a date, or possibly repeat indefinitely; falling between certain hours on particular days of the week.  By defining a Schedule for a Service that is offered by a Resource, it is possible to advertise the available times the Service may be booked.</p>
   <p>A Schedule is made up of a single or many TimeWindows, where the most important attributes of a TimeWindow are the following:</p>
   <div class="attributes">
     <table class="params">
@@ -237,12 +237,12 @@
 </section>
 <section class='anchor-container push-down' id='search'>
   <h4>Search Results</h4>
-  <p>GoneBusy offers a fully featured Search API for retrieving Services that meet search criteria such as Category name, geographic distance, rating, price, etc.</p>
+  <p>Gonebusy offers a fully featured Search API for retrieving Services that meet search criteria such as Category name, geographic distance, rating, price, etc.</p>
   <p>You can find all supported operations on the <a ui-sref="search({'#' : 'top'})">Search API page</a>.</p>
 </section>
 <section class='anchor-container push-down' id='users'>
   <h4>Users</h4>
-  <p>Users are the people that participate on GoneBusy.  If you haven't done so already, take a look at our explanation of how Users interact with GoneBusy on the <a ui-sref="overview({'#' : 'top'})">Overview</a> page.</p>
+  <p>Users are the people that participate on Gonebusy.  If you haven't done so already, take a look at our explanation of how Users interact with Gonebusy on the <a ui-sref="overview({'#' : 'top'})">Overview</a> page.</p>
   <p>The API allows a User to manage themselves or an Account Manager to operate on managed users in order to offer services, schedule availability, and various other operations.</p>
   <p>You can find all supported operations on the <a ui-sref="users({'#' : 'top'})">Users API page</a>.</p>
 </section>
