@@ -1,8 +1,8 @@
 ---
 layout: landing-page
-title: GoneBusy | Developer Portal
-description: The GoneBusy Developer Portal - the first stop for developers seeking to integrate with the GoneBusy booking platform.
-keywords: GoneBusy, booking, platform, api, developers, portal, reference, guide
+title: Gonebusy | Developer Portal
+description: The Gonebusy Developer Portal - the first stop for developers seeking to integrate with the Gonebusy booking platform.
+keywords: Gonebusy, booking, platform, api, developers, portal, reference, guide
 ---
 
 <!-- One -->
@@ -44,7 +44,7 @@ keywords: GoneBusy, booking, platform, api, developers, portal, reference, guide
 <section id="two" class="wrapper style2">
   <div class="container">
     <header class="major">
-      <h2>Get Started With GoneBusy</h2>
+      <h2>Get Started With Gonebusy</h2>
     </header>
     <div class="row">
       <div class="12u">
@@ -72,7 +72,7 @@ ac98ed08b5b0a9e7c43a233aeba841ce
           <div class="row">
             <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
-GoneBusy::Configuration.api_key = ac98ed08b5b0a9e7c43a233aeba841ce
+Gonebusy::Configuration.api_key = ac98ed08b5b0a9e7c43a233aeba841ce
 {% endhighlight %}
             </div>
           </div>
@@ -88,7 +88,7 @@ GoneBusy::Configuration.api_key = ac98ed08b5b0a9e7c43a233aeba841ce
           <div class="row">
             <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
-service = GoneBusy::Service.create(
+service = Gonebusy::Service.create(
     name: 'Executive Car Wash',
     duration: 30,
     description: 'Get your car washed by executives.'
@@ -108,7 +108,7 @@ service = GoneBusy::Service.create(
           <div class="row">
             <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
-GoneBusy::Schedule.create(
+Gonebusy::Schedule.create(
     service,
     start_date: '2016-02-01',
     end_date: '2016-03-31',
@@ -132,7 +132,7 @@ GoneBusy::Schedule.create(
           <div class="row">
             <div class="-2u 8u 12u$(medium)">
 {% highlight ruby %}
-slots_result = GoneBusy::Service.available_slots(
+slots_result = Gonebusy::Service.available_slots(
     service,
     date: '2016-03-11'
 )
@@ -185,7 +185,7 @@ puts slots_result
       <div class="12u">
         <div class="alert alert-success" style="display:none;">
           <a class="close" data-dismiss="alert">×</a>
-          <strong>Thank you!</strong> You've successfully subscribed to the GoneBusy mailing list.
+          <strong>Thank you!</strong> You've successfully subscribed to the Gonebusy mailing list.
         </div>
         <div class="alert alert-block" style="display:none;">
           <a class="close" data-dismiss="alert">×</a>

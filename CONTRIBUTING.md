@@ -2,7 +2,7 @@ gonebusy.github.io
 ===================
 
 Contributions are welcome.
-You can also email support@gonebusy.com if you have any questions about this site or GoneBusy in general.
+You can also email support@gonebusy.com if you have any questions about this site or Gonebusy in general.
 
 How to contribute?
 =====================
