@@ -1403,6 +1403,10 @@ input[type="button"]:disabled,
     text-decoration: none;
 }
 
+#banner span {
+    background-color: $banner-dark;
+}
+
 #banner ul.actions {
     padding-top: 1.5em;
 }
