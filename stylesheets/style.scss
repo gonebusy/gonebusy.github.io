@@ -1007,7 +1007,7 @@ input[type="submit"].alt,
 input[type="reset"].alt,
 input[type="button"].alt,
 .button.alt {
-    background-color: transparent;
+    background-color: $banner-dark;
     box-shadow: inset 0 0 0 1px rgba(144, 144, 144, 0.25);
     color: #666f77 !important;
 }
@@ -1330,10 +1330,9 @@ input[type="button"]:disabled,
 /* Banner */
 
 #banner {
-    background-color: $banner-dark;
-    background-size: initial;
-    background-position: bottom center;
+    background-image: url('/images/Hero_v3.svg');
     background-repeat: no-repeat;
+    background-size: 100%;
     color: $green;
     padding: 14em 0;
     text-align: center;
@@ -1402,6 +1401,14 @@ input[type="button"]:disabled,
 #banner p a {
     color: #ffffff;
     text-decoration: none;
+}
+
+#banner p span {
+    padding: 10px;
+}
+
+#banner span {
+    background-color: $banner-dark;
 }
 
 #banner ul.actions {
