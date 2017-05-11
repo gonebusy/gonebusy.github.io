@@ -93,7 +93,7 @@
     </tr>
     <tr>
       <td class="param">date</td>
-      <td class="type">String</td>
+      <td class="type">Date</td>
       <td class="desc">Provide the date of the requested Booking. Several formats are supported: "2014-10-31", "October 31, 2014"</td>
       <td class="check"><i class="fa fa-check"></i></td>
     </tr>
@@ -104,6 +104,12 @@
       <td class="check"><i class="fa fa-check"></i></td>
     </tr>
     <tr>
+      <td class="param">user_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Create a booking for this User.  You must be authorized to manage this User.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
       <td class="param">resource_id</td>
       <td class="type">Integer</td>
       <td class="desc">The ID of a Resource to be booked.  If not provided, the first available Resource will be booked.</td>
@@ -112,20 +118,62 @@
     <tr>
       <td class="param">duration</td>
       <td class="type">Integer</td>
-      <td class="desc">If the service allows requesting a variable amount of time, specify how many minutes are desired</td>
+      <td class="desc">If the service allows requesting a variable amount of time, specify how many minutes are desired.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">end_date</td>
+      <td class="type">Date</td>
+      <td class="desc">Optional end date if a recurring booking - i.e, :recurs_by other than :once.  If recurring, leave blank for infinite booking.  Several formats are supported: '2014-10-31', 'October 31, 2014'.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">recurs_by</td>
+      <td class="type">String</td>
+      <td class="desc">One of the possible recurrence values.  If not provided, assumed to be :once to indicate a single Booking.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">frequency</td>
+      <td class="type">String</td>
+      <td class="desc">Optional frequency of recurrence as specified by :recurs_by.  E.g, :single, :every, :every_other, etc. If not provided, assumed to be :once</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">days</td>
+      <td class="type">String</td>
+      <td class="desc">List of comma-separated days of the week this Booking falls on.  Useful for recurring Bookings.  If provided, at least one must be specified.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">occurrence</td>
+      <td class="type">String</td>
+      <td class="desc">Optional occurrence of frequency. E.g, :first, :2nd, :last, :2nd_to_last, etc.  If not provided, assumed to be :ever</td>
       <td class="check"></td>
     </tr>
     <tr class="last">
-      <td class="param">user_id</td>
-      <td class="type">Integer</td>
-      <td class="desc">ID of a User you are the Account Manager of for whom you would like to initiate a booking</td>
+      <td class="param">date_recurs_by</td>
+      <td class="type">String</td>
+      <td class="desc">Required only when :recurs_by is 'monthly' or 'yearly' to differentiate between exact date or 'day in month/year'.  See Recurring Booking examples.</td>
       <td class="check"></td>
     </tr>
   </table>
 </section>
 <section>
   <h4 id="put_bookings_id">Update a Booking</h4>
-  <p>Update information for a Booking.  The ID must be of a Booking that is under your User account or any User for which you are the Account Manager.  You can not update appointment time information for a Booking once placed. This action is a placeholder for future update-able information.</p>
+  <p>Update information for a Booking.  The ID must be of a Booking
+  that is under your User account or any User for which you are the
+  Account Manager.</p>
+  <p>Note the following restrictions when updating a Booking:</p>
+  <p>
+    <ul>
+      <li>The start time of a Booking can not be modified less than an
+        hour before the scheduled time.</li>
+      <li>When modifying a Booking, the Resource offering the Service
+        will remain the same.  In order to change Resources you must
+        Cancel the booking and create a new one.</li>
+    </ul>
+  </p>
 {% highlight ruby %}
   PUT /bookings/{id}
 {% endhighlight %}
@@ -136,11 +184,71 @@
       <th>Description</th>
       <th>Required?</th>
     </tr>
-    <tr class="last">
+    <tr>
       <td class="param">id</td>
       <td class="type">Integer</td>
       <td class="desc">ID of booking to update</td>
       <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+    <tr>
+      <td class="param">date</td>
+      <td class="type">Date</td>
+      <td class="desc">New date of booking.  If a recurring booking, must be a date of an instance.  Several formats are supported: '2014-10-31', 'October 31, 2014</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">time</td>
+      <td class="type">String</td>
+      <td class="desc">New time of booking.  Several formats are supported: '9am', '09:00', '9:00', '0900'</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">duration</td>
+      <td class="type">Integer</td>
+      <td class="desc">New length of time, in minutes, for the desired booking - if Service allows requesting a variable amount of time.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">end_date</td>
+      <td class="type">Date</td>
+      <td class="desc">New end date of a recurring booking.  If recurring, leave blank for infinite booking.  Several formats are supported: '2014-10-31', 'October 31, 2014'.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">recurs_by</td>
+      <td class="type">String</td>
+      <td class="desc">One of the possible recurrence values.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">frequency</td>
+      <td class="type">String</td>
+      <td class="desc">Optional frequency of recurrence as specified by :recurs_by.  E.g, :single, :every, :every_other, etc. If not provided, assumed to be :once</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">days</td>
+      <td class="type">String</td>
+      <td class="desc">List of comma-separated days of the week this Booking falls on.  Useful for recurring Bookings.  If provided, at least one must be specified.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">occurrence</td>
+      <td class="type">String</td>
+      <td class="desc">Optional occurrence of frequency. E.g, :first, :2nd, :last, :2nd_to_last, etc.  If not provided, assumed to be :ever</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">date_recurs_by</td>
+      <td class="type">String</td>
+      <td class="desc">Required only when :recurs_by is 'monthly' or 'yearly' to differentiate between exact date or 'day in month/year'.  See Recurring Booking examples.</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">update_recurring</td>
+      <td class="type">String</td>
+      <td class="desc">When a recurring booking, one of: ['instance', 'all', 'infinite']</td>
+      <td class="check"></td>
     </tr>
   </table>
 </section>
@@ -157,11 +265,28 @@
       <th>Description</th>
       <th>Required?</th>
     </tr>
-    <tr class="last">
+    <tr>
       <td class="param">id</td>
       <td class="type">Integer</td>
       <td class="desc">ID of booking to cancel</td>
       <td class="check"><i class="fa fa-check"></i></td>
+    </tr>
+      <td class="param">date</td>
+      <td class="type">Date</td>
+      <td class="desc">If a recurring booking, the date of an instance to cancel.  Several formats are supported: '2014-10-31', 'October 31, 2014'</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">end_date</td>
+      <td class="type">Date</td>
+      <td class="desc">If recurring, cancel up to :end_date or leave blank for infinite booking.  Several formats are supported: '2014-10-31', 'October 31, 2014'.</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">cancel_recurring</td>
+      <td class="type">String</td>
+      <td class="desc">When a recurring booking, one of: ['instance', 'all', 'infinite']</td>
+      <td class="check"></td>
     </tr>
   </table>
 </section>
