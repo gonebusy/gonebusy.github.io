@@ -1331,6 +1331,7 @@ input[type="button"]:disabled,
 /* Banner */
 
 #banner {
+    background-color: $banner-dark;
     background-image: url('/images/Hero_v3.svg');
     background-repeat: no-repeat;
     background-size: 100%;
