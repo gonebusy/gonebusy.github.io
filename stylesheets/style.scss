@@ -664,15 +664,18 @@ input[type="radio"] + label:before {
 }
 
 .icon.gettingstarted {
-    height: 170px;
+    height: 175px;
+    padding-top: .25em;
 }
 
 .icon.libraries {
-    height: 170px;
+    height: 185px;
+    margin-left: .25em;
 }
 
 .icon.support {
     height: 175px;
+    margin-left: 1em;
 }
 
 .icon.number {
