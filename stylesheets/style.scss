@@ -663,17 +663,16 @@ input[type="radio"] + label:before {
     line-height: 3em;
 }
 
-.icon.rocket {
-    height: 98px;
+.icon.gettingstarted {
+    height: 170px;
 }
 
-.icon.plug {
-    height: 70px;
-    top: 14px;
+.icon.libraries {
+    height: 170px;
 }
 
-.icon.ring {
-    height: 82px;
+.icon.support {
+    height: 175px;
 }
 
 .icon.number {
@@ -717,7 +716,7 @@ input[type="radio"] + label:before {
 
 .image.fit {
     display: block;
-    margin: 0 0 2em 0;
+    margin-bottom: 5em;
     width: 100%;
 }
 
@@ -1083,7 +1082,6 @@ input[type="button"]:disabled,
 
 .wrapper.style1 .image.fit {
     height: 100px;
-    margin: 1em 0 2em 0;
 }
 
 .wrapper.style2 {
