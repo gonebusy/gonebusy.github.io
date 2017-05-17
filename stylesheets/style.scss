@@ -664,17 +664,17 @@ input[type="radio"] + label:before {
 }
 
 .icon.gettingstarted {
-    height: 175px;
+    height: 230px;
     padding-top: .25em;
 }
 
 .icon.libraries {
-    height: 185px;
+    height: 220px;
     margin-left: .25em;
 }
 
 .icon.support {
-    height: 175px;
+    height: 235px;
     margin-left: 1em;
 }
 
@@ -719,7 +719,7 @@ input[type="radio"] + label:before {
 
 .image.fit {
     display: block;
-    margin-bottom: 5em;
+    margin-bottom: 7em;
     width: 100%;
 }
 
@@ -1080,7 +1080,7 @@ input[type="button"]:disabled,
 .wrapper.style1 {
     background: $jazz;
     color: $charcoal;
-    padding: 3em 0;
+    padding: 2em 0;
 }
 
 .wrapper.style1 .image.fit {
