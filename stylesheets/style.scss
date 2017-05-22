@@ -663,17 +663,19 @@ input[type="radio"] + label:before {
     line-height: 3em;
 }
 
-.icon.rocket {
-    height: 98px;
+.icon.gettingstarted {
+    height: 220px;
+    padding-top: .25em;
 }
 
-.icon.plug {
-    height: 70px;
-    top: 14px;
+.icon.libraries {
+    height: 220px;
+    margin-left: .25em;
 }
 
-.icon.ring {
-    height: 82px;
+.icon.support {
+    height: 220px;
+    margin-left: 1em;
 }
 
 .icon.number {
@@ -717,7 +719,7 @@ input[type="radio"] + label:before {
 
 .image.fit {
     display: block;
-    margin: 0 0 2em 0;
+    margin-bottom: 8em;
     width: 100%;
 }
 
@@ -1078,12 +1080,11 @@ input[type="button"]:disabled,
 .wrapper.style1 {
     background: $jazz;
     color: $charcoal;
-    padding: 3em 0;
+    padding: 2em 0;
 }
 
 .wrapper.style1 .image.fit {
     height: 100px;
-    margin: 1em 0 2em 0;
 }
 
 .wrapper.style2 {
@@ -1330,7 +1331,8 @@ input[type="button"]:disabled,
 /* Banner */
 
 #banner {
-    background-image: url('/images/Hero_v3.svg');
+    background-color: $banner-dark;
+    background-image: url('/images/Hero_v4.svg');
     background-repeat: no-repeat;
     background-size: 100%;
     color: $green;
