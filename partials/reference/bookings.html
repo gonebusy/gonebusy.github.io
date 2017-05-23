@@ -14,7 +14,10 @@
 <hr />
 <section>
   <h4 id="get_bookings">Get Bookings</h4>
-  <p>Look up all uncompleted Bookings that your account has access to - this includes all Bookings under your own User account as well as any Bookings of Users for which you are the Account Manager.</p>
+  <p>Look up Bookings that your account has access to - this includes Bookings for Resources/Services owned by your User account as well as those of any Users for which you are the Account Manager.</p>
+  <p>Provide <span class='param'>:user_id</span> to list Bookings for that User's Resources and Services.</p>
+  <p>Provide <span class='param'>:booker_id</span> to list Bookings that booker User has booked.</p>
+  <p>If both <span class='param'>:booker_id</span> and <span class='param'>:user_id</span> are provided, then an intersection is performed to return the booker User's Bookings against Resources/Services owned by User specified by <span class='param'>:user_id</span>.</p>
 {% highlight ruby %}
   GET /bookings
 {% endhighlight %}
@@ -28,13 +31,19 @@
     <tr>
       <td class="param">user_id</td>
       <td class="type">Integer</td>
-      <td class="desc">Provide a User ID to see only this User’s Bookings</td>
+      <td class="desc">Retrieve Bookings for Resources/Services owned by this User Id.  You must be authorized to manage this User Id.  If provided, :booker_id is ignored.</td>
       <td class="check"></td>
     </tr>
     <tr>
       <td class="param">states</td>
       <td class="type">String</td>
       <td class="desc">Provide a comma-separated list of Booking states in order to only retrieve Bookings in those states.  Leave blank to retrieve all possible states.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">booker_id</td>
+      <td class="type">Integer</td>
+      <td class="desc">Retrieve Bookings made by Booker Id.  Only Bookings for Services/Resources you are authorized to manage will be returned.</td>
       <td class="check"></td>
     </tr>
     <tr>
@@ -53,7 +62,7 @@
 </section>
 <section>
   <h4 id="get_bookings_id">Get Booking by ID</h4>
-  <p>Look up details for a Booking by ID.  You can access details for any Booking under your own User account as well as any Bookings of Users for which you are the Account Manager.</p>
+  <p>Look up details for a Booking by ID.  You can access details of any Booking for Resources/Services owned by your User account as well as those of any Users for which you are the Account Manager.</p>
 {% highlight ruby %}
   GET /bookings/{id}
 {% endhighlight %}
@@ -74,7 +83,7 @@
 </section>
 <section>
   <h4 id="post_bookings_new">Create a Booking</h4>
-  <p>Create a new Booking.  Your own User account will by default be recorded as the initiator of the booking.  Optionally, provide a <b>user_id</b> for a User you are the Account Manager of in order to create a booking.</p>
+  <p>Create a new Booking for a Service at Date/Time for any User specified by <span class='param'>:user_id</span>.  You can create a Booking for any Service under your own User account as well as any Services of Users for which you are the Account Manager.</p>
 {% highlight ruby %}
   POST /bookings/new
 {% endhighlight %}
@@ -106,8 +115,8 @@
     <tr>
       <td class="param">user_id</td>
       <td class="type">Integer</td>
-      <td class="desc">Create a booking for this User.  You must be authorized to manage this User.</td>
-      <td class="check"></td>
+      <td class="desc">Create a booking for this User.</td>
+      <td class="check"><i class="fa fa-check"></i></td>
     </tr>
     <tr>
       <td class="param">resource_id</td>
