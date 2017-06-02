@@ -357,11 +357,6 @@ header p {
     margin: 0 0 1.5em 0;
 }
 
-header h1 img {
-    padding-top: 10px;
-    width: 12%;
-}
-
 header h2 + p {
     font-size: 1.25em;
     margin-top: -1em;
@@ -1236,16 +1231,13 @@ input[type="button"]:disabled,
     width: 100%;
     z-index: 10000;
 
-    h1 {
-        color: #666f77;
-        font-weight: 500;
-        height: inherit;
-        left: 1.25em;
-        line-height: inherit;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        top: 0;
+    .logo {
+        display: inline;
+
+        img {
+            padding: 10px;
+            width: 12%;
+        }
     }
 
     nav {
@@ -1319,7 +1311,7 @@ input[type="button"]:disabled,
     .container {
         position: relative;
 
-        h1 {
+        .logo {
             left: 0;
         }
 
@@ -1714,5 +1706,21 @@ input[type="button"]:disabled,
     #nav .close {
         height: 4em;
         line-height: 4em;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    #banner {
+        padding-top: 6em !important;
+
+        h2 {
+            line-height: 1.25em;
+        }
+
+        p span {
+            background-color: transparent;
+            line-height: 1.25em;
+            padding: 0 10px;
+        }
     }
 }

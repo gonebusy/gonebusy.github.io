@@ -112,7 +112,7 @@
 
         // Nav.
         var $nav = document.querySelector('#nav'),
-            $navToggle = document.querySelector('a[href="#nav"]'),
+            $navToggle = document.querySelector('#menu-icon'),
             $navClose;
 
         // Event: Prevent clicks/taps inside the nav from bubbling.
