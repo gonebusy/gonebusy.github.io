@@ -160,10 +160,22 @@
       <td class="desc">Optional occurrence of frequency. E.g, :first, :2nd, :last, :2nd_to_last, etc.  If not provided, assumed to be :ever</td>
       <td class="check"></td>
     </tr>
-    <tr class="last">
+    <tr>
       <td class="param">date_recurs_by</td>
       <td class="type">String</td>
       <td class="desc">Required only when :recurs_by is 'monthly' or 'yearly' to differentiate between exact date or 'day in month/year'.  See Recurring Booking examples.</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">name</td>
+      <td class="type">String</td>
+      <td class="desc">Optional name for Booking, otherwise will take name of Service.</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">description</td>
+      <td class="type">String</td>
+      <td class="desc">Optional description for Booking.</td>
       <td class="check"></td>
     </tr>
   </table>
@@ -253,10 +265,22 @@
       <td class="desc">Required only when :recurs_by is 'monthly' or 'yearly' to differentiate between exact date or 'day in month/year'.  See Recurring Booking examples.</td>
       <td class="check"></td>
     </tr>
-    <tr class="last">
+    <tr>
       <td class="param">update_recurring</td>
       <td class="type">String</td>
       <td class="desc">When a recurring booking, one of: ['instance', 'all', 'infinite']</td>
+      <td class="check"></td>
+    </tr>
+    <tr>
+      <td class="param">name</td>
+      <td class="type">String</td>
+      <td class="desc">New name for Booking.</td>
+      <td class="check"></td>
+    </tr>
+    <tr class="last">
+      <td class="param">description</td>
+      <td class="type">String</td>
+      <td class="desc">New description for Booking.</td>
       <td class="check"></td>
     </tr>
   </table>
