@@ -16,7 +16,7 @@ kramdown:
   parse_block_html: true
 sass:
   sass_dir: _sass
-gems:
+plugins:
   - jekyll-sitemap
   - jemoji
   - jekyll-paginate
